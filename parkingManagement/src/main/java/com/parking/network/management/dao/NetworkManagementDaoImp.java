@@ -13,6 +13,9 @@ import com.parking.domain.Device;
 @Repository
 public class NetworkManagementDaoImp  implements NetworkManagementDao{
 	
+	
+	public NetworkManagementDaoImp(){}
+	/*
 	   @SuppressWarnings("unused")
 	private JdbcTemplate jdbcTemplate;
 
@@ -20,7 +23,7 @@ public class NetworkManagementDaoImp  implements NetworkManagementDao{
 	    public void setDataSource(DataSource dataSource) {
 	        this.jdbcTemplate = new JdbcTemplate(dataSource);
 	    }
-
+*/
 		@Override
 		public List<Device> getDeviceById(long id) {
 			// TODO Auto-generated method stub

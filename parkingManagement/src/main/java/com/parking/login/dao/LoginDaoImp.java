@@ -26,13 +26,15 @@ import com.parking.login.service.LoginService;
 @Repository
 public class LoginDaoImp extends BaseDao implements LoginDao {
 	
-	@SuppressWarnings("unused")
-	private final DataSource dataSource;
+	public LoginDaoImp(){}
+	
+	//@SuppressWarnings("unused")
+	//private final DataSource dataSource;
 
-    @Autowired
-    public LoginDaoImp(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+   // @Autowired
+   // public LoginDaoImp(DataSource dataSource) {
+   //     this.dataSource = dataSource;
+   // }
 
 //	private static String GET_USER_SESSION = "SELECT u.user_name, u.user_password, "
 //			+ "u.user_id, c.code_number, r.enabled, r.role_type, r.role_desc "
