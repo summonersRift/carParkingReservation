@@ -30,9 +30,11 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	public LoginController(){};
-	 public LoginController(LoginService service){
+	
+	public LoginController(LoginService service){
 		 
-		 loginService=service;
+		
+		loginService=service;
 		 
 	 }
 	
