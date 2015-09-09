@@ -1,9 +1,10 @@
 
+ 
 $(document).ready(function() {
 	
 	 $('#loginform').submit(function(e) { // will pass the form date using the jQuery serialize function
 		 e.preventDefault();
-			$.post('http://localhost:8080/ParkingManagement/login/signin', 
+			$.post('http://localhost:8080/parkingManagement/login/signin', 
 				    $(this).serialize()).done(
 					function(response,textStatus,jqXHR) { 	    
 			
@@ -31,7 +32,7 @@ $(document).ready(function() {
 			}
 			
 			}).fail(function(jqXHR, textStatus,
-				    errorThrown) { alert('invalid credentials');
+				    errorThrown) { alert('invalid  user credentials');
 				    $('#loginbox').show();
 				    //CleanLoginForm(); });
 				    e.preventDefault(); // prevent actual form submit and page reload
@@ -42,6 +43,8 @@ $(document).ready(function() {
 
 	
 });
+
+
 //Document Ready Ends
 
 

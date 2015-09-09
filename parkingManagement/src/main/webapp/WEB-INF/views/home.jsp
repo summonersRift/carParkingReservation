@@ -35,6 +35,8 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery.payment.js" />"></script>
 
+
+
 <title>Parking Management System</title>
 </head>
 <body>

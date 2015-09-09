@@ -29,15 +29,16 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	public LoginController(){};
 	
+	public LoginController(){};
+	/*
 	public LoginController(LoginService service){
 		 
 		
 		loginService=service;
 		 
 	 }
-	
+	*/
 
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> signIn(LoginRequest login,
