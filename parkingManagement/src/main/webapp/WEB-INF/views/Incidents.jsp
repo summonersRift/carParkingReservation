@@ -1,21 +1,62 @@
-<h1>Incidents Page</h1>
+<h1>Incidents/Report Summary</h1>
 
-<p>The standard Lorem Ipsum passage, used since the 1500s
-
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam 
-rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
- Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
- fugiat quo voluptas nulla pariatur?"
-
- </p>
+<table id="incidentTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead >
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Location</th>
+                
+                
+            </tr>
+        </thead>
+ 
+        <tbody>
+            <tr>
+                <td>10/29/2015</td>
+                <td>4:16</td>
+                <td>Car bloking main street on 8th St.</td>
+                <td>Miami</td>                         
+            </tr>
+            
+            <tr>
+                <td>10/15/2015</td>
+                <td>1:16</td>
+                <td>3 cars collision on Turnpike Exit 25</td>
+                <td>Miami</td>                         
+            </tr>
+            
+            <tr>
+                <td>10/29/2015</td>
+                <td>4:16</td>
+                <td>Car bloking main street on 8th St.</td>
+                <td>Miami</td>                         
+            </tr>
+            
+            <tr>
+                <td>10/30/2015</td>
+                <td>3:57</td>
+                <td>Car bloking main street on 8th St.</td>
+                <td>Miami</td>                         
+            </tr>
+            
+            <tr>
+                <td>10/12/2015</td>
+                <td>5:16</td>
+                <td>Car stopped on right shoulder of 8th St.</td>
+                <td>Miami</td>                         
+            </tr>
+                                  
+        </tbody>
+    </table>
+    
+    <br>
+    <br>
+    <button type="button" class="btn btn-success" aria-label="Left Align">
+  		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Report
+	</button>
+	
+	<button type="button" class="btn btn-success" aria-label="Left Align">
+  		<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Emergency Contact
+	</button>

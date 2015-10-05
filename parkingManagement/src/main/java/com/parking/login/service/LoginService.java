@@ -8,6 +8,6 @@ public interface LoginService {
 
 	public boolean signOut(String userName);
 
-	User adminSignIn(String userName, String password);
+	public User adminSignIn(String userName, String password);
 	
 }

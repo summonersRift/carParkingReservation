@@ -1,3 +1,5 @@
+
+
 <div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 <div class="list-group" id="sidebarList">
 	<ul class="sidebar-nav">
@@ -17,18 +19,22 @@
 			<a href="#History" id="history"> History </a>
 		</li>
 		<li class="sidebar-brand">
-			<a href="#"> Link Here </a>
+			<a href="#NetworkMgt" id="network">Network </a>
 		</li>
 		<li class="sidebar-brand">
-			<a href="#"> Link Here </a>
+			<a href="#ParkingLot" id="parkingLot"> Emergency </a>
 		</li>
 		<li class="sidebar-brand">
-			<a href="#"> Link Here </a>
+			<a href="#Facility" id="facility"> Facility </a>
+		</li>
+		<li class="sidebar-brand">
+			<a href="#Reservation" id="reservation"> Reservation </a>
 		</li>
 			
 	</ul>
 </div>
 </div>
+
 
 <script type="text/javascript">
 
@@ -43,7 +49,8 @@ $(document).ready(function() {
 	           
 	       }
 	   });
-});
+    
+
 	
 $("#report").click(function() {
 	//alert('clicked on report worked');
@@ -59,6 +66,10 @@ $("#report").click(function() {
 	$('#Incidents-PageDiv').hide();
 	$('#Reviews-PageDiv').hide();
 	$('#History-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
 	$('#Report-PageDiv').show();
 	
 });
@@ -78,7 +89,11 @@ $("#billing").click(function() {
 	$('#Reviews-PageDiv').hide();
 	$('#History-PageDiv').hide();
 	$('#Report-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
 	$('#Billing-PageDiv').show();
+	$('#Network-PageDiv').hide();
 	//$('#paymentbox').show();
 });
 
@@ -90,6 +105,12 @@ $("#incidents").click(function() {
        url: "incidents/IncidentsPage",
        success: function(response) {
            $("#Incidents-PageDiv").html( response );
+           
+           $('#incidentTable').DataTable( {
+               "paging":   false,
+               "ordering": false,
+               "info":     false
+           } );
        }
    });
 		
@@ -97,6 +118,10 @@ $("#incidents").click(function() {
 	$('#History-PageDiv').hide();
 	$('#Report-PageDiv').hide();
 	$('#Billing-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
 	$('#Incidents-PageDiv').show();
 });
 
@@ -115,6 +140,10 @@ $("#reviews").click(function() {
 	$('#Report-PageDiv').hide();
 	$('#Billing-PageDiv').hide();
 	$('#Incidents-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
 	$('#Reviews-PageDiv').show();
 });
 
@@ -132,15 +161,131 @@ $("#history").click(function() {
 	$('#Report-PageDiv').hide();
 	$('#Billing-PageDiv').hide();
 	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();	
+	$('#Reviews-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
 	$('#History-PageDiv').show();
 });
 
+$("#network").click(function() {
+	//alert('clicked on network worked'); 
+	$.ajax({
+       type: "GET",
+       url: "networkmanagement/NetworkPage",
+       success: function(response) {
+           $("#Network-PageDiv").html( response );
+           
 
+           $('#networkMgtTable').DataTable( {
+               "paging":   false,
+               "ordering": false,
+               "info":     false
+           } );
+       }
+   });
+
+	$('#Report-PageDiv').hide();
+	$('#Billing-PageDiv').hide();
+	$('#Incidents-PageDiv').hide();
+	$('#Reviews-PageDiv').hide();	
+	$('#History-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
+	$('#Network-PageDiv').show();
+	
+});
+
+$("#parkingLot").click(function() {
+	//alert('clicked on report worked');
+	$.ajax({
+       type: "GET",
+       url: "report/ReportPage",
+       success: function(response) {
+           $("#ParkingLot-PageDiv").html( response );
+       }
+   });
+	
+	$('#Billing-PageDiv').hide();
+	$('#Incidents-PageDiv').hide();
+	$('#Reviews-PageDiv').hide();
+	$('#History-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#Report-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
+	$('#ParkingLot-PageDiv').show();
+	
+});
+
+$("#facility").click(function() {
+	//alert('clicked on report worked');
+	$.ajax({
+       type: "GET",
+       url: "admin/FacilityPage",
+       success: function(response) {
+           $("#Facility-PageDiv").html( response );
+           
+           $('#facilitiesTable').DataTable( {
+               "paging":   false,
+               "ordering": false,
+               "info":     false
+           } );
+           
+       }
+   });
+	
+	$('#Billing-PageDiv').hide();
+	$('#Incidents-PageDiv').hide();
+	$('#Reviews-PageDiv').hide();
+	$('#History-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#Report-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Reservation-PageDiv').hide();
+	$('#Facility-PageDiv').show();
+	
+});
+
+$("#reservation").click(function() {
+	//alert('clicked on reservation worked');
+	$.ajax({
+       type: "GET",
+       url: "reservation/ReservationPage",
+       success: function(response) {
+           $("#Reservation-PageDiv").html( response );
+           
+           $('#reservationTable').DataTable( {
+               "paging":   false,
+               "ordering": false,
+               "info":     false
+           } );
+           
+       }
+   });
 	
 	
-//});
-//Document Ready Ends
+		//$('#datetimepicker1').datetimepicker();
+	
+	
+	$('#Billing-PageDiv').hide();
+	$('#Incidents-PageDiv').hide();
+	$('#Reviews-PageDiv').hide();
+	$('#History-PageDiv').hide();
+	$('#Network-PageDiv').hide();
+	$('#Report-PageDiv').hide();
+	$('#ParkingLot-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	$('#Reservation-PageDiv').show();
+	
+	
+});
+
+
+
+} );
 
 </script>
 

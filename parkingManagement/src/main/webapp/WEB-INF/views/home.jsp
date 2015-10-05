@@ -16,24 +16,16 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/styles.css" />"
 	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/css/jquery.dataTables.css" />"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/css/jquery-ui.min.css" />"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/css/jquery-ui.theme.min.css" />"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/css/jquery-ui.structure.min.css" />"
+	rel="stylesheet" type="text/css" />
 
 
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap-table.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrapValidator.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap-switch.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.cookie.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/parkingManagement.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.payment.js" />"></script>
 
 
 
@@ -99,9 +91,24 @@
 
 	<!-- Report Page -->
 	<div id="History-PageDiv"></div>
-	<!-- Ends Report Page -->
-
-
+	<!-- Ends Report Page --> 
+    
+    <!-- network Page --> 
+	<div id="Network-PageDiv"></div>
+	<!-- Ends network Page -->
+	
+	<!-- network Page --> 
+	<div id="ParkingLot-PageDiv"></div>
+	<!-- Ends network Page -->
+	
+	<!-- network Page --> 
+	<div id="Facility-PageDiv"></div>
+	<!-- Ends network Page -->
+	
+	<!-- network Page --> 
+	<div id="Reservation-PageDiv"></div>
+	<!-- Ends network Page -->
+	
 	<!--Ends SideBar -->
 
 
@@ -135,7 +142,7 @@
 												<span class="input-group-addon"><i
 													class="glyphicon glyphicon-user"></i></span> <input
 													id="login-username" type="text" class="form-control"
-													name="userName" value="" placeholder="username or email">
+													name="userName" value="" placeholder="username">
 											</div>
 
 											<div style="margin-bottom: 25px" class="input-group">
@@ -192,13 +199,6 @@
 												<span></span>
 											</div>
 
-											<div class="form-group">
-												<label for="email" class="col-md-3 control-label">Email</label>
-												<div class="col-md-9">
-													<input type="text" class="form-control" name="email"
-														placeholder="Email Address">
-												</div>
-											</div>
 
 											<div class="form-group">
 												<label for="firstname" class="col-md-3 control-label">First
@@ -217,10 +217,35 @@
 												</div>
 											</div>
 											<div class="form-group">
+												<label for="email" class="col-md-3 control-label">Email</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="email"
+														placeholder="Email Address">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label for="userName" class="col-md-3 control-label">UserName</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="userName"
+														placeholder="UserName">
+												</div>
+											</div>
+
+											
+											<div class="form-group">
 												<label for="password" class="col-md-3 control-label">Password</label>
 												<div class="col-md-9">
 													<input type="password" class="form-control" name="passwd"
 														placeholder="Password">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label for="repeatPasswd" class="col-md-3 control-label">Repeat Password</label>
+												<div class="col-md-9">
+													<input type="password" class="form-control" name="repeatPasswd"
+														placeholder="Repeat Password">
 												</div>
 											</div>
 
@@ -251,6 +276,34 @@
 		</div>
 	</div>
 
+
+
+
+
+
+
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap-table.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrapValidator.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap-switch.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.cookie.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/parkingManagement.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.validate.min.js" />"></script>  
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.payment.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
 
 
 

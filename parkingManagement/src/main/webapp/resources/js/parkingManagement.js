@@ -8,7 +8,7 @@ $(document).ready(function() {
 				    $(this).serialize()).done(
 					function(response,textStatus,jqXHR) { 	    
 			
-			alert('clicked on login worked');
+			//alert('clicked on login worked');
 				
 			$('#loginbox').hide();	
 			$.ajax({

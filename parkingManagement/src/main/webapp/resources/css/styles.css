@@ -128,8 +128,19 @@ margin-left: 5px;
     text-indent: 20px;
 }
 
-#Report-PageDiv, #Billing-PageDiv, #Incidents-PageDiv, #Reviews-PageDiv, #History-PageDiv {
-	color: red;
+#Report-PageDiv, #Billing-PageDiv, #Incidents-PageDiv, #Reviews-PageDiv, #History-PageDiv ,#Network-PageDiv, #Facility-PageDiv, 
+#Reservation-PageDiv, #Emergency-PageDiv{
+	color: black;
     margin-left: 270px;
     margin-right: 50px;
 }
+
+h1{
+	color:red;
+}
+
+table thead th {
+    text-align: center;
+    background: #66a9bd;
+}
+
