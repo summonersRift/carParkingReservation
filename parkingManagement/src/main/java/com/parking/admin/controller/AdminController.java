@@ -78,7 +78,7 @@ public class AdminController {
 		// build json object
 		JSONObject obj = new JSONObject();
 		obj.append("user_name", user.getUserName());
-		obj.append("user_id", user.getUserid().toString());
+		obj.append("user_id", user.getUserid());
 		obj.append("user_email", user.getEmail());
 		obj.append("role", user.getUserRole().getRoleType());
 		// finish adding all roles returned from GET-USER SELECT
