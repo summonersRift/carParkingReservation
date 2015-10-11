@@ -1,6 +1,8 @@
-package com.parking.domain;
+package com.parking.domain.common;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User extends AbstractUser implements Serializable {
 
@@ -15,48 +17,37 @@ public class User extends AbstractUser implements Serializable {
 	private String _securityAnswer;
 	private String _phoneNumber;
 	private Role _userRole;
-	private String _securityQuestion;
 	private String _age;
-	private String _height;
-	private String _weight;
+
 	private String _enabled;
+	private Address _address;
+	private List<SecurityInfo> secInfoLst;
 
 	public User() {
 	}
 
-	public User(Long userId, String firstName, String lastName, String userName,
-			String password, String email, String securityAnswer,
-			String securityQuestion, String phoneNumber, Role role, String age,
-			String height, String weight, String enabled) {
+	public User(Long userId, String firstName, String lastName,
+			String userName, String password, String email,
+			String securityAnswer, String securityQuestion, String phoneNumber,
+			final Role role, String age, String height, String weight,
+			String enabled, final Address address,
+			final List<SecurityInfo> secList) {
 
-		_userid = userId;
-		_firstName = firstName;
-		_lastName = lastName;
-		_userName = userName;
-		_password = password;
-		_email = email;
-		_securityAnswer = securityAnswer;
-		_securityQuestion = securityQuestion;
-		_phoneNumber = phoneNumber;
-		_age = age;
-		_height = height;
-		_weight = weight;
-		_enabled = enabled;
+		this._userid = userId;
+		this._firstName = firstName;
+		this._lastName = lastName;
+		this._userName = userName;
+		this._password = password;
+		this._email = email;
+		this._phoneNumber = phoneNumber;
+		this._age = age;
+		this._enabled = enabled;
+		this._address = address;
+		this.setSecInfoLst(secList);
+
 		setUserRole(role);
 
 	}
-	
-	private String securityQuestion;
-
-	public String getSecurityQuestion() {
-		return securityQuestion;
-	}
-
-	public void setSecurityQuestion(String securityQuestion) {
-		this.securityQuestion = securityQuestion;
-	}
-
-	
 
 	public String getUserName() {
 		return _userName;
@@ -65,8 +56,6 @@ public class User extends AbstractUser implements Serializable {
 	public void setUserName(String userName) {
 		this._userName = userName;
 	}
-
-	
 
 	@Override
 	public String getPassword() {
@@ -164,14 +153,28 @@ public class User extends AbstractUser implements Serializable {
 
 		+ _email + ", _password=" + _password + ", _securityAnswer="
 				+ _securityAnswer + ", _phoneNumber=" + _phoneNumber
-				+ ", securityQuestion=" + securityQuestion + "]";
+				+ ", securityQuestion=" + "]";
 
 	}
 
-	public static User getDemoUser() {
+	public static User getMyDemoUser() {
 
 		User demoUser = new User();
 		Role role = new Role();
+		// String street, Integer zip, String state, String city,
+		// String county, String country
+
+		Address address = new Address("123 NE 12 street", 33323, "FL", "Miami",
+				"Miami Dade ", "USA");
+		List<SecurityInfo> secInfoLst = new ArrayList<SecurityInfo>();
+		SecurityInfo infoOne = new SecurityInfo("One", "Pet name", "irri");
+		SecurityInfo infoTwo = new SecurityInfo("Two", "Mother's maiden name",
+				"Smith");
+		SecurityInfo infoThree = new SecurityInfo("Three", "highschool  name",
+				"Kendall Hights");
+		secInfoLst.add(infoOne);
+		secInfoLst.add(infoTwo);
+		secInfoLst.add(infoThree);
 
 		demoUser.setEmail("test@gmail.com");
 		demoUser.setFirstName("DemoName");
@@ -181,16 +184,10 @@ public class User extends AbstractUser implements Serializable {
 		demoUser.setUserName("test@test.com");
 		role.setRoleType("user");
 		demoUser.setUserRole(role);
+		demoUser.setAddress(address);
+
 		return demoUser;
 
-	}
-
-	public String get_securityQuestion() {
-		return _securityQuestion;
-	}
-
-	public void set_securityQuestion(String _securityQuestion) {
-		this._securityQuestion = _securityQuestion;
 	}
 
 	@Override
@@ -210,22 +207,6 @@ public class User extends AbstractUser implements Serializable {
 		this._age = _age;
 	}
 
-	public String getHeight() {
-		return _height;
-	}
-
-	public void setHeight(String _height) {
-		this._height = _height;
-	}
-
-	public String getWeight() {
-		return _weight;
-	}
-
-	public void setWeight(String _weight) {
-		this._weight = _weight;
-	}
-
 	public String getEnabled() {
 		return _enabled;
 	}
@@ -236,11 +217,24 @@ public class User extends AbstractUser implements Serializable {
 
 	@Override
 	public Boolean isNull() {
-		
+
 		return false;
 	}
 
+	public Address getAddress() {
+		return _address;
+	}
 
-	
+	public void setAddress(Address _address) {
+		this._address = _address;
+	}
+
+	public List<SecurityInfo> getSecInfoLst() {
+		return secInfoLst;
+	}
+
+	public void setSecInfoLst(List<SecurityInfo> secInfoLst) {
+		this.secInfoLst = secInfoLst;
+	}
 
 }

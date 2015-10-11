@@ -1,6 +1,6 @@
 package com.parking.login.service;
 
-import com.parking.domain.User;
+import com.parking.domain.common.User;
 
 public interface LoginService {
 

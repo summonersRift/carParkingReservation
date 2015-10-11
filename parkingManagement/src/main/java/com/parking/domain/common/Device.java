@@ -1,4 +1,4 @@
-package com.parking.domain;
+package com.parking.domain.common;
 
 import java.util.Date;
 

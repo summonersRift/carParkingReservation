@@ -3,7 +3,7 @@ package com.parking.login.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.parking.domain.User;
+import com.parking.domain.common.User;
 import com.parking.login.dao.LoginDao;
 
 @Service

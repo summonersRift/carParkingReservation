@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.parking.domain.User;
+import com.parking.domain.common.User;
 import com.parking.login.LoginRequest;
 import com.parking.login.service.LoginService;
 

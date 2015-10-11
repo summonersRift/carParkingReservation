@@ -1,4 +1,4 @@
-package com.parking.domain;
+package com.parking.domain.common;
 
 public class NullUser extends AbstractUser {
 

@@ -1,8 +1,9 @@
 package com.parking.login.dao;
 
 import org.springframework.stereotype.Repository;
+
 import com.parking.common.BaseDao;
-import com.parking.domain.User;
+import com.parking.domain.common.User;
 
 @Repository
 public class LoginDaoImp extends BaseDao implements LoginDao {
@@ -85,7 +86,7 @@ public class LoginDaoImp extends BaseDao implements LoginDao {
 //		}
 //		 
 //
-		return User.getDemoUser();
+		return User.getMyDemoUser();
 
 	}
 
@@ -132,7 +133,7 @@ public class LoginDaoImp extends BaseDao implements LoginDao {
 //		}
 		 
 
-		return User.getDemoUser();
+		return User.getMyDemoUser();
 
 	}
 

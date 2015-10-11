@@ -1,7 +1,13 @@
-package com.parking.domain;
+package com.parking.domain.common;
 
-public class Role {
+import java.io.Serializable;
 
+public class Role  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2527969513203464134L;
 	String role_id;
 	String role_type;
 	String role_desc;
