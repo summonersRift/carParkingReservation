@@ -8,7 +8,7 @@ public class User extends AbstractUser implements Serializable {
 
 	private static final long serialVersionUID = 7503398206106993501L;
 
-	private Long _userid;
+	private double _userid;
 	private String _firstName;
 	private String _lastName;
 	private String _userName;
@@ -26,14 +26,14 @@ public class User extends AbstractUser implements Serializable {
 	public User() {
 	}
 
-	public User(Long userId, String firstName, String lastName,
+	public User(double userId, String firstName, String lastName,
 			String userName, String password, String email,
 			String securityAnswer, String securityQuestion, String phoneNumber,
 			final Role role, String age, String height, String weight,
 			String enabled, final Address address,
 			final List<SecurityInfo> secList) {
 
-		this._userid = userId;
+		this.setUserid(userId);
 		this._firstName = firstName;
 		this._lastName = lastName;
 		this._userName = userName;
@@ -85,12 +85,6 @@ public class User extends AbstractUser implements Serializable {
 		this._phoneNumber = phoneNumber;
 	}
 
-	public Long getUserid() {
-
-		return _userid;
-
-	}
-
 	private String token;
 
 	public String getToken() {
@@ -99,12 +93,6 @@ public class User extends AbstractUser implements Serializable {
 
 	public void setToken(String token) {
 		this.token = token;
-	}
-
-	public void setUserid(Long userid) {
-
-		this._userid = userid;
-
 	}
 
 	public String getFirstName() {
@@ -179,7 +167,7 @@ public class User extends AbstractUser implements Serializable {
 		demoUser.setEmail("test@gmail.com");
 		demoUser.setFirstName("DemoName");
 		demoUser.setLastName("DemoLastName");
-		demoUser.setUserid(1111L);
+		demoUser.setUserid(11111);
 		demoUser.setToken("123456");
 		demoUser.setUserName("test@test.com");
 		role.setRoleType("user");
@@ -235,6 +223,14 @@ public class User extends AbstractUser implements Serializable {
 
 	public void setSecInfoLst(List<SecurityInfo> secInfoLst) {
 		this.secInfoLst = secInfoLst;
+	}
+
+	public double getUserid() {
+		return _userid;
+	}
+
+	public void setUserid(double _userid) {
+		this._userid = _userid;
 	}
 
 }

@@ -31,10 +31,10 @@ import com.parking.login.service.LoginService;
 public class AdminController {
 
 	@Autowired
-	private LoginService loginService;
+	LoginService loginService;
 
 	@Autowired
-	private AdminService adminService;
+	AdminService adminService;
 
 	@RequestMapping(value = "/FacilityPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
