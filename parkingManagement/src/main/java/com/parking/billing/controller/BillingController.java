@@ -14,8 +14,8 @@ import com.parking.billing.service.BillingService;
 @RequestMapping("/billing")
 public class BillingController {
 	
-	@Autowired
-	BillingService billingService;
+	//@Autowired
+	//BillingService billingService;
 	
 	@RequestMapping( value="/BillingPage", method=RequestMethod.GET )
     public ModelAndView getBillingPage( Model model ) {	        

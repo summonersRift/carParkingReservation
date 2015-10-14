@@ -80,7 +80,7 @@
 							<div class="col-xs-4 col-md-4 pull-right">
 								<div class="form-group">
 									<label for="zipCode">ZIP CODE</label> <input type="tel"
-										class="form-control" name="" zipCode" placeholder="32456"
+										class="form-control" name="zipCode" placeholder="32456"
 										autocomplete="cc-csc" required />
 								</div>
 							</div>
@@ -248,18 +248,20 @@
 
 
 <script type="text/javascript">
+
+
 	/* Fancy restrictive input formatting via jQuery.payment library*/
 	$('input[name=cardNumber]').payment('formatCardNumber');
 	$('input[name=cardCVC]').payment('formatCardCVC');
 	$('input[name=cardExpiry').payment('formatCardExpiry');
 
 	/* Form validation using Stripe client-side validation helpers */
-	jQuery.validator.addMethod("cardNumber", function(value, element) {
+	/*  jQuery.validator.addMethod("cardNumber", function(value, element) {
 		return this.optional(element) || Stripe.card.validateCardNumber(value);
 	}, "Please specify a valid credit card number.");
 
 	jQuery.validator.addMethod("cardExpiry", function(value, element) {
-		/* Parsing month/year uses jQuery.payment library */
+		// Parsing month/year uses jQuery.payment library 
 		value = $.payment.cardExpiryVal(value);
 		return this.optional(element)
 				|| Stripe.card.validateExpiry(value.month, value.year);
@@ -306,5 +308,7 @@
 		} else {
 			return false;
 		}
-	}
+	}  
+	*/
+	
 </script>
