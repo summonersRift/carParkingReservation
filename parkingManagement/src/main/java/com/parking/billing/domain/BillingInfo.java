@@ -37,6 +37,8 @@ public class BillingInfo {
 
 		return info;
 	}
+	
+	
 
 	public double getCcNumber() {
 		return ccNumber;

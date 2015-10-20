@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "equipmentId": "Tiger Nixon",
+      "versionNumber": "System Architect",
+      "description": "$320,800",
+      "location": "2011/04/25",
+      "maintananceSchedule": "Edinburgh",
+      "inventoryTag": "5421",
+      "button": "5421"
+    },
+    {
+      "equipmentId": "Tiger Nixon",
+      "versionNumber": "System Architect",
+      "description": "$320,800",
+      "location": "2011/04/25",
+      "maintananceSchedule": "Edinburgh",
+      "inventoryTag": "5421",
+      "button": "5421"
+    },
+    {
+      "equipmentId": "Tiger Nixon",
+      "versionNumber": "System Architect",
+      "description": "$320,800",
+      "location": "2011/04/25",
+      "maintananceSchedule": "Edinburgh",
+      "inventoryTag": "5421",
+      "button": "5421"
+    },
+    {
+      "equipmentId": "Tiger Nixon",
+      "versionNumber": "System Architect",
+      "description": "$320,800",
+      "location": "2011/04/25",
+      "maintananceSchedule": "Edinburgh",
+      "inventoryTag": "5421",
+      "button": "5421"
+    },
+    
+
+]
+}
