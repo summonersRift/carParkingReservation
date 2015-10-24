@@ -1,4 +1,4 @@
-package com.parking.util;
+package com.parking.common;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

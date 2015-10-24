@@ -3,7 +3,6 @@ package com.parking.common;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
-import com.parking.util.DALUtil;
 
 public class BaseDao {
 
