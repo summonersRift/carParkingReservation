@@ -2,6 +2,10 @@ package com.parking.login.dao;
 
 import org.springframework.stereotype.Repository;
 
+import security.Encryptor;
+import security.EncryptorContext;
+import security.SymetricEncryptor;
+
 import com.parking.common.BaseDao;
 import com.parking.domain.common.User;
 
@@ -42,6 +46,7 @@ public class LoginDaoImp extends BaseDao implements LoginDao {
 		return 24L;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public User signIn(String userName, String password) {
 
@@ -51,6 +56,17 @@ public class LoginDaoImp extends BaseDao implements LoginDao {
 		user.setPassword("test");
 		user.setUserName("test@test.com");
 		
+		//TODO:Get user password from db
+		//call 
+		
+	   EncryptorContext context=	EncryptorContext.getInstance(new SymetricEncryptor()); 
+	   String clearPass=context.executeDecryption("cyphertext", "key");
+	  
+	  // PreparedStatement statement = getConnection().prepareStatement(
+ 		//		GET_USER_SESSION);
+	   
+	   
+	   
 //		try {
 
 //			PreparedStatement statement = getConnection().prepareStatement(

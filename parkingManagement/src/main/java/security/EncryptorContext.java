@@ -4,7 +4,7 @@ public class EncryptorContext {
 
 	private Encryptor strategy;
 
-	public EncryptorContext(Encryptor strategy) {
+	private EncryptorContext(Encryptor strategy) {
 		this.strategy = strategy;
 	}
 
@@ -15,4 +15,11 @@ public class EncryptorContext {
 	public String executeDecryption(String text, String key) {
 		return strategy.decrypt(text, key);
 	}
+
+	public static EncryptorContext getInstance(Encryptor strategy) {
+
+		return new EncryptorContext(strategy);
+
+	}
+
 }

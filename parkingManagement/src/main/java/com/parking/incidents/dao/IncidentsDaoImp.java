@@ -1,5 +1,8 @@
 package com.parking.incidents.dao;
 
-public class IncidentsDaoImp {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class IncidentsDaoImp implements IncidentsDao{
 
 }

@@ -1,5 +1,10 @@
 package com.parking.reservation.service;
 
-public class RegistrationServiceImp {
+import org.springframework.stereotype.Service;
+
+@Service
+public class RegistrationServiceImp implements RegistrationService {
+	
+	
 
 }

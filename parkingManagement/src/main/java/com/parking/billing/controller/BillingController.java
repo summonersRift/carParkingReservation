@@ -1,13 +1,10 @@
 package com.parking.billing.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.parking.billing.service.BillingService;
 
 
 @Controller
@@ -22,10 +19,7 @@ public class BillingController {
         return new ModelAndView( "Billing" );
     }
 	@RequestMapping( value="/all", method=RequestMethod.GET )
-  public String getAll(){
-	  
-	  
-		
+  public String getAll(){  
 		
 		return "";
 	  
@@ -39,8 +33,16 @@ public class BillingController {
 	@RequestMapping( value="/paycheck", method=RequestMethod.GET )
 	 public String payEcheck(){
 		  
-		  return "";
+		
+		
+		
+		
+		return "";
 		  
-	  }
+	
+	
+	
+	
+	}
 
 }

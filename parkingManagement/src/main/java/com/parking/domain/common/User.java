@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 public class User extends AbstractUser implements Serializable {
 
 	private static final long serialVersionUID = 7503398206106993501L;
@@ -231,6 +233,18 @@ public class User extends AbstractUser implements Serializable {
 
 	public void setUserid(double _userid) {
 		this._userid = _userid;
+	}
+
+	public JSONObject getJson() {
+
+		JSONObject obj = new JSONObject();
+		obj.append("user_name", getUserName());
+		obj.append("user_id", getUserid());
+		obj.append("user_email", getEmail());
+		obj.append("role", getUserRole().getRoleType());
+		// finish adding all roles returned from GET-USER SELECT
+		return obj;
+
 	}
 
 }

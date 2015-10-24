@@ -1,5 +1,8 @@
 package com.parking.incidents.service;
 
-public class IncidentsServiceImp {
+import org.springframework.stereotype.Service;
+
+@Service
+public class IncidentsServiceImp   {
 
 }

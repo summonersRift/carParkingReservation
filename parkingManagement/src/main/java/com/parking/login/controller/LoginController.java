@@ -1,11 +1,8 @@
 package com.parking.login.controller;
 
-import org.json.JSONObject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,34 +26,29 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	
-	public LoginController(){};
-	/*
-	public LoginController(LoginService service){
-		 
+
+	public LoginController() {
+	};
 		
-		loginService=service;
-		 
-	 }
-	*/
+	public LoginController(LoginService service) {
+		loginService = service;
+	}
 
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> signIn(LoginRequest login,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		if (login == null || !login.validate())
-		{
+		if (login == null || !login.validate()) {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		User user = loginService.signIn(login.getUserName(),
 				login.getPassword());
 
-		if (user == null || user.isNull())
-		{
+		if (user == null || user.isNull()) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
+
 		if (request != null) {
 
 			HttpSession session = request.getSession();
@@ -70,13 +62,8 @@ public class LoginController {
 
 		}
 
-		JSONObject obj = new JSONObject();
-		obj.append("user_name", user.getUserName());
-		obj.append("user_id", user.getUserid());
-		obj.append("user_email", user.getEmail());
-		obj.append("role", user.getUserRole().getRoleType());
-		// finish adding all roles returned from GET-USER SELECT
-		return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<String>(user.getJson().toString(),
+				HttpStatus.OK);
 
 	}
 
@@ -85,43 +72,33 @@ public class LoginController {
 			@RequestParam(value = "userName") String userName,
 			HttpServletRequest request) {
 
-		if (userName == null || "".equals(userName)) {
+		ResponseEntity<String> response = new ResponseEntity<String>(
+				HttpStatus.OK);
 
-			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
-
+		HttpSession session = request.getSession();
+		if (session == null) {
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		if (request != null) {
 
-			HttpSession session = request.getSession();
-			if (session == null) {
-				return new ResponseEntity<String>(
-						HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+		User newUser = (User) session.getAttribute("user");
 
-			User newUser = (User) session.getAttribute("user");
+		if (newUser != null && newUser.getUserName().equals(userName)) {
 
-			if (newUser != null && newUser.getUserName().equals(userName)) {
+			session.setAttribute("user", "");
+			session.invalidate();
+		} else {
 
-				session.setAttribute("user", "");
-				session.invalidate();
-			} else {
-				// TODO:check return status code for find grain values.
-				return new ResponseEntity<String>(
-						HttpStatus.INTERNAL_SERVER_ERROR);
-
-			}
+			response = new ResponseEntity<String>(
+					HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
 
-		return new ResponseEntity<String>(HttpStatus.OK);
+		return response;
 	}
-	
-	
-	 @RequestMapping( value="/sidebar", method=RequestMethod.GET )
-	    public ModelAndView getSideBar( Model model ) {	        
-	        return new ModelAndView( "sidebar" );
-	    }
+
+	@RequestMapping(value = "/sidebar", method = RequestMethod.GET)
+	public ModelAndView getSideBar(Model model) {
+		return new ModelAndView("sidebar");
+	}
 
 }
-
-

@@ -1,5 +1,7 @@
 package com.parking.billing.domain;
 
+import java.math.BigDecimal;
+
 import com.parking.domain.common.Address;
 import com.parking.domain.common.User;
 
@@ -11,9 +13,11 @@ public class BillingInfo {
 	private int securityCode;
 	private double routingNumber;
 	private User user;
+	private String paymentType;// TODO:need to use enumeration type.
+	private BigDecimal funds;
 
 	public BillingInfo(Address address, double ccnumber, double checknumber,
-			Integer seccode, double routingnumber, final User user) {
+			Integer seccode, double routingnumber, final User user, String type) {
 
 		this.billingAddress = address;
 		this.ccNumber = ccnumber;
@@ -21,6 +25,7 @@ public class BillingInfo {
 		this.securityCode = seccode;
 		this.routingNumber = routingnumber;
 		this.user = user;
+		this.setPaymentType(type);
 
 	}
 
@@ -33,12 +38,10 @@ public class BillingInfo {
 
 		BillingInfo info = new BillingInfo(new Address("2222 NW 23 street",
 				332232, "FL", "Miami", "Broward", "USA"), 21223, 212222L,
-				333333333, 23332, usr);
+				333333333, 23332, usr,"credit_card");
 
 		return info;
 	}
-	
-	
 
 	public double getCcNumber() {
 		return ccNumber;
@@ -86,6 +89,22 @@ public class BillingInfo {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public BigDecimal getFunds() {
+		return funds;
+	}
+
+	public void setFunds(BigDecimal funds) {
+		this.funds = funds;
 	}
 
 }
