@@ -20,12 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.parking.business.contract.AdminService;
-import com.parking.business.contract.LoginService;
+import com.parking.business.contract.UserService;
 import com.parking.common.LoginRequest;
 import com.parking.domain.User;
-
- 
 
 @Controller
 @RequestMapping("/admin")
@@ -33,10 +30,7 @@ import com.parking.domain.User;
 public class AdminController {
 
 	@Autowired
-	LoginService loginService;
-
-	@Autowired
-	AdminService adminService;
+	UserService adminService;
 
 	@RequestMapping(value = "/FacilityPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
@@ -54,7 +48,7 @@ public class AdminController {
 
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
-		User user = loginService.adminSignIn(userName, password);
+		User user = adminService.adminSignIn(userName, password);
 
 		if (user == null || user.isNull())
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);

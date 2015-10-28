@@ -78,4 +78,16 @@ public class UserServiceImp implements UserService{
 		return null;
 	}
 
+	@Override
+	public User signIn(String userName, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User adminSignIn(String userName, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

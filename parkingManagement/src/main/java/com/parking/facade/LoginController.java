@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.parking.business.contract.LoginService;
+import com.parking.business.contract.UserService;
 import com.parking.common.LoginRequest;
 import com.parking.domain.User;
 
@@ -27,12 +27,12 @@ import com.parking.domain.User;
 public class LoginController {
 
 	@Autowired
-	private LoginService loginService;
+	private UserService loginService;
 
 	public LoginController() {
 	};
 		
-	public LoginController(LoginService service) {
+	public LoginController(UserService service) {
 		loginService = service;
 	}
 

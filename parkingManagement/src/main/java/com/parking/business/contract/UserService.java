@@ -32,4 +32,8 @@ public interface UserService {
 
 	List<User> getAll();
 
+	User signIn(String userName, String password);
+
+	User adminSignIn(String userName, String password);
+
 }
