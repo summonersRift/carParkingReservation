@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.parking.business.contract.UserService;
+import com.parking.common.PasswordResetDTO;
+import com.parking.common.UserRequest;
 import com.parking.domain.User;
-import com.parking.user.dto.PasswordResetDTO;
-import com.parking.user.dto.UserRequest;
 
 @Service
-public class UserServiceImp implements UserService{
+public class UserServiceImp implements UserService {
 
 	@Override
 	public User getUserById(Long userId) {
@@ -27,13 +27,13 @@ public class UserServiceImp implements UserService{
 	@Override
 	public void editUser(UserRequest editInfo) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void passwordReset(PasswordResetDTO passwordReset) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -51,19 +51,19 @@ public class UserServiceImp implements UserService{
 	@Override
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteUserById(Long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

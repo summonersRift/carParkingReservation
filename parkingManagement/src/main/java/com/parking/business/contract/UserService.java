@@ -2,12 +2,10 @@ package com.parking.business.contract;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
+import com.parking.common.PasswordResetDTO;
+import com.parking.common.UserRequest;
 import com.parking.domain.User;
-import com.parking.user.dto.PasswordResetDTO;
-import com.parking.user.dto.UserRequest;
- 
+
 public interface UserService {
 
 	User getUserById(Long userId);

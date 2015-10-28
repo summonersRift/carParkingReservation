@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.parking.business.contract.UserService;
-import com.parking.domain.User;
-import com.parking.user.dto.PasswordResetDTO;
-import com.parking.user.dto.UserRequest;
-
+import com.parking.common.PasswordResetDTO;
+import com.parking.common.UserRequest;
+import com.parking.domain.User; 
 
 @Controller
 @RequestMapping("/user")
@@ -73,44 +72,7 @@ public class UserController {
 
 		return true;
 	}
-
-	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
-	@ResponseBody
-	public Boolean resetPassword(PasswordResetDTO passwordReset) {
-
-		try {
-
-			userService.passwordReset(passwordReset);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			return false;
-
-		}
-		return true;
-
-	}
-
-	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
-	@ResponseBody
-	public Boolean editUser(UserRequest editInfo) {
-
-		try {
-
-			userService.editUser(editInfo);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			return false;
-
-		}
-		return true;
-
-	}
+ 
 
 	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
 	public @ResponseBody User getUserById(@PathVariable("userId") Long userId) {
