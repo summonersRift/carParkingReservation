@@ -1296,4 +1296,55 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0aDdoX3IEeWG9t_wztrIiw" id="(0.24598930481283424,0.5757575757575758)"/>
     </edges>
   </notation:Diagram>
+  <notation:Diagram xmi:id="_6o3XsH8lEeW8V5T9Zumpow" type="PapyrusUMLSequenceDiagram" name="seqPMS_sendNewsletter" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_6o3XsX8lEeW8V5T9Zumpow" type="2001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_6o3Xsn8lEeW8V5T9Zumpow" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_6o3Xs38lEeW8V5T9Zumpow" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_AR0kQH8mEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_AR1LUH8mEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_ARsBYH8mEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AR0kQX8mEeW8V5T9Zumpow" x="11" y="10" width="152"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Bh3P0H8mEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Bh3P0n8mEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_Bh2BsH8mEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bh3P0X8mEeW8V5T9Zumpow" x="178" y="8" width="98"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_CG-vEH8mEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_CG-vEn8mEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_CG9g8H8mEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CG-vEX8mEeW8V5T9Zumpow" x="286" y="8" width="123"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_C6srAH8mEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_C6srAn8mEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_C6qOwH8mEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C6srAX8mEeW8V5T9Zumpow" x="417" y="8" width="155"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_AM39YH8nEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_AM4kcH8nEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_AM1hIH8nEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AM39YX8nEeW8V5T9Zumpow" x="580" y="8" width="141"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Bc2-kH8nEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Bc2-kn8nEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_Bc1wcH8nEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bc2-kX8nEeW8V5T9Zumpow" x="730" y="8" width="123"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_CUGvoH8nEeW8V5T9Zumpow" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_CUGvon8nEeW8V5T9Zumpow" type="5002"/>
+          <element xmi:type="uml:Lifeline" href="model.uml#_CUFhgH8nEeW8V5T9Zumpow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CUGvoX8nEeW8V5T9Zumpow" x="869" y="8" width="119"/>
+        </children>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6o3XtH8lEeW8V5T9Zumpow"/>
+      </children>
+      <element xmi:type="uml:Interaction" href="model.uml#_RKe_8H8lEeW8V5T9Zumpow"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6o3XtX8lEeW8V5T9Zumpow" width="1013"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_6o3Xtn8lEeW8V5T9Zumpow" name="diagram_compatibility_version" stringValue="1.0.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_6o3Xt38lEeW8V5T9Zumpow"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_6o3XuH8lEeW8V5T9Zumpow">
+      <owner xmi:type="uml:Model" href="model.uml#_Vce8wH3JEeWG9t_wztrIiw"/>
+    </styles>
+    <element xmi:type="uml:Interaction" href="model.uml#_RKe_8H8lEeW8V5T9Zumpow"/>
+  </notation:Diagram>
 </xmi:XMI>

@@ -391,7 +391,17 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_n1U8IH2kEeWG9t_wztrIiw" name="ClassDiagrams"/>
-    <packagedElement xmi:type="uml:Model" xmi:id="_Vce8wH3JEeWG9t_wztrIiw" name="SequenceDiagrams"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_Vce8wH3JEeWG9t_wztrIiw" name="SequenceDiagrams">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_RKe_8H8lEeW8V5T9Zumpow" name="Interaction1">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ARsBYH8mEeW8V5T9Zumpow" name="MarketingIndividual"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Bh2BsH8mEeW8V5T9Zumpow" name="Homepage"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_CG9g8H8mEeW8V5T9Zumpow" name="Main Controller"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_C6qOwH8mEeW8V5T9Zumpow" name="Marketing Controller"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_AM1hIH8nEeW8V5T9Zumpow" name="Marketing Service"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Bc1wcH8nEeW8V5T9Zumpow" name="Marketing DAO"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_CUFhgH8nEeW8V5T9Zumpow" name="MarketingDBO"/>
+      </packagedElement>
+    </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_fDghYH3JEeWG9t_wztrIiw" name="DeploymentDiagrams"/>
     <packagedElement xmi:type="uml:Model" xmi:id="_mtfKgH3JEeWG9t_wztrIiw" name="ArchitectureDiagrams"/>
     <packagedElement xmi:type="uml:Model" xmi:id="__L4MAH3JEeWG9t_wztrIiw" name="Facade"/>
