@@ -2848,7 +2848,7 @@
   <notation:Diagram xmi:id="_yOPoUH7DEeW5zojIlM5hlQ" type="PapyrusUMLStateMachineDiagram" name="ParkingDiagram" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_yOPoUX7DEeW5zojIlM5hlQ" type="2000">
       <children xmi:type="notation:DecorationNode" xmi:id="_yOPoUn7DEeW5zojIlM5hlQ" type="2001">
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOPoU37DEeW5zojIlM5hlQ" width="821" height="20"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOPoU37DEeW5zojIlM5hlQ" width="821" height="5"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_yOPoVH7DEeW5zojIlM5hlQ" type="2002">
         <children xmi:type="notation:Shape" xmi:id="_yOPoVX7DEeW5zojIlM5hlQ" type="3000">
@@ -2924,10 +2924,10 @@
           <element xmi:type="uml:Region" href="model.uml#_yOOaMH7DEeW5zojIlM5hlQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOQPk37DEeW5zojIlM5hlQ" width="821" height="420"/>
         </children>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOQPlH7DEeW5zojIlM5hlQ" y="20" width="821" height="420"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOQPlH7DEeW5zojIlM5hlQ" y="5" width="821" height="420"/>
       </children>
       <element xmi:type="uml:StateMachine" href="platform:/resource/state/model.uml#_DA2uLn69EeWmgMlaM8CZ_Q"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOQPmH7DEeW5zojIlM5hlQ" x="30" y="30" width="821" height="440"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yOQPmH7DEeW5zojIlM5hlQ" x="30" y="30" width="821" height="425"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_yOQPmX7DEeW5zojIlM5hlQ" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_yOQPmn7DEeW5zojIlM5hlQ"/>
