@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XoIQIGqdEeW2NMcv-nQ1xw" name="Model">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XoIQIGqdEeW2NMcv-nQ1xw" name="model">
   <packageImport xmi:type="uml:PackageImport" xmi:id="_XoIQIWqdEeW2NMcv-nQ1xw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -390,7 +390,6 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_Wi7AMH2kEeWG9t_wztrIiw" client="_NC_bsH2cEeWG9t_wztrIiw" supplier="_Ds2LsH2cEeWG9t_wztrIiw"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Model" xmi:id="_n1U8IH2kEeWG9t_wztrIiw" name="ClassDiagrams"/>
     <packagedElement xmi:type="uml:Model" xmi:id="_Vce8wH3JEeWG9t_wztrIiw" name="SequenceDiagrams">
       <packagedElement xmi:type="uml:Interaction" xmi:id="_Yw6EkH6-EeWmgMlaM8CZ_Q" name="accident report">
         <lifeline xmi:type="uml:Lifeline" xmi:id="_Yw6EkX6-EeWmgMlaM8CZ_Q" name="User" coveredBy="_Yw6En36-EeWmgMlaM8CZ_Q _Yw6Emn6-EeWmgMlaM8CZ_Q _Yw6EmX6-EeWmgMlaM8CZ_Q _Yw6EpX6-EeWmgMlaM8CZ_Q _Yw6Epn6-EeWmgMlaM8CZ_Q _Yw6Ep36-EeWmgMlaM8CZ_Q"/>
