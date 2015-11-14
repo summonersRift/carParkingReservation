@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XoIQIGqdEeW2NMcv-nQ1xw" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_XoIQIWqdEeW2NMcv-nQ1xw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_ASfEMH3JEeWG9t_wztrIiw" name="Analysis">
+    <packagedElement xmi:type="uml:Model" xmi:id="_BXkisGqeEeW2NMcv-nQ1xw" name="classDiagrams">
+      <packagedElement xmi:type="uml:Class" xmi:id="_vrZb4GqdEeW2NMcv-nQ1xw" name="User">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0AGLQGqdEeW2NMcv-nQ1xw" name="name" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h_oaAGqeEeW2NMcv-nQ1xw" name="address" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iTa4sGqeEeW2NMcv-nQ1xw" name="identification" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_inqDUGqeEeW2NMcv-nQ1xw" name="user_name" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i6GeMGqeEeW2NMcv-nQ1xw" name="password" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jKwwYGqeEeW2NMcv-nQ1xw" name="balance" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kINQEGqeEeW2NMcv-nQ1xw" name="securityQOne" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_keheUGqeEeW2NMcv-nQ1xw" name="securityQTwo" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k3YDMGqeEeW2NMcv-nQ1xw" name="securityQThree" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ONfPwGqfEeW2NMcv-nQ1xw" name="getName"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Ojf8AGqfEeW2NMcv-nQ1xw" name="getID"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_O7508GqfEeW2NMcv-nQ1xw" name="getUserName"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_PcojcGqfEeW2NMcv-nQ1xw" name="getPassword"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_PzsYkGqfEeW2NMcv-nQ1xw" name="getBalance"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_QPgx4GqfEeW2NMcv-nQ1xw" name="getSecQOne"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ZdaE0GqfEeW2NMcv-nQ1xw" name="getSecQTwo"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_eMUD8GqfEeW2NMcv-nQ1xw" name="getSecQThree"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gY53UGqfEeW2NMcv-nQ1xw" name="parkingLot">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k35LIGqfEeW2NMcv-nQ1xw" name="addressLine1" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lKMcEGqfEeW2NMcv-nQ1xw" name="city" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lgzlQGqfEeW2NMcv-nQ1xw" name="state" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_l3HzgGqfEeW2NMcv-nQ1xw" name="zipCode" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mPOKcGqfEeW2NMcv-nQ1xw" name="phoneNumber" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mlZOwGqfEeW2NMcv-nQ1xw" name="ID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uxc0wGqgEeW2NMcv-nQ1xw" name="name" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_5NrYgGqfEeW2NMcv-nQ1xw" name="getName"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6REvMGqfEeW2NMcv-nQ1xw" name="getAddressLine1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7jMeYGqfEeW2NMcv-nQ1xw" name="getCity"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_8yfjEGqfEeW2NMcv-nQ1xw" name="getState"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Rdeu8GqhEeW2NMcv-nQ1xw" name="parkingSpace">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UsH1MGqhEeW2NMcv-nQ1xw" name="parkingSpaceID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VgMWcGqhEeW2NMcv-nQ1xw" name="floorLevel" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VxdFkGqhEeW2NMcv-nQ1xw" name="size" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEnumerator"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WFYuMGqhEeW2NMcv-nQ1xw" name="facilityID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wv1-oGqhEeW2NMcv-nQ1xw" name="parkingLot" type="_gY53UGqfEeW2NMcv-nQ1xw" association="_wv1-o2qhEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wv1-oWqhEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wv1-omqhEeW2NMcv-nQ1xw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_hV6AMGqhEeW2NMcv-nQ1xw" name="getParkingSpaceID"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_hop9EGqhEeW2NMcv-nQ1xw" name="getFloorLevel"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_h7jD4GqhEeW2NMcv-nQ1xw" name="getSize"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_iNZo4GqhEeW2NMcv-nQ1xw" name="getFacilityID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_wv1-o2qhEeW2NMcv-nQ1xw" memberEnd="_wv1-pGqhEeW2NMcv-nQ1xw _wv1-oGqhEeW2NMcv-nQ1xw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_wv1-pGqhEeW2NMcv-nQ1xw" name="parkingSpace" type="_Rdeu8GqhEeW2NMcv-nQ1xw" association="_wv1-o2qhEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wv1-pWqhEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wv1-pmqhEeW2NMcv-nQ1xw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_0vu7oGqhEeW2NMcv-nQ1xw" name="reservationChart">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4f2-UGqhEeW2NMcv-nQ1xw" name="parkingSpaceID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4ulW0GqhEeW2NMcv-nQ1xw" name="startDate" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_483qcGqhEeW2NMcv-nQ1xw" name="endDate" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5Lc5AGqhEeW2NMcv-nQ1xw" name="amountCharged" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5bXkUGqhEeW2NMcv-nQ1xw" name="customerID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VBeksGqiEeW2NMcv-nQ1xw" name="parkingSpace" type="_Rdeu8GqhEeW2NMcv-nQ1xw" association="_VBeks2qiEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VBeksWqiEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VBeksmqiEeW2NMcv-nQ1xw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XiJxsGqiEeW2NMcv-nQ1xw" name="user" type="_vrZb4GqdEeW2NMcv-nQ1xw" association="_XiJxs2qiEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XiJxsWqiEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XiJxsmqiEeW2NMcv-nQ1xw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_553eMGqhEeW2NMcv-nQ1xw" name="getSpaceID"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6JCioGqhEeW2NMcv-nQ1xw" name="getStartDate"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6dkoMGqhEeW2NMcv-nQ1xw" name="getEndDate"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6vbNMGqhEeW2NMcv-nQ1xw" name="getAmountCharged"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7B3oEGqhEeW2NMcv-nQ1xw" name="getCustID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VBeks2qiEeW2NMcv-nQ1xw" memberEnd="_VBektGqiEeW2NMcv-nQ1xw _VBeksGqiEeW2NMcv-nQ1xw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VBektGqiEeW2NMcv-nQ1xw" name="reservationChart" type="_0vu7oGqhEeW2NMcv-nQ1xw" association="_VBeks2qiEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VBektWqiEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VBektmqiEeW2NMcv-nQ1xw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_XiJxs2qiEeW2NMcv-nQ1xw" memberEnd="_XiJxtGqiEeW2NMcv-nQ1xw _XiJxsGqiEeW2NMcv-nQ1xw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_XiJxtGqiEeW2NMcv-nQ1xw" name="reservationChart" type="_0vu7oGqhEeW2NMcv-nQ1xw" association="_XiJxs2qiEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XiJxtWqiEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XiJxtmqiEeW2NMcv-nQ1xw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fBppIGqiEeW2NMcv-nQ1xw" name="parkingSearchForm">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jkEEYGqiEeW2NMcv-nQ1xw" name="locationName" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_vUHyEGqiEeW2NMcv-nQ1xw" name="locationName" value="&quot;Blue Parking Lot&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_j2XVUGqiEeW2NMcv-nQ1xw" name="locationAddress" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_2WwuYGqiEeW2NMcv-nQ1xw" name="locationAddress" value="&quot;1200 NW 8th Street&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kIXEQGqiEeW2NMcv-nQ1xw" name="locationCity" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7KSHwGqiEeW2NMcv-nQ1xw" name="locationCity" value="&quot;Miami&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kcmO4GqiEeW2NMcv-nQ1xw" name="locationZipCode" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_FT-7oGqjEeW2NMcv-nQ1xw" name="locationZipCode" value="&quot;33178’ AND 1=(SELECT COUNT(*) FROM tabName);--&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CYcQMGqmEeW2NMcv-nQ1xw" name="startDate" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Fj0AAGqmEeW2NMcv-nQ1xw" name="endDate" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_lTDVwGqiEeW2NMcv-nQ1xw" name="submitSearch"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_m7MYQGqiEeW2NMcv-nQ1xw" name="onCancel"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WflE8GqjEeW2NMcv-nQ1xw" name="dataEntryController">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z35EkGqjEeW2NMcv-nQ1xw" name="dataRepository" visibility="private" type="_sRAJ4GqjEeW2NMcv-nQ1xw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GjWcUGqkEeW2NMcv-nQ1xw" name="parkingRepository" type="_sRAJ4GqjEeW2NMcv-nQ1xw" association="_GjWcU2qkEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GjWcUWqkEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GjWcUmqkEeW2NMcv-nQ1xw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_bQHbwGqjEeW2NMcv-nQ1xw" name="validateData"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_onIgMGqjEeW2NMcv-nQ1xw" client="_fBppIGqiEeW2NMcv-nQ1xw" supplier="_WflE8GqjEeW2NMcv-nQ1xw"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_sRAJ4GqjEeW2NMcv-nQ1xw" name="parkingRepository">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yUad0GqjEeW2NMcv-nQ1xw" name="parkingSpaceRepo" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EResource"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bwbf4GqkEeW2NMcv-nQ1xw" name="parkingSpaceInfo" visibility="private" type="_Rdeu8GqhEeW2NMcv-nQ1xw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UvUy0GqkEeW2NMcv-nQ1xw" name="parkingSpace" type="_Rdeu8GqhEeW2NMcv-nQ1xw" association="_UvUy02qkEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UvUy0WqkEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UvUy0mqkEeW2NMcv-nQ1xw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5LXnMGqmEeW2NMcv-nQ1xw" name="dataRules" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EJavaObject"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_IFsY0GqkEeW2NMcv-nQ1xw" name="getAllParkingLots"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_KxYjAGqkEeW2NMcv-nQ1xw" name="getAllParkingSpaces"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NNv3wGqkEeW2NMcv-nQ1xw" name="getAllEmptySpaces"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_GjWcU2qkEeW2NMcv-nQ1xw" memberEnd="_GjWcVGqkEeW2NMcv-nQ1xw _GjWcUGqkEeW2NMcv-nQ1xw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_GjWcVGqkEeW2NMcv-nQ1xw" name="dataEntryController" type="_WflE8GqjEeW2NMcv-nQ1xw" association="_GjWcU2qkEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GjWcVWqkEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GjWcVmqkEeW2NMcv-nQ1xw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_UvUy02qkEeW2NMcv-nQ1xw" memberEnd="_UvUy1GqkEeW2NMcv-nQ1xw _UvUy0GqkEeW2NMcv-nQ1xw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_UvUy1GqkEeW2NMcv-nQ1xw" name="parkingRepository" type="_sRAJ4GqjEeW2NMcv-nQ1xw" association="_UvUy02qkEeW2NMcv-nQ1xw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UvUy1WqkEeW2NMcv-nQ1xw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UvUy1mqkEeW2NMcv-nQ1xw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_HRBCUGqeEeW2NMcv-nQ1xw" name="ObjectDiagrams">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_M_Af4GqeEeW2NMcv-nQ1xw" name="User">
+        <slot xmi:type="uml:Slot" xmi:id="_PqPXEGqeEeW2NMcv-nQ1xw" definingFeature="_0AGLQGqdEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:StringExpression" xmi:id="_YADLcGqeEeW2NMcv-nQ1xw" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <operand xmi:type="uml:LiteralString" xmi:id="_YADLcWqeEeW2NMcv-nQ1xw" name="name" value="&quot;Malorie Jones&quot;"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_py6hYGqkEeW2NMcv-nQ1xw" definingFeature="_h_oaAGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:StringExpression" xmi:id="_0TiAcGqkEeW2NMcv-nQ1xw" name="address">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <operand xmi:type="uml:LiteralString" xmi:id="_0TiAcWqkEeW2NMcv-nQ1xw" name="address" value="&quot;1422 Dark Alley Road&quot;"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_1_iPQGqkEeW2NMcv-nQ1xw" definingFeature="_iTa4sGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:StringExpression" xmi:id="_-DMjsGqkEeW2NMcv-nQ1xw" name="identification">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <operand xmi:type="uml:LiteralString" xmi:id="_-DMjsWqkEeW2NMcv-nQ1xw" name="identification" value="&quot;98674333&quot;"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="__ZCVQGqkEeW2NMcv-nQ1xw" definingFeature="_inqDUGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:StringExpression" xmi:id="_F-9gYGqlEeW2NMcv-nQ1xw" name="user_name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <operand xmi:type="uml:LiteralString" xmi:id="_F-9gYWqlEeW2NMcv-nQ1xw" name="user_name" value="&quot;mjones666&quot;"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Hswe8GqlEeW2NMcv-nQ1xw" definingFeature="_i6GeMGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:StringExpression" xmi:id="_N3dGoGqlEeW2NMcv-nQ1xw" name="password">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <operand xmi:type="uml:LiteralString" xmi:id="_N3dGoWqlEeW2NMcv-nQ1xw" name="password" value="&quot;******************&quot;"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_RGQk8GqlEeW2NMcv-nQ1xw" definingFeature="_jKwwYGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralInteger" xmi:id="_XddXkGqlEeW2NMcv-nQ1xw" name="balance" value="23"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Y49FMGqlEeW2NMcv-nQ1xw" definingFeature="_kINQEGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_fr-RIGqlEeW2NMcv-nQ1xw" name="securityQOne" value="&quot;Blah Blah&quot;"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_gSp2oGqlEeW2NMcv-nQ1xw" definingFeature="_keheUGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_k63X4GqlEeW2NMcv-nQ1xw" name="securityQTwo" value="&quot;My answer&quot;"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_luo-MGqlEeW2NMcv-nQ1xw" definingFeature="_k3YDMGqeEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_pLkYEGqlEeW2NMcv-nQ1xw" name="secutiryQThree" value="&quot;CARS&quot;"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_0EIdEGqlEeW2NMcv-nQ1xw" name="parkingSearchForm">
+        <slot xmi:type="uml:Slot" xmi:id="_26YRcGqlEeW2NMcv-nQ1xw" definingFeature="_jkEEYGqiEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_7WPYwGqlEeW2NMcv-nQ1xw" name="locationName" value="&quot;&quot;"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_8P0sIGqlEeW2NMcv-nQ1xw" definingFeature="_j2XVUGqiEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_BMkS8GqmEeW2NMcv-nQ1xw" name="locationAddress" value="&quot;&quot;"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_IyBBYGqmEeW2NMcv-nQ1xw" definingFeature="_CYcQMGqmEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_MuCyEGqmEeW2NMcv-nQ1xw" name="startDate" value="&quot;10/05/2015&quot;"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_NP0CYGqmEeW2NMcv-nQ1xw" definingFeature="_Fj0AAGqmEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_Q07H4GqmEeW2NMcv-nQ1xw" name="endDate" value="&quot;10/05/2015&quot;"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Ywi6oGqmEeW2NMcv-nQ1xw" name="dataController">
+        <slot xmi:type="uml:Slot" xmi:id="_oWFFEGqmEeW2NMcv-nQ1xw" definingFeature="_Z35EkGqjEeW2NMcv-nQ1xw"/>
+        <slot xmi:type="uml:Slot" xmi:id="__98HMGqmEeW2NMcv-nQ1xw" definingFeature="_5LXnMGqmEeW2NMcv-nQ1xw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_IsvDUGqnEeW2NMcv-nQ1xw" name="validateData" client="_0EIdEGqlEeW2NMcv-nQ1xw" supplier="_Ywi6oGqmEeW2NMcv-nQ1xw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_PqUggGqnEeW2NMcv-nQ1xw" client="_Ywi6oGqmEeW2NMcv-nQ1xw" supplier="_M_Af4GqeEeW2NMcv-nQ1xw"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_scTeIGqnEeW2NMcv-nQ1xw" name="parkingRepository">
+        <slot xmi:type="uml:Slot" xmi:id="_BC5HoGqoEeW2NMcv-nQ1xw" definingFeature="_Bwbf4GqkEeW2NMcv-nQ1xw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hmpGsGqoEeW2NMcv-nQ1xw" name="parkingSpace">
+        <slot xmi:type="uml:Slot" xmi:id="_mwn4QGqoEeW2NMcv-nQ1xw" definingFeature="_UsH1MGqhEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralInteger" xmi:id="_s7eQ8GqoEeW2NMcv-nQ1xw" name="parkingSpaceID" value="926"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_nF5ksGqoEeW2NMcv-nQ1xw" definingFeature="_VgMWcGqhEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralInteger" xmi:id="_wQqrIGqoEeW2NMcv-nQ1xw" name="floorLevel" value="7"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_nbeMEGqoEeW2NMcv-nQ1xw" definingFeature="_VxdFkGqhEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralString" xmi:id="_3PI5IGqoEeW2NMcv-nQ1xw" name="size" value="COMPACT"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_n0UJ4GqoEeW2NMcv-nQ1xw" definingFeature="_WFYuMGqhEeW2NMcv-nQ1xw">
+          <value xmi:type="uml:LiteralInteger" xmi:id="_7ooB4GqoEeW2NMcv-nQ1xw" name="facilityID" value="9"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_8eU60GqoEeW2NMcv-nQ1xw" definingFeature="_wv1-oGqhEeW2NMcv-nQ1xw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_tBWaAGqpEeW2NMcv-nQ1xw" name="sequenceDiagrams">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_xD63kGqpEeW2NMcv-nQ1xw" name="P104_ParkingSearch_SecurityCase">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_0l6XoGqpEeW2NMcv-nQ1xw" name="&lt;&lt;actor>>:user" coveredBy="_PddPkmqvEeW2NMcv-nQ1xw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="__Ki0AGqpEeW2NMcv-nQ1xw" name="&lt;&lt;boundary>>:browser" coveredBy="_DvLnYWqrEeW2NMcv-nQ1xw _ibm4cmqrEeW2NMcv-nQ1xw _WagooWqsEeW2NMcv-nQ1xw _4ZwVUWqsEeW2NMcv-nQ1xw _W5wegWquEeW2NMcv-nQ1xw _7Ptj4WquEeW2NMcv-nQ1xw _Hs2aAWqvEeW2NMcv-nQ1xw _JeNp8mqvEeW2NMcv-nQ1xw _PddPkWqvEeW2NMcv-nQ1xw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_JKkugGqqEeW2NMcv-nQ1xw" name="&lt;&lt;controller>>:ParkingSearch" coveredBy="_GAh-8WqrEeW2NMcv-nQ1xw _WagooGqsEeW2NMcv-nQ1xw _4ZwVUmqsEeW2NMcv-nQ1xw _92CX0WqsEeW2NMcv-nQ1xw _ZbZxUmqtEeW2NMcv-nQ1xw _sUDSUWqtEeW2NMcv-nQ1xw _vLMekmqtEeW2NMcv-nQ1xw __VVK4WqtEeW2NMcv-nQ1xw __VVK4mqtEeW2NMcv-nQ1xw _UOE7YGquEeW2NMcv-nQ1xw _W5wegmquEeW2NMcv-nQ1xw _Z6baMWquEeW2NMcv-nQ1xw _Z6baMmquEeW2NMcv-nQ1xw _2YLNMWquEeW2NMcv-nQ1xw _7Ptj4mquEeW2NMcv-nQ1xw _-afd0WquEeW2NMcv-nQ1xw _-afd0mquEeW2NMcv-nQ1xw _JeNp8WqvEeW2NMcv-nQ1xw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_bbcd0GqqEeW2NMcv-nQ1xw" name="&lt;&lt;repository>>" coveredBy="_H-ZZ0WqrEeW2NMcv-nQ1xw _92CX0mqsEeW2NMcv-nQ1xw _ZbZxUWqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_4ZwVUWqsEeW2NMcv-nQ1xw" name="MessageSend2" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_4ZwVUGqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_DvLnYWqrEeW2NMcv-nQ1xw" name="BehaviorExecSpec" covered="__Ki0AGqpEeW2NMcv-nQ1xw" finish="_WagooWqsEeW2NMcv-nQ1xw" start="_ibm4cmqrEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_GAh-8WqrEeW2NMcv-nQ1xw" name="BehaviorExecSpec0" covered="_JKkugGqqEeW2NMcv-nQ1xw" finish="_WagooGqsEeW2NMcv-nQ1xw" start="_4ZwVUmqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ibm4cmqrEeW2NMcv-nQ1xw" name="MessageRecv" covered="__Ki0AGqpEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_4ZwVUmqsEeW2NMcv-nQ1xw" name="MessageRecv2" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_4ZwVUGqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_92CX0WqsEeW2NMcv-nQ1xw" name="MessageSend3" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_92CX0GqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_H-ZZ0WqrEeW2NMcv-nQ1xw" name="BehaviorExecSpec1" covered="_bbcd0GqqEeW2NMcv-nQ1xw" finish="_ZbZxUWqtEeW2NMcv-nQ1xw" start="_92CX0mqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_92CX0mqsEeW2NMcv-nQ1xw" name="MessageRecv3" covered="_bbcd0GqqEeW2NMcv-nQ1xw" message="_92CX0GqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ZbZxUWqtEeW2NMcv-nQ1xw" name="MessageSend4" covered="_bbcd0GqqEeW2NMcv-nQ1xw" message="_ZbZxUGqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WagooWqsEeW2NMcv-nQ1xw" name="MessageRecv1" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_WaXesGqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WagooGqsEeW2NMcv-nQ1xw" name="MessageSend1" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_WaXesGqsEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ZbZxUmqtEeW2NMcv-nQ1xw" name="MessageRecv4" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_ZbZxUGqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__VVK4WqtEeW2NMcv-nQ1xw" name="MessageSend7" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="__VVK4GqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_sUDSUWqtEeW2NMcv-nQ1xw" name="BehaviorExecSpec2" covered="_JKkugGqqEeW2NMcv-nQ1xw" finish="__VVK4mqtEeW2NMcv-nQ1xw" start="_vLMekmqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vLMekmqtEeW2NMcv-nQ1xw" name="MessageRecv6" covered="_JKkugGqqEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__VVK4mqtEeW2NMcv-nQ1xw" name="MessageRecv7" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="__VVK4GqtEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_W5wegWquEeW2NMcv-nQ1xw" name="MessageSend9" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_W5wegGquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Z6baMWquEeW2NMcv-nQ1xw" name="MessageSend10" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_Z6baMGquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_UOE7YGquEeW2NMcv-nQ1xw" name="BehaviorExecSpec3" covered="_JKkugGqqEeW2NMcv-nQ1xw" finish="_Z6baMmquEeW2NMcv-nQ1xw" start="_W5wegmquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_W5wegmquEeW2NMcv-nQ1xw" name="MessageRecv9" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_W5wegGquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Z6baMmquEeW2NMcv-nQ1xw" name="MessageRecv10" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_Z6baMGquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-afd0WquEeW2NMcv-nQ1xw" name="MessageSend13" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_-afd0GquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_7Ptj4WquEeW2NMcv-nQ1xw" name="MessageSend12" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_7Ptj4GquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_2YLNMWquEeW2NMcv-nQ1xw" name="BehaviorExecSpec4" covered="_JKkugGqqEeW2NMcv-nQ1xw" finish="_-afd0mquEeW2NMcv-nQ1xw" start="_7Ptj4mquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_7Ptj4mquEeW2NMcv-nQ1xw" name="MessageRecv12" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_7Ptj4GquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Hs2aAWqvEeW2NMcv-nQ1xw" name="BehaviorExecSpec5" covered="__Ki0AGqpEeW2NMcv-nQ1xw" finish="_PddPkWqvEeW2NMcv-nQ1xw" start="_JeNp8mqvEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JeNp8mqvEeW2NMcv-nQ1xw" name="MessageRecv14" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_JeNp8GqvEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JeNp8WqvEeW2NMcv-nQ1xw" name="MessageSend14" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_JeNp8GqvEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-afd0mquEeW2NMcv-nQ1xw" name="MessageRecv13" covered="_JKkugGqqEeW2NMcv-nQ1xw" message="_-afd0GquEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PddPkWqvEeW2NMcv-nQ1xw" name="MessageSend15" covered="__Ki0AGqpEeW2NMcv-nQ1xw" message="_PddPkGqvEeW2NMcv-nQ1xw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PddPkmqvEeW2NMcv-nQ1xw" name="MessageRecv15" covered="_0l6XoGqpEeW2NMcv-nQ1xw" message="_PddPkGqvEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_WaXesGqsEeW2NMcv-nQ1xw" name="reply with search page" messageSort="reply" receiveEvent="_WagooWqsEeW2NMcv-nQ1xw" sendEvent="_WagooGqsEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_4ZwVUGqsEeW2NMcv-nQ1xw" name="send page request" receiveEvent="_4ZwVUmqsEeW2NMcv-nQ1xw" sendEvent="_4ZwVUWqsEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_92CX0GqsEeW2NMcv-nQ1xw" name="validateUser()" receiveEvent="_92CX0mqsEeW2NMcv-nQ1xw" sendEvent="_92CX0WqsEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_ZbZxUGqtEeW2NMcv-nQ1xw" name="confirm user" messageSort="reply" receiveEvent="_ZbZxUmqtEeW2NMcv-nQ1xw" sendEvent="_ZbZxUWqtEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="__VVK4GqtEeW2NMcv-nQ1xw" name="validateData()" messageSort="asynchCall" receiveEvent="__VVK4mqtEeW2NMcv-nQ1xw" sendEvent="__VVK4WqtEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_W5wegGquEeW2NMcv-nQ1xw" name="send 'endDate'" receiveEvent="_W5wegmquEeW2NMcv-nQ1xw" sendEvent="_W5wegWquEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_Z6baMGquEeW2NMcv-nQ1xw" name="validateData()" messageSort="asynchCall" receiveEvent="_Z6baMmquEeW2NMcv-nQ1xw" sendEvent="_Z6baMWquEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_7Ptj4GquEeW2NMcv-nQ1xw" name="send 'zipCode'" receiveEvent="_7Ptj4mquEeW2NMcv-nQ1xw" sendEvent="_7Ptj4WquEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_-afd0GquEeW2NMcv-nQ1xw" name="validateData()" messageSort="asynchCall" receiveEvent="_-afd0mquEeW2NMcv-nQ1xw" sendEvent="_-afd0WquEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_JeNp8GqvEeW2NMcv-nQ1xw" name="throw error and reply with error msg" messageSort="reply" receiveEvent="_JeNp8mqvEeW2NMcv-nQ1xw" sendEvent="_JeNp8WqvEeW2NMcv-nQ1xw"/>
+        <message xmi:type="uml:Message" xmi:id="_PddPkGqvEeW2NMcv-nQ1xw" name="display error message" messageSort="reply" receiveEvent="_PddPkmqvEeW2NMcv-nQ1xw" sendEvent="_PddPkWqvEeW2NMcv-nQ1xw"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_8oiiAH3IEeWG9t_wztrIiw" name="Design">
+    <packagedElement xmi:type="uml:Model" xmi:id="_YRvBgH2bEeWG9t_wztrIiw" name="packageDiagrams">
+      <packagedElement xmi:type="uml:Package" xmi:id="_eZRngH2bEeWG9t_wztrIiw" name="pkgPresentationLogic">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_5nba4H2bEeWG9t_wztrIiw">
+          <body> Bootstrap 3 HTML 5 JQuery AJAX</body>
+        </ownedComment>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_SG45wH2kEeWG9t_wztrIiw" client="_eZRngH2bEeWG9t_wztrIiw" supplier="_Ds2LsH2cEeWG9t_wztrIiw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Ds2LsH2cEeWG9t_wztrIiw" name="pkgApplicationLogic">
+        <packagedElement xmi:type="uml:Package" xmi:id="_OU2aQH2eEeWG9t_wztrIiw" name="pkgController">
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_ujgEUH2kEeWG9t_wztrIiw" client="_OU2aQH2eEeWG9t_wztrIiw" supplier="_a0fYgH2jEeWG9t_wztrIiw"/>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_xbc-gH3IEeWG9t_wztrIiw" client="_OU2aQH2eEeWG9t_wztrIiw" supplier="_CLna8H3HEeWG9t_wztrIiw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_a0fYgH2jEeWG9t_wztrIiw" name="pkgDAO">
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_vQDoUH2kEeWG9t_wztrIiw" client="_a0fYgH2jEeWG9t_wztrIiw" supplier="_igCH4H2jEeWG9t_wztrIiw"/>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_zkdSYH3IEeWG9t_wztrIiw" client="_a0fYgH2jEeWG9t_wztrIiw" supplier="_CLna8H3HEeWG9t_wztrIiw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_igCH4H2jEeWG9t_wztrIiw" name="pkgDaoService">
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_0Z6TsH3IEeWG9t_wztrIiw" client="_igCH4H2jEeWG9t_wztrIiw" supplier="_CLna8H3HEeWG9t_wztrIiw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RKrwMH2kEeWG9t_wztrIiw" client="_Ds2LsH2cEeWG9t_wztrIiw" supplier="_eZRngH2bEeWG9t_wztrIiw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_Vs1FsH2kEeWG9t_wztrIiw" client="_Ds2LsH2cEeWG9t_wztrIiw" supplier="_NC_bsH2cEeWG9t_wztrIiw"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_CLna8H3HEeWG9t_wztrIiw" name="common"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NC_bsH2cEeWG9t_wztrIiw" name="pkgDataLayerLogic">
+        <packagedElement xmi:type="uml:Package" xmi:id="_tFrQ4H2jEeWG9t_wztrIiw" name="pkgDatabase"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_Wi7AMH2kEeWG9t_wztrIiw" client="_NC_bsH2cEeWG9t_wztrIiw" supplier="_Ds2LsH2cEeWG9t_wztrIiw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_Vce8wH3JEeWG9t_wztrIiw" name="SequenceDiagrams">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_RKe_8H8lEeW8V5T9Zumpow" name="interactionPMS_sendNewsletter">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ARsBYH8mEeW8V5T9Zumpow" name="MarketingIndividual" coveredBy="_IqoXYH8oEeW8V5T9Zumpow _iDguYH8sEeW8V5T9Zumpow _nkxasH8wEeW8V5T9Zumpow _2_D6QX83EeW8V5T9Zumpow _SN0fsX86EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Bh2BsH8mEeW8V5T9Zumpow" name="Marketing Landing Page" coveredBy="_IqplgH8oEeW8V5T9Zumpow _ZUiv8H8oEeW8V5T9Zumpow _JdjMoH8pEeW8V5T9Zumpow _TRADsH8pEeW8V5T9Zumpow _gicZsH8rEeW8V5T9Zumpow _iDguYX8sEeW8V5T9Zumpow _6j9TcH8uEeW8V5T9Zumpow _ArD0kH8vEeW8V5T9Zumpow _kpwBwH81EeW8V5T9Zumpow _dnm0sX81EeW8V5T9Zumpow _y0KnIH83EeW8V5T9Zumpow _0DGfcH83EeW8V5T9Zumpow _2_D6QH83EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_CG9g8H8mEeW8V5T9Zumpow" name="Main Controller" coveredBy="_ZUjXAH8oEeW8V5T9Zumpow _JdilkH8pEeW8V5T9Zumpow _TRAqwH8pEeW8V5T9Zumpow _l7pTAH8rEeW8V5T9Zumpow _6j96gH8uEeW8V5T9Zumpow _MOOVwH8vEeW8V5T9Zumpow _mq0JUH8vEeW8V5T9Zumpow _2tAakH8vEeW8V5T9Zumpow _b1Yl8H8xEeW8V5T9Zumpow _ohoPEH8xEeW8V5T9Zumpow _Ds_0MH8yEeW8V5T9Zumpow _LAcFQH81EeW8V5T9Zumpow _bJEVsH81EeW8V5T9Zumpow _dnm0sH81EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_C6qOwH8mEeW8V5T9Zumpow" name="Marketing Controller" coveredBy="_Bg8wMX8uEeW8V5T9Zumpow _Bg8wMH8uEeW8V5T9Zumpow _MOO80H8vEeW8V5T9Zumpow _mqziQH8vEeW8V5T9Zumpow _t4EIQH8xEeW8V5T9Zumpow _DtAbQH8yEeW8V5T9Zumpow _khC5EH8yEeW8V5T9Zumpow _GMzzoH80EeW8V5T9Zumpow _VIprYH81EeW8V5T9Zumpow _bJDuoH81EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_AM1hIH8nEeW8V5T9Zumpow" name="MarketingEmailService" coveredBy="_vD3NAX8xEeW8V5T9Zumpow _vD3NAH8xEeW8V5T9Zumpow _khDgIH8yEeW8V5T9Zumpow _GMzMkH80EeW8V5T9Zumpow _zoMXAH81EeW8V5T9Zumpow _M1P1UH82EeW8V5T9Zumpow _M1QcYH82EeW8V5T9Zumpow _kYYvgH82EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Bc1wcH8nEeW8V5T9Zumpow" name="Marketing DAO" coveredBy="_u9lCAX81EeW8V5T9Zumpow _zoMXAX81EeW8V5T9Zumpow _5oMKkH81EeW8V5T9Zumpow _GrJDgH82EeW8V5T9Zumpow _HxXEsH82EeW8V5T9Zumpow _kYYIcH82EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_CUFhgH8nEeW8V5T9Zumpow" name="MarketingDBO" coveredBy="_vobV0X81EeW8V5T9Zumpow _5oMxoH81EeW8V5T9Zumpow _HxWdoH82EeW8V5T9Zumpow"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ErVokH8uEeW8V5T9Zumpow" name="Newsletter Page" coveredBy="_sGp8YH8uEeW8V5T9Zumpow _2tAakX8vEeW8V5T9Zumpow _cmg9YH8wEeW8V5T9Zumpow _nkyBwH8wEeW8V5T9Zumpow _r8wuoH8wEeW8V5T9Zumpow _r8wHkH8wEeW8V5T9Zumpow _s9qyAH8wEeW8V5T9Zumpow _PQRfkH8xEeW8V5T9Zumpow _PQSGoH8xEeW8V5T9Zumpow _ohnoAH8xEeW8V5T9Zumpow _zr8LYH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TRAqwH8pEeW8V5T9Zumpow" name="MessageRecv01" covered="_CG9g8H8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:DestructionOccurrenceSpecification" xmi:id="_zr8LYH8xEeW8V5T9Zumpow" name="DestructionOccurrenceSpecification2" covered="_ErVokH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_l7pTAH8rEeW8V5T9Zumpow" name="BehaviorExecSpec1" covered="_CG9g8H8mEeW8V5T9Zumpow" finish="_JdilkH8pEeW8V5T9Zumpow" start="_ZUjXAH8oEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_ArD0kH8vEeW8V5T9Zumpow" name="BehaviorExecSpec0Finish" covered="_Bh2BsH8mEeW8V5T9Zumpow" execution="_gicZsH8rEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Bg8wMH8uEeW8V5T9Zumpow" name="BehaviorExecSpec3" covered="_C6qOwH8mEeW8V5T9Zumpow" finish="_Bg8wMX8uEeW8V5T9Zumpow" start="_MOO80H8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MOO80H8vEeW8V5T9Zumpow" name="MessageRecv02" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_MONusH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mq0JUH8vEeW8V5T9Zumpow" name="MessageRecv03" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_mqyUIH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_sGp8YH8uEeW8V5T9Zumpow" name="BehaviorExecSpec4" covered="_ErVokH8uEeW8V5T9Zumpow" finish="_cmg9YH8wEeW8V5T9Zumpow" start="_s9qyAH8wEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_cmg9YH8wEeW8V5T9Zumpow" name="BehaviorExecSpec4Finish" covered="_ErVokH8uEeW8V5T9Zumpow" execution="_sGp8YH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_khC5EH8yEeW8V5T9Zumpow" name="MessageSend01" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_khCSAH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_y0KnIH83EeW8V5T9Zumpow" name="MessageSend02" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PQRfkH8xEeW8V5T9Zumpow" name="MessageSend03" covered="_ErVokH8uEeW8V5T9Zumpow" message="_PQQ4gH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ohoPEH8xEeW8V5T9Zumpow" name="MessageRecv04" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_ohnA8H8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_khDgIH8yEeW8V5T9Zumpow" name="MessageRecv05" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_khCSAH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_M1P1UH82EeW8V5T9Zumpow" name="MessageSend04" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_M1OnMH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TRADsH8pEeW8V5T9Zumpow" name="MessageSend05" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_vD3NAX8xEeW8V5T9Zumpow" name="BehaviorExecSpec8Finish" covered="_AM1hIH8nEeW8V5T9Zumpow" execution="_vD3NAH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_gicZsH8rEeW8V5T9Zumpow" name="BehaviorExecSpec0" covered="_Bh2BsH8mEeW8V5T9Zumpow" finish="_ArD0kH8vEeW8V5T9Zumpow" start="_iDguYX8sEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iDguYX8sEeW8V5T9Zumpow" name="MessageRecv06" covered="_Bh2BsH8mEeW8V5T9Zumpow" message="_iDfgQH8sEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Bg8wMX8uEeW8V5T9Zumpow" name="BehaviorExecSpec3Finish" covered="_C6qOwH8mEeW8V5T9Zumpow" execution="_Bg8wMH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nkxasH8wEeW8V5T9Zumpow" name="MessageSend06" covered="_ARsBYH8mEeW8V5T9Zumpow" message="_nkwzoH8wEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nkyBwH8wEeW8V5T9Zumpow" name="MessageRecv07" covered="_ErVokH8uEeW8V5T9Zumpow" message="_nkwzoH8wEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PQSGoH8xEeW8V5T9Zumpow" name="MessageRecv08" covered="_ErVokH8uEeW8V5T9Zumpow" message="_PQQ4gH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_b1Yl8H8xEeW8V5T9Zumpow" name="BehaviorExecSpec6" covered="_CG9g8H8mEeW8V5T9Zumpow" finish="_LAcFQH81EeW8V5T9Zumpow" start="_ohoPEH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zoMXAH81EeW8V5T9Zumpow" name="MessageSend07" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_zoLI4H81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zoMXAX81EeW8V5T9Zumpow" name="MessageRecv09" covered="_Bc1wcH8nEeW8V5T9Zumpow" message="_zoLI4H81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5oMKkH81EeW8V5T9Zumpow" name="MessageSend12" covered="_Bc1wcH8nEeW8V5T9Zumpow" message="_5oLjgH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_vobV0X81EeW8V5T9Zumpow" name="BehaviorExecSpec11" covered="_CUFhgH8nEeW8V5T9Zumpow" finish="_HxWdoH82EeW8V5T9Zumpow" start="_5oMxoH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HxXEsH82EeW8V5T9Zumpow" name="MessageRecv" covered="_Bc1wcH8nEeW8V5T9Zumpow" message="_HxVPgH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bJDuoH81EeW8V5T9Zumpow" name="MessageSend08" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_bJDHkH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_LAcFQH81EeW8V5T9Zumpow" name="BehaviorExecSpec6Finish" covered="_CG9g8H8mEeW8V5T9Zumpow" execution="_b1Yl8H8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2_D6QH83EeW8V5T9Zumpow" name="Message4Send" covered="_Bh2BsH8mEeW8V5T9Zumpow" message="_2_CsIH83EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2_D6QX83EeW8V5T9Zumpow" name="MessageRecv10" covered="_ARsBYH8mEeW8V5T9Zumpow" message="_2_CsIH83EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IqoXYH8oEeW8V5T9Zumpow" name="MessageSend" covered="_ARsBYH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_0DGfcH83EeW8V5T9Zumpow" name="Message2Send3" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iDguYH8sEeW8V5T9Zumpow" name="MessageSend3" covered="_ARsBYH8mEeW8V5T9Zumpow" message="_iDfgQH8sEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6j9TcH8uEeW8V5T9Zumpow" name="MessageSend4" covered="_Bh2BsH8mEeW8V5T9Zumpow" message="_6j8sYH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6j96gH8uEeW8V5T9Zumpow" name="MessageRecv12" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_6j8sYH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mqziQH8vEeW8V5T9Zumpow" name="MessageSend6" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_mqyUIH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_s9qyAH8wEeW8V5T9Zumpow" name="BehaviorExecSpec4Start" covered="_ErVokH8uEeW8V5T9Zumpow" execution="_sGp8YH8uEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2tAakH8vEeW8V5T9Zumpow" name="MessageSend7" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_2s_zgH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2tAakX8vEeW8V5T9Zumpow" name="MessageRecv14" covered="_ErVokH8uEeW8V5T9Zumpow" message="_2s_zgH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ohnoAH8xEeW8V5T9Zumpow" name="MessageSend10" covered="_ErVokH8uEeW8V5T9Zumpow" message="_ohnA8H8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Ds_0MH8yEeW8V5T9Zumpow" name="MessageSend11" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_Ds_NIH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_GrJDgH82EeW8V5T9Zumpow" name="BehaviorExecSpec10Start" covered="_Bc1wcH8nEeW8V5T9Zumpow" execution="_u9lCAX81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_u9lCAX81EeW8V5T9Zumpow" name="BehaviorExecSpec10" covered="_Bc1wcH8nEeW8V5T9Zumpow" finish="_kYYIcH82EeW8V5T9Zumpow" start="_GrJDgH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HxWdoH82EeW8V5T9Zumpow" name="Message2Send1" covered="_CUFhgH8nEeW8V5T9Zumpow" message="_HxVPgH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kYYvgH82EeW8V5T9Zumpow" name="Message2Recv2" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_kYW6UH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_M1QcYH82EeW8V5T9Zumpow" name="MessageRecv15" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_M1OnMH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bJEVsH81EeW8V5T9Zumpow" name="Message0Recv0" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_bJDHkH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dnm0sH81EeW8V5T9Zumpow" name="Message1Send" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_dnlmkH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IqplgH8oEeW8V5T9Zumpow" name="MessageRecv16" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MOOVwH8vEeW8V5T9Zumpow" name="MessageSend5" covered="_CG9g8H8mEeW8V5T9Zumpow" message="_MONusH8vEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_r8wHkH8wEeW8V5T9Zumpow" name="BehaviorExecSpec5" covered="_ErVokH8uEeW8V5T9Zumpow" finish="_r8wuoH8wEeW8V5T9Zumpow" start="_nkyBwH8wEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_t4EIQH8xEeW8V5T9Zumpow" name="BehaviorExecSpec7" covered="_C6qOwH8mEeW8V5T9Zumpow" finish="_VIprYH81EeW8V5T9Zumpow" start="_DtAbQH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_DtAbQH8yEeW8V5T9Zumpow" name="MessageRecv11" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_Ds_NIH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_vD3NAH8xEeW8V5T9Zumpow" name="BehaviorExecSpec8" covered="_AM1hIH8nEeW8V5T9Zumpow" finish="_vD3NAX8xEeW8V5T9Zumpow" start="_khDgIH8yEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_r8wuoH8wEeW8V5T9Zumpow" name="BehaviorExecSpec5Finish" covered="_ErVokH8uEeW8V5T9Zumpow" execution="_r8wHkH8wEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5oMxoH81EeW8V5T9Zumpow" name="MessageRecv17" covered="_CUFhgH8nEeW8V5T9Zumpow" message="_5oLjgH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kYYIcH82EeW8V5T9Zumpow" name="Message2Send2" covered="_Bc1wcH8nEeW8V5T9Zumpow" message="_kYW6UH82EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_GMzMkH80EeW8V5T9Zumpow" name="MessageSend13" covered="_AM1hIH8nEeW8V5T9Zumpow" message="_GMylgH80EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_GMzzoH80EeW8V5T9Zumpow" name="MessageRecv13" covered="_C6qOwH8mEeW8V5T9Zumpow" message="_GMylgH80EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_VIprYH81EeW8V5T9Zumpow" name="BehaviorExecSpec7Finish" covered="_C6qOwH8mEeW8V5T9Zumpow" execution="_t4EIQH8xEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_kpwBwH81EeW8V5T9Zumpow" name="BehaviorExecSpec9" covered="_Bh2BsH8mEeW8V5T9Zumpow" finish="_2_D6QH83EeW8V5T9Zumpow" start="_dnm0sX81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ZUjXAH8oEeW8V5T9Zumpow" name="MessageRecv18" covered="_CG9g8H8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ZUiv8H8oEeW8V5T9Zumpow" name="MessageSend0" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JdjMoH8pEeW8V5T9Zumpow" name="MessageRecv19" covered="_Bh2BsH8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dnm0sX81EeW8V5T9Zumpow" name="MessageRecv20" covered="_Bh2BsH8mEeW8V5T9Zumpow" message="_dnlmkH81EeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JdilkH8pEeW8V5T9Zumpow" name="MessageSend1" covered="_CG9g8H8mEeW8V5T9Zumpow"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_SN0fsX86EeW8V5T9Zumpow" name="BehaviorExecSpec12" covered="_ARsBYH8mEeW8V5T9Zumpow" finish="_2_D6QX83EeW8V5T9Zumpow" start="_iDguYH8sEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_iDfgQH8sEeW8V5T9Zumpow" name="1:click(loadNewsLetterPromotionalPage)" receiveEvent="_iDguYX8sEeW8V5T9Zumpow" sendEvent="_iDguYH8sEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_6j8sYH8uEeW8V5T9Zumpow" name="2:request(NewsletterPromotionalPage)" receiveEvent="_6j96gH8uEeW8V5T9Zumpow" sendEvent="_6j9TcH8uEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_MONusH8vEeW8V5T9Zumpow" name="3:submit(requestNewsletterPromotionalPage)" receiveEvent="_MOO80H8vEeW8V5T9Zumpow" sendEvent="_MOOVwH8vEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_mqyUIH8vEeW8V5T9Zumpow" name="4:reply(NewsletterPromotionalTemplate)" messageSort="reply" receiveEvent="_mq0JUH8vEeW8V5T9Zumpow" sendEvent="_mqziQH8vEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_2s_zgH8vEeW8V5T9Zumpow" name="5:display(NewsletterPromotionalPage)" messageSort="reply" receiveEvent="_2tAakX8vEeW8V5T9Zumpow" sendEvent="_2tAakH8vEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_nkwzoH8wEeW8V5T9Zumpow" name="6:click(sendNewsLetterPromotional)" receiveEvent="_nkyBwH8wEeW8V5T9Zumpow" sendEvent="_nkxasH8wEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_PQQ4gH8xEeW8V5T9Zumpow" name="7:jsNewsLtrPromoValidate(Recepient, Content)" messageSort="asynchCall" receiveEvent="_PQSGoH8xEeW8V5T9Zumpow" sendEvent="_PQRfkH8xEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_ohnA8H8xEeW8V5T9Zumpow" name="8:post(NewsletterContentAndRecepient)" receiveEvent="_ohoPEH8xEeW8V5T9Zumpow" sendEvent="_ohnoAH8xEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_Ds_NIH8yEeW8V5T9Zumpow" name="9:submit(sendNewsLetter, content, Recepient))" receiveEvent="_DtAbQH8yEeW8V5T9Zumpow" sendEvent="_Ds_0MH8yEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_khCSAH8yEeW8V5T9Zumpow" name="10:send(Email, Recepient)" receiveEvent="_khDgIH8yEeW8V5T9Zumpow" sendEvent="_khC5EH8yEeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_GMylgH80EeW8V5T9Zumpow" name="15:finalEmailSendingStatus" messageSort="reply" receiveEvent="_GMzzoH80EeW8V5T9Zumpow" sendEvent="_GMzMkH80EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_bJDHkH81EeW8V5T9Zumpow" name="16:oadMarketingLanding(NewsletterConfirmation)" messageSort="reply" receiveEvent="_bJEVsH81EeW8V5T9Zumpow" sendEvent="_bJDuoH81EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_dnlmkH81EeW8V5T9Zumpow" name="17:forwardMarketingLandingPage(Confirmation)" messageSort="reply" receiveEvent="_dnm0sX81EeW8V5T9Zumpow" sendEvent="_dnm0sH81EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_zoLI4H81EeW8V5T9Zumpow" name="11:store(Email,Recepient)" receiveEvent="_zoMXAX81EeW8V5T9Zumpow" sendEvent="_zoMXAH81EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_5oLjgH81EeW8V5T9Zumpow" name="12-b:updateTable(MarketingNewsletter)" receiveEvent="_5oMxoH81EeW8V5T9Zumpow" sendEvent="_5oMKkH81EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_HxVPgH82EeW8V5T9Zumpow" name="13:storeConfirmation" messageSort="reply" receiveEvent="_HxXEsH82EeW8V5T9Zumpow" sendEvent="_HxWdoH82EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_M1OnMH82EeW8V5T9Zumpow" name="12-a:sendEmailOneByOne(Email,Recepient)" messageSort="asynchCall" receiveEvent="_M1QcYH82EeW8V5T9Zumpow" sendEvent="_M1P1UH82EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_kYW6UH82EeW8V5T9Zumpow" name="14:daoConfirmation" messageSort="reply" receiveEvent="_kYYvgH82EeW8V5T9Zumpow" sendEvent="_kYYIcH82EeW8V5T9Zumpow"/>
+        <message xmi:type="uml:Message" xmi:id="_2_CsIH83EeW8V5T9Zumpow" name="18:endOfUseCase" messageSort="reply" receiveEvent="_2_D6QX83EeW8V5T9Zumpow" sendEvent="_2_D6QH83EeW8V5T9Zumpow"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_fDghYH3JEeWG9t_wztrIiw" name="DeploymentDiagrams"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_mtfKgH3JEeWG9t_wztrIiw" name="ArchitectureDiagrams"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="__L4MAH3JEeWG9t_wztrIiw" name="Facade"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_DJf4IH3KEeWG9t_wztrIiw" name="Business"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_g6hQ4H3KEeWG9t_wztrIiw" name="StateDiagrams"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_nuuTIH3LEeWG9t_wztrIiw" name="ERDiagram"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_1Ajj4ICwEeWvHuc9dFYhbw" name="classDiagrams">
+      <packagedElement xmi:type="uml:Association" xmi:id="_1Ajj4YCwEeWvHuc9dFYhbw" memberEnd="_1Ajj4oCwEeWvHuc9dFYhbw _1AkLQICwEeWvHuc9dFYhbw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_1Ajj4oCwEeWvHuc9dFYhbw" name="activities" type="_1AkLOoCwEeWvHuc9dFYhbw" association="_1Ajj4YCwEeWvHuc9dFYhbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1Ajj44CwEeWvHuc9dFYhbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1Ajj5ICwEeWvHuc9dFYhbw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_1Ajj5YCwEeWvHuc9dFYhbw" memberEnd="_1Ajj5oCwEeWvHuc9dFYhbw _1AkLQ4CwEeWvHuc9dFYhbw">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_1Ajj5oCwEeWvHuc9dFYhbw" name="marketeingUserProfile" type="_1AkLOoCwEeWvHuc9dFYhbw" association="_1Ajj5YCwEeWvHuc9dFYhbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1Ajj54CwEeWvHuc9dFYhbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1Ajj6ICwEeWvHuc9dFYhbw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_1Ajj6YCwEeWvHuc9dFYhbw" client="_1Ajj8ICwEeWvHuc9dFYhbw" supplier="_1AkK_YCwEeWvHuc9dFYhbw"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_1Ajj7oCwEeWvHuc9dFYhbw" name="pkgPresentationLayer">
+        <packagedElement xmi:type="uml:Class" xmi:id="_1Ajj8ICwEeWvHuc9dFYhbw" name="marketingNewsletterPromotional">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_1Ajj8YCwEeWvHuc9dFYhbw" name="recepients" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_1Ajj8oCwEeWvHuc9dFYhbw" name="recepients" value="All subscribed"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_1Ajj84CwEeWvHuc9dFYhbw" name="content" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_1Ajj9ICwEeWvHuc9dFYhbw" name="locationAddress" value="&quot;Create your newsletter and promotional email content here&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_F89NQID2EeWdm4jYDpJx4w" name="emailSubject" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_IhMaEIFCEeWIRL7rCH5PDQ" name="pageTemplate" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_lYKMEIFHEeWIRL7rCH5PDQ" name="marketingController" type="_1AkK_YCwEeWvHuc9dFYhbw"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkK84CwEeWvHuc9dFYhbw" name="loadNewsletterPromotionalPage">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_1AkK9oCwEeWvHuc9dFYhbw" name="userAuthHash">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_JTR8kIC5EeWvHuc9dFYhbw" name="jsValidateParams"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_HzgpwID3EeWdm4jYDpJx4w" name="sendNewsletterPromotional" visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_HzgpwYD3EeWdm4jYDpJx4w" name="recepients">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_HzgpwoD3EeWdm4jYDpJx4w" name="content">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hzgpw4D3EeWdm4jYDpJx4w" name="emailSubject">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ccCNUIFBEeWIRL7rCH5PDQ" name="displayNewsletterPromotionalPage" concurrency="concurrent"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aulQMIFFEeWIRL7rCH5PDQ" name="forwardMarketingLandingPage">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ewQV4IFFEeWIRL7rCH5PDQ" name="newsletterCOnfirmation"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_1AkK-ICwEeWvHuc9dFYhbw" name="invokes" client="_1Ajj7oCwEeWvHuc9dFYhbw" supplier="_1AkK-4CwEeWvHuc9dFYhbw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_1AkK-YCwEeWvHuc9dFYhbw" name="pkgBusinessLayer">
+        <packagedElement xmi:type="uml:Package" xmi:id="_1AkK-4CwEeWvHuc9dFYhbw" name="pkgController">
+          <packagedElement xmi:type="uml:Class" xmi:id="_1AkK_YCwEeWvHuc9dFYhbw" name="MarketingController">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3U8CEIFEEeWIRL7rCH5PDQ" name="newsletterandPromotional" type="_1AkLS4CwEeWvHuc9dFYhbw" association="_3U9QMIFEEeWIRL7rCH5PDQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3U8CEYFEEeWIRL7rCH5PDQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3U8CEoFEEeWIRL7rCH5PDQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_HOAsMIFIEeWIRL7rCH5PDQ" name="marketingService" visibility="private" type="_1AkLS4CwEeWvHuc9dFYhbw"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkK94CwEeWvHuc9dFYhbw" name="validatePromotionalEmailParams" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_oOqzgIC1EeWvHuc9dFYhbw" name="recepients">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_b9TTEIC2EeWvHuc9dFYhbw" name="content">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_RWOyoID2EeWdm4jYDpJx4w" name="emailSubject">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_ksBjAIFAEeWIRL7rCH5PDQ" name="requestNewsletterPromotionalPage" concurrency="concurrent"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_iV68YIFCEeWIRL7rCH5PDQ" name="replyNewsletterPromotionalPage"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_vKYGUIFCEeWIRL7rCH5PDQ" name="loadMarketingLandingPage">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_-i8LwIFCEeWIRL7rCH5PDQ" name="newsletterSentConfirmation">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3U9QMIFEEeWIRL7rCH5PDQ" memberEnd="_3U9QMYFEEeWIRL7rCH5PDQ _3U8CEIFEEeWIRL7rCH5PDQ">
+            <name xsi:nil="true"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_3U9QMYFEEeWIRL7rCH5PDQ" name="marketingController" type="_1AkK_YCwEeWvHuc9dFYhbw" association="_3U9QMIFEEeWIRL7rCH5PDQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3U9QMoFEEeWIRL7rCH5PDQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3U9QM4FEEeWIRL7rCH5PDQ" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_1AkLB4CwEeWvHuc9dFYhbw" name="Common">
+          <packagedElement xmi:type="uml:Class" xmi:id="_1AkLCYCwEeWvHuc9dFYhbw" name="User">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLCoCwEeWvHuc9dFYhbw" name="name" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLC4CwEeWvHuc9dFYhbw" name="address" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLDICwEeWvHuc9dFYhbw" name="identification" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLDYCwEeWvHuc9dFYhbw" name="user_name" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLDoCwEeWvHuc9dFYhbw" name="password" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLD4CwEeWvHuc9dFYhbw" name="balance" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLEICwEeWvHuc9dFYhbw" name="securityQOne" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLEYCwEeWvHuc9dFYhbw" name="securityQTwo" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLEoCwEeWvHuc9dFYhbw" name="securityQThree" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_kGWfkIE_EeWIRL7rCH5PDQ" name="newsletter" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            </ownedAttribute>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLFYCwEeWvHuc9dFYhbw" name="getUserName"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLFoCwEeWvHuc9dFYhbw" name="getPassword"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLF4CwEeWvHuc9dFYhbw" name="getBalance"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLGICwEeWvHuc9dFYhbw" name="getSecQOne"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLGYCwEeWvHuc9dFYhbw" name="getSecQTwo"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLGoCwEeWvHuc9dFYhbw" name="getSecQThree"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1AkLMYCwEeWvHuc9dFYhbw" name="MarketingPost">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLMoCwEeWvHuc9dFYhbw" name="content" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLNICwEeWvHuc9dFYhbw" name="timeNow" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLNYCwEeWvHuc9dFYhbw" name="mailService" visibility="private" type="_ulVjwIE7EeWIRL7rCH5PDQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLPICwEeWvHuc9dFYhbw" name="recepients" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_IVI34IE-EeWIRL7rCH5PDQ" name="subject" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_lu1cIIFGEeWIRL7rCH5PDQ" name="newsletterDAO" visibility="private" type="_0s0lwIFDEeWIRL7rCH5PDQ"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLN4CwEeWvHuc9dFYhbw" name="sendEmail" concurrency="concurrent"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLOICwEeWvHuc9dFYhbw" name="formatEmail" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_cjwQ0IE_EeWIRL7rCH5PDQ" name="content">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLOYCwEeWvHuc9dFYhbw" name="loadRecipients" concurrency="concurrent"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLFICwEeWvHuc9dFYhbw" name="loadSubscribers" concurrency="concurrent"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="__OopkIFBEeWIRL7rCH5PDQ" name="storeLog"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1AkLOoCwEeWvHuc9dFYhbw" name="MarketingUserProfile" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLO4CwEeWvHuc9dFYhbw" name="postTitles" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLPYCwEeWvHuc9dFYhbw" name="latestPost" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLP4CwEeWvHuc9dFYhbw" name="marketerID" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLQICwEeWvHuc9dFYhbw" name="posts" visibility="private" type="_1AkLMYCwEeWvHuc9dFYhbw" aggregation="shared" association="_1Ajj4YCwEeWvHuc9dFYhbw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1AkLQYCwEeWvHuc9dFYhbw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1AkLQoCwEeWvHuc9dFYhbw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLQ4CwEeWvHuc9dFYhbw" name="user" visibility="private" type="_1AkLCYCwEeWvHuc9dFYhbw" association="_1Ajj5YCwEeWvHuc9dFYhbw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1AkLRICwEeWvHuc9dFYhbw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1AkLRYCwEeWvHuc9dFYhbw" value="1"/>
+            </ownedAttribute>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLE4CwEeWvHuc9dFYhbw" name="retrievePosts"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_egu-EIFDEeWIRL7rCH5PDQ" name="retrieveNotifications"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1AkLS4CwEeWvHuc9dFYhbw" name="NewsletterandPromotional">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLTYCwEeWvHuc9dFYhbw" name="newMarketingPost" visibility="private" type="_1AkLMYCwEeWvHuc9dFYhbw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLToCwEeWvHuc9dFYhbw" name="NewsletterPromotionalTemplate" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1AkLT4CwEeWvHuc9dFYhbw" name="marketingpost" type="_1AkLMYCwEeWvHuc9dFYhbw" association="_1AkLWoCwEeWvHuc9dFYhbw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1AkLUICwEeWvHuc9dFYhbw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1AkLUYCwEeWvHuc9dFYhbw" value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_lHhr4IFDEeWIRL7rCH5PDQ" name="marketingLandingPage" type="_EXF7sIFDEeWIRL7rCH5PDQ" association="_lHi6AIFDEeWIRL7rCH5PDQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHhr4YFDEeWIRL7rCH5PDQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHhr4oFDEeWIRL7rCH5PDQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_wAjuIIFHEeWIRL7rCH5PDQ" name="marketingLandingPageLoader" type="_EXF7sIFDEeWIRL7rCH5PDQ"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1AkLRoCwEeWvHuc9dFYhbw" name="sendNewsletter" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_h4ybcID1EeWdm4jYDpJx4w" name="recepient">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_wC37kID1EeWdm4jYDpJx4w" name="emailContent">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-PkOsIFAEeWIRL7rCH5PDQ" name="replyNewsletterPromotionalTemplate"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_BtjtoIFDEeWIRL7rCH5PDQ" name="loadMarketingLandingPage">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_UNIVYIFFEeWIRL7rCH5PDQ" name="newsletterConfirmation">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_1AkLWoCwEeWvHuc9dFYhbw" memberEnd="_1AkLW4CwEeWvHuc9dFYhbw _1AkLT4CwEeWvHuc9dFYhbw">
+            <name xsi:nil="true"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_1AkLW4CwEeWvHuc9dFYhbw" name="newsletterPromotional" type="_1AkLS4CwEeWvHuc9dFYhbw" association="_1AkLWoCwEeWvHuc9dFYhbw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1AkLXICwEeWvHuc9dFYhbw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1AkLXYCwEeWvHuc9dFYhbw" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_ulVjwIE7EeWIRL7rCH5PDQ" name="mailServer">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_6jEhEIE7EeWIRL7rCH5PDQ" name="serviceTypes" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EMap"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_61oQsIE7EeWIRL7rCH5PDQ" name="recipient" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_7HZ9MIE7EeWIRL7rCH5PDQ" name="mailSubject" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_uQ89QIE9EeWIRL7rCH5PDQ" name="mailBody" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_qh-UoIE-EeWIRL7rCH5PDQ" name="isBusy" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            </ownedAttribute>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_2pm8MIE7EeWIRL7rCH5PDQ" name="sendEmail"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_28hRIIE7EeWIRL7rCH5PDQ" name="isFailed"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_3jSWMIE7EeWIRL7rCH5PDQ" name="killService"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_BFIqcIE9EeWIRL7rCH5PDQ" name="sendEmail" client="_1AkLMYCwEeWvHuc9dFYhbw" supplier="_ulVjwIE7EeWIRL7rCH5PDQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_DVYj4IE_EeWIRL7rCH5PDQ" name="getSubscribedUsers" client="_1AkLMYCwEeWvHuc9dFYhbw" supplier="_1AkLCYCwEeWvHuc9dFYhbw"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_zVcOAIFBEeWIRL7rCH5PDQ" name="Marketing DAO">
+            <packagedElement xmi:type="uml:Class" xmi:id="_0s0lwIFDEeWIRL7rCH5PDQ" name="MarketingDAO">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_XXrbQIFEEeWIRL7rCH5PDQ" name="postContent" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_Xr70AIFEEeWIRL7rCH5PDQ" name="handleDB" visibility="private" type="_0_4rsIFDEeWIRL7rCH5PDQ"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_0ay6QIFGEeWIRL7rCH5PDQ" name="recipients">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1QPUgIFGEeWIRL7rCH5PDQ" name="subject">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_V83DEIFEEeWIRL7rCH5PDQ" name="store"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-AMuQIFGEeWIRL7rCH5PDQ" name="daoConfirmation"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Dependency" xmi:id="_TEpf0IFEEeWIRL7rCH5PDQ" client="_zVcOAIFBEeWIRL7rCH5PDQ" supplier="_2oQpoIFBEeWIRL7rCH5PDQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_2oQpoIFBEeWIRL7rCH5PDQ" name="Marketing DBO">
+            <packagedElement xmi:type="uml:Class" xmi:id="_0_4rsIFDEeWIRL7rCH5PDQ" name="MarketingDBO">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_WxHxkIFEEeWIRL7rCH5PDQ" name="postTitles" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_XGfkoIFEEeWIRL7rCH5PDQ" name="recepients" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_EW38cIFHEeWIRL7rCH5PDQ" name="content">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_VqQQIIFEEeWIRL7rCH5PDQ" name="updatePostsTable">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oXLpUIFEEeWIRL7rCH5PDQ" name="recepient">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_rSqjAIFEEeWIRL7rCH5PDQ" name="subject">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_tYXEMIFEEeWIRL7rCH5PDQ" name="content">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_rd00sIFFEeWIRL7rCH5PDQ" name="loadPosts"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_VTec8IFGEeWIRL7rCH5PDQ" name="loadNotifications"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_XWyYgIFGEeWIRL7rCH5PDQ" name="postNotifications"/>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_EXF7sIFDEeWIRL7rCH5PDQ" name="MarketingLandingPage">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Ct7MMIFIEeWIRL7rCH5PDQ" name="template" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_lHi6AIFDEeWIRL7rCH5PDQ" memberEnd="_lHi6AYFDEeWIRL7rCH5PDQ _lHhr4IFDEeWIRL7rCH5PDQ">
+            <name xsi:nil="true"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_lHi6AYFDEeWIRL7rCH5PDQ" name="newsletterandPromotional" type="_1AkLS4CwEeWvHuc9dFYhbw" association="_lHi6AIFDEeWIRL7rCH5PDQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHi6AoFDEeWIRL7rCH5PDQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHi6A4FDEeWIRL7rCH5PDQ" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_NU5HsIFEEeWIRL7rCH5PDQ" client="_1AkLMYCwEeWvHuc9dFYhbw" supplier="_zVcOAIFBEeWIRL7rCH5PDQ"/>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_DJoYIIFFEeWIRL7rCH5PDQ" client="_1AkLOoCwEeWvHuc9dFYhbw" supplier="_zVcOAIFBEeWIRL7rCH5PDQ"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ppB-4mqfEeW2NMcv-nQ1xw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ppn0wGqfEeW2NMcv-nQ1xw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_sYse0YZLEeKyw49uR6nx3g"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>
