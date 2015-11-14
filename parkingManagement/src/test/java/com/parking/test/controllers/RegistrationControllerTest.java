@@ -1,4 +1,4 @@
-package com.parking.test.registration;
+package com.parking.test.controllers;
 
 public class RegistrationControllerTest {
 

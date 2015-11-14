@@ -8,45 +8,37 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.parking.Model.Domain.BillingInfo;
 
- 
-
-
 @Controller
 @RequestMapping("/billing")
 public class BillingController {
-	
-	//@Autowired
-	//BillingService billingService;
-	
-	@RequestMapping( value="/BillingPage", method=RequestMethod.GET )
-    public ModelAndView getBillingPage( Model model ) {	        
-        return new ModelAndView( "Billing" );
-    }
-	@RequestMapping( value="/all", method=RequestMethod.GET )
-  public String getAll(){  
-		
+
+	// @Autowired
+	// BillingService billingService;
+
+	@RequestMapping(value = "/BillingPage", method = RequestMethod.GET)
+	public ModelAndView getBillingPage(Model model) {
+		return new ModelAndView("Billing");
+	}
+
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public String getAll() {
+
 		return "";
-	  
-  }
-	@RequestMapping( value="/paycc", method=RequestMethod.POST )
-	 public String payCreditCard(BillingInfo info){
-		  
-		  return "";
-		  
-	  }
-	@RequestMapping( value="/paycheck", method=RequestMethod.POST )
-	 public String payEcheck(BillingInfo info){
-		  
-		
-		
-		
-		
+
+	}
+
+	@RequestMapping(value = "/paycc", method = RequestMethod.POST)
+	public String payCreditCard(BillingInfo info) {
+
 		return "";
-		  
-	
-	
-	
-	
+
+	}
+
+	@RequestMapping(value = "/paycheck", method = RequestMethod.POST)
+	public String payEcheck(BillingInfo info) {
+
+		return "";
+
 	}
 
 }

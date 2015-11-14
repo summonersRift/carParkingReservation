@@ -26,15 +26,15 @@ import com.parking.common.LoginRequest;
  
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/facility")
 @SessionAttributes("user")
-public class AdminController {
+public class FacilityController {
 
 	@Autowired
 	UserService adminService;
 
 	@RequestMapping(value = "/FacilityPage", method = RequestMethod.GET)
-	public ModelAndView getIncidentsPage(Model model) {
+	public ModelAndView getFacilityPage(Model model) {
 		return new ModelAndView("Facility");
 	}
 
@@ -140,4 +140,40 @@ public class AdminController {
 		return new ArrayList<User>();
 	}
 
+	
+	
+	//------------Facility portion-------------------------
+	/**
+	 * 
+	 */
+	public void AddFacility() { 
+		// TODO Auto-generated method
+	 }
+
+	/**
+	 * 
+	 */
+	public void getAllFacilities() { 
+		// TODO Auto-generated method
+	 }
+
+	/**
+	 * 
+	 * @param facilityID 
+	 */
+	public void UpdateFacility(Integer facilityID) { 
+		// TODO Auto-generated method
+	 }
+
+	/**
+	 * 
+	 * @param facilityID 
+	 */
+	public void GetFacility(Integer facilityID) { 
+		// TODO Auto-generated method
+	 } 
+	
+	
+	
+	
 }
