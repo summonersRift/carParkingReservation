@@ -32,13 +32,8 @@
 				id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="true">
 				Miami <span class="caret"></span>
-			</button>
-
-
-
-		</div>
-
-
+			</button> 
+		</div> 
 		<button type="button" class="btn btn-success" aria-label="Left Align">
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			Search
