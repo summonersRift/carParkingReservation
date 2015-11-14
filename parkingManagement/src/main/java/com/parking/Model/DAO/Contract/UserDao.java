@@ -6,4 +6,6 @@ public interface UserDao {
 
 	User getbyId(Long userId);
 
+	User signIn(String userName, String password);
+
 }

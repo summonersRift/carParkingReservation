@@ -2,10 +2,10 @@
 
 <div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 <div class="list-group" id="sidebarList">
-	<ul class="sidebar-nav">
+	<ul class="sidebar-nav"> 
 		<li class="sidebar-brand">
-			<a href="#Report"  id="report" >Report Page</a>
-		</li>
+			<a href=AccountMgt id ="accountMgt">Acct Management</a>
+		</li> 
 		<li class="sidebar-brand">
 			<a href="#Billing" id ="billing"> Billing Info </a>
 		</li>
@@ -13,24 +13,14 @@
 			<a href="#Incidents" id="incidents"> Incidents </a>
 		</li>
 		<li class="sidebar-brand">
-			<a href="#Reviews" id="reviews"> Reviews </a>
-		</li>
-		<li class="sidebar-brand">
-			<a href="#History" id="history"> History </a>
-		</li>
-		<li class="sidebar-brand">
-			<a href="#NetworkMgt" id="network">Network </a>
-		</li>
-		<li class="sidebar-brand">
-			<a href="#ParkingLot" id="parkingLot"> Emergency </a>
-		</li>
+			<a href="#Marketing" id="marketing"> Marketing </a>
+		</li> 
 		<li class="sidebar-brand">
 			<a href="#Facility" id="facility"> Facility </a>
 		</li>
 		<li class="sidebar-brand">
 			<a href="#Reservation" id="reservation"> Reservation </a>
 		</li>
-			
 	</ul>
 </div>
 </div>
@@ -38,39 +28,32 @@
 
 <script type="text/javascript">
 
+function hideAll(){
+	
+	$('#Billing-PageDiv').hide();
+	$('#Incidents-PageDiv').hide();        
+	$('#Marketing-PageDiv').hide(); 
+    $('#AccountMgt-PageDiv').hide(); 
+    $('#Reservation-PageDiv').hide();
+	$('#Facility-PageDiv').hide();
+	
+}
+
 $(document).ready(function() {
 	
-	$.ajax({
-	       type: "GET",
-	       url: "report/ReportPage",
-	       success: function(response) {
-	           $("#Report-PageDiv").html( response );
-	           $("#bankPaymentForm").hide();
-	           
-	       }
-	   });
-    
 
 	
-$("#report").click(function() {
+$("#marketing").click(function() {
 	//alert('clicked on report worked');
 	$.ajax({
        type: "GET",
-       url: "report/ReportPage",
+       url: "marketing/MarketingPage",
        success: function(response) {
-           $("#Report-PageDiv").html( response );
+           $("#Marketing-PageDiv").html( response );
        }
    });
-	
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Report-PageDiv').show();
+	hideAll();
+	$('#Marketing-PageDiv').show();
 	
 });
 
@@ -85,16 +68,9 @@ $("#billing").click(function() {
        }
    });
 	
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
+	hideAll();
 	$('#Billing-PageDiv').show();
-	$('#Network-PageDiv').hide();
-	//$('#paymentbox').show();
+	 
 });
 
 $("#incidents").click(function() {
@@ -115,70 +91,18 @@ $("#incidents").click(function() {
        }
    });
 		
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#Billing-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
+	hideAll();
 	$('#Incidents-PageDiv').show();
-});
-
-$("#reviews").click(function() {
-	//alert('clicked on report worked');
-	
+}); 
+ 
+//parkingManagement/AccountMgt
+$("#accountMgt").click(function() {
+	 alert('clicked on account mgt worked'); 
 	$.ajax({
        type: "GET",
-       url: "reviews/ReviewsPage",
+       url: "user/AccountMgtPage",
        success: function(response) {
-           $("#Reviews-PageDiv").html( response );
-       }
-   });
-			
-	$('#History-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
-	$('#Reviews-PageDiv').show();
-});
-
-$("#history").click(function() {
-	//alert('clicked on report worked');
-	
-	$.ajax({
-       type: "GET",
-       url: "history/HistoryPage",
-       success: function(response) {
-           $("#History-PageDiv").html( response );
-       }
-   });
-
-	$('#Report-PageDiv').hide();
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
-	$('#History-PageDiv').show();
-});
-
-$("#network").click(function() {
-	//alert('clicked on network worked'); 
-	$.ajax({
-       type: "GET",
-       url: "networkmanagement/NetworkPage",
-       success: function(response) {
-           $("#Network-PageDiv").html( response );
-           
-
+           $("#AccountMgt-PageDiv").html( response );  
            $('#networkMgtTable').DataTable( {
                "paging":   false,
                "ordering": false,
@@ -187,45 +111,17 @@ $("#network").click(function() {
        }
    });
 
-	$('#Report-PageDiv').hide();
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();	
-	$('#History-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
-	$('#Network-PageDiv').show();
+	hideAll();
+	$('#AccountMgt-PageDiv').show();
 	
 });
 
-$("#parkingLot").click(function() {
-	//alert('clicked on report worked');
-	$.ajax({
-       type: "GET",
-       url: "report/ReportPage",
-       success: function(response) {
-           $("#ParkingLot-PageDiv").html( response );
-       }
-   });
-	
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
-	$('#ParkingLot-PageDiv').show();
-	
-});
-
+ 
 $("#facility").click(function() {
 	//alert('clicked on report worked');
 	$.ajax({
        type: "GET",
-       url: "admin/FacilityPage",
+       url: "facility/FacilityPage",
        success: function(response) {
            $("#Facility-PageDiv").html( response );
            
@@ -238,14 +134,7 @@ $("#facility").click(function() {
        }
    });
 	
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Reservation-PageDiv').hide();
+	hideAll();
 	$('#Facility-PageDiv').show();
 	
 });
@@ -265,20 +154,11 @@ $("#reservation").click(function() {
            } );
            
        }
-   });
-	
+   }); 
 	
 		//$('#datetimepicker1').datetimepicker();
 	
-	
-	$('#Billing-PageDiv').hide();
-	$('#Incidents-PageDiv').hide();
-	$('#Reviews-PageDiv').hide();
-	$('#History-PageDiv').hide();
-	$('#Network-PageDiv').hide();
-	$('#Report-PageDiv').hide();
-	$('#ParkingLot-PageDiv').hide();
-	$('#Facility-PageDiv').hide();
+	hideAll();
 	$('#Reservation-PageDiv').show();
 	
 	
@@ -287,6 +167,8 @@ $("#reservation").click(function() {
 
 
 } );
+
+
 
 </script>
 

@@ -71,42 +71,29 @@
 	<div id="subViewDiv"></div>
 
 	<!-- Ends SideBar -->
-
-
-	<!-- Report Page -->
-	<div id="Report-PageDiv"></div>
-	<!-- Ends Report Page -->
-
-	<!-- Report Page -->
+ 
+	<!-- billing Page -->
 	<div id="Billing-PageDiv"></div>
 	<!-- Ends Report Page -->
 
-	<!-- Report Page -->
+	<!-- incidents Page -->
 	<div id="Incidents-PageDiv"></div>
 	<!-- Ends Report Page -->
 
-	<!-- Report Page -->
-	<div id="Reviews-PageDiv"></div>
-	<!-- Ends Report Page -->
-
-	<!-- Report Page -->
-	<div id="History-PageDiv"></div>
+	<!-- Marketing Page -->
+	<div id="Marketing-PageDiv"></div>
 	<!-- Ends Report Page --> 
-    
-    <!-- network Page --> 
-	<div id="Network-PageDiv"></div>
+	    
+	<!-- Reservation Page --> 
+	<div id="#Reservation-PageDiv"></div>
 	<!-- Ends network Page -->
 	
-	<!-- network Page --> 
-	<div id="ParkingLot-PageDiv"></div>
-	<!-- Ends network Page -->
-	
-	<!-- network Page --> 
+	<!-- Facility Page --> 
 	<div id="Facility-PageDiv"></div>
 	<!-- Ends network Page -->
 	
-	<!-- network Page --> 
-	<div id="Reservation-PageDiv"></div>
+	<!-- User Management Page --> 
+	<div id="AccountMgt-PageDiv"></div>
 	<!-- Ends network Page -->
 	
 	<!--Ends SideBar -->
@@ -170,10 +157,7 @@
 													</div>
 												</div>
 											</div>
-										</form>
-
-
-
+										</form>  
 									</div>
 								</div>
 							</div>
@@ -260,27 +244,14 @@
 											</div>
 										</form>
 									</div>
-								</div>
-
-
-
-
+								</div> 
 							</div>
-						</div>
-
-
-
+						</div>  
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-
-
-
-
+	</div> 
 
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery.min.js" />"></script>

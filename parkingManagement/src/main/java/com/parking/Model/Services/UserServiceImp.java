@@ -94,7 +94,11 @@ public class UserServiceImp implements UserService {
 	@Override
 	public User signIn(String userName, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		return dao.signIn(  userName,   password);
+		
+		
 	}
 
 	@Override

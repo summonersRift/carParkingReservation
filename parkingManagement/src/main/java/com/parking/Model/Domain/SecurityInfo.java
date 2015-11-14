@@ -1,7 +1,14 @@
 package com.parking.Model.Domain;
 
-public class SecurityInfo {
+import java.io.Serializable;
 
+public class SecurityInfo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6574637673721107972L;
+	
 	private String securityQuestion;
 	private String securityAnwser;
 	private String secInfoName;

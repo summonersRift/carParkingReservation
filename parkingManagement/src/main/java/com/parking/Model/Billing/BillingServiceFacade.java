@@ -34,7 +34,7 @@ public class BillingServiceFacade {
 
 		if (!msg.getMessage().equalsIgnoreCase("processed")) {
 			throw new Exception("error processing payment : info "
-					+ msg.getErrorMessage());
+					+ msg.getError());
 
 		}
 

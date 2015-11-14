@@ -1,4 +1,4 @@
-<h1>Network Management Page</h1>
+<h1>User Accoung Management Page</h1>
 
 <table id="networkMgtTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead >

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.parking.Model.DAO.DaoFactory;
-import com.parking.Model.DAO.Contract.BillingDao;
+import com.parking.Model.Domain.BillingDao;
 import com.parking.Model.Domain.BillingInfo;
 import com.parking.Model.Domain.ConfirmationMsg;
 import com.parking.Model.Domain.User;

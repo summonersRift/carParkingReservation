@@ -1,5 +1,5 @@
 package com.parking.Model.DAO.Contract;
 
-public interface NotificationDao {
+public interface MarketingDao {
 
 }

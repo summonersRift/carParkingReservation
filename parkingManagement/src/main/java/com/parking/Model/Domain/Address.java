@@ -1,7 +1,13 @@
 package com.parking.Model.Domain;
 
-public class Address {
+import java.io.Serializable;
 
+public class Address implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 366489582065906778L;
 	private String street;
 	private Integer zip;
 	private String state;

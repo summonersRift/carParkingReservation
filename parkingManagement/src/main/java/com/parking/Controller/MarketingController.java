@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.parking.Model.Domain.MarketingNewsletterPromotional;
+ 
 import com.parking.Model.Services.Contract.MarketingService;
 
  
 @Controller
+@RequestMapping("/marketing")
 public class MarketingController {
 
 	//private MarketingNewsletterPromotional marketingModel;
@@ -31,7 +32,7 @@ public class MarketingController {
 
 	@RequestMapping(value = "/MarketingPage", method = RequestMethod.GET)
 	public ModelAndView loadMarketingLandingPage(Model model) {
-		return new ModelAndView("marketing");
+		return new ModelAndView("Marketing");
 	}
 
 	@RequestMapping(value = "/notify/{value}", method = RequestMethod.POST)

@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 	 $('#loginform').submit(function(e) { // will pass the form date using the jQuery serialize function
 		 e.preventDefault();
-			$.post('http://localhost:8080/parkingManagement/login/signin', 
+			$.post('http://localhost:8080/parkingManagement/user/signin', 
 				    $(this).serialize()).done(
 					function(response,textStatus,jqXHR) { 	    
 			

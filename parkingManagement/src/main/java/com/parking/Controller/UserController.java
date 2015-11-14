@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parking.Model.Domain.User;
@@ -27,6 +28,7 @@ import com.parking.common.UserRequest;
 
 @Controller
 @RequestMapping("/user")
+@SessionAttributes("user")
 public class UserController {
 
 	private UserService userService;
@@ -36,6 +38,11 @@ public class UserController {
 
 		userService = service;
 
+	}
+
+	@RequestMapping(value = "/AccountMgtPage", method = RequestMethod.GET)
+	public ModelAndView getAccountPage(Model model) {
+		return new ModelAndView("UserManagement");
 	}
 
 	@RequestMapping(value = "/userList.json", method = RequestMethod.GET)
@@ -77,7 +84,8 @@ public class UserController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
 		// TODO:get User info from user service
-		User user = new User();// loginService.signIn(login.getUserName(),login.getPassword());
+		User user = userService
+				.signIn(login.getUserName(), login.getPassword());
 
 		if (user == null || user.isNull()) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);

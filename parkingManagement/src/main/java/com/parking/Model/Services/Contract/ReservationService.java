@@ -2,12 +2,12 @@ package com.parking.Model.Services.Contract;
 
 import java.util.List;
 
-import com.parking.common.SpotInfo;
+import com.parking.Model.Domain.ParkingSlot;
 
 public interface ReservationService {
 
 	void updateSpot(long spotId, long userId);
 
-	List<SpotInfo> findFreeParking(long facilityId);
+	List<ParkingSlot> findFreeParking(long facilityId);
 
 }

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.parking.Model.Domain.ParkingSlot;
 import com.parking.Model.Services.Contract.ReservationService;
-import com.parking.common.SpotInfo;
 
 @Controller
 @RequestMapping("/reservation")
@@ -48,13 +48,13 @@ public class ReservationController {
 	}
 
 	@RequestMapping(value = "/findspot/facility/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<SpotInfo>> getFreeSpots(
+	public ResponseEntity<List<ParkingSlot>> getFreeSpots(
 			@PathVariable("id") long facilityId) {
 
 		// call service to get free spots
-		List<SpotInfo> lst = resService.findFreeParking(facilityId);
+		List<ParkingSlot> lst = resService.findFreeParking(facilityId);
 
-		return new ResponseEntity<List<SpotInfo>>(lst, HttpStatus.OK);
+		return new ResponseEntity<List<ParkingSlot>>(lst, HttpStatus.OK);
 
 	}
 
