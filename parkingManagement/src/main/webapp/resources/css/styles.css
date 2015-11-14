@@ -132,8 +132,8 @@ margin-left: 5px;
     text-indent: 20px;
 }
 
-#Report-PageDiv, #Billing-PageDiv, #Incidents-PageDiv, #Reviews-PageDiv, #History-PageDiv ,#Network-PageDiv, #Facility-PageDiv, 
-#Reservation-PageDiv, #Emergency-PageDiv{
+ #Billing-PageDiv, #Incidents-PageDiv, #Marketing-PageDiv, #Facility-PageDiv, 
+#Reservation-PageDiv, #AccountMgt-PageDiv{
 	color: black;
     margin-left: 270px;
     margin-right: 50px;

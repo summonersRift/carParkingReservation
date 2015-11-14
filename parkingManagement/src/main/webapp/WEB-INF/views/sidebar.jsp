@@ -4,7 +4,7 @@
 <div class="list-group" id="sidebarList">
 	<ul class="sidebar-nav"> 
 		<li class="sidebar-brand">
-			<a href=AccountMgt id ="accountMgt">Acct Management</a>
+			<a href=#AccountMgt id ="accountMgt">Acct Mmgt</a>
 		</li> 
 		<li class="sidebar-brand">
 			<a href="#Billing" id ="billing"> Billing Info </a>
@@ -23,8 +23,7 @@
 		</li>
 	</ul>
 </div>
-</div>
-
+</div> 
 
 <script type="text/javascript">
 
@@ -39,9 +38,7 @@ function hideAll(){
 	
 }
 
-$(document).ready(function() {
-	
-
+$(document).ready(function() { 
 	
 $("#marketing").click(function() {
 	//alert('clicked on report worked');
@@ -97,7 +94,7 @@ $("#incidents").click(function() {
  
 //parkingManagement/AccountMgt
 $("#accountMgt").click(function() {
-	 alert('clicked on account mgt worked'); 
+	// alert('clicked on account mgt worked'); 
 	$.ajax({
        type: "GET",
        url: "user/AccountMgtPage",
@@ -140,7 +137,7 @@ $("#facility").click(function() {
 });
 
 $("#reservation").click(function() {
-	//alert('clicked on reservation worked');
+	 //alert('clicked on reservation worked');
 	$.ajax({
        type: "GET",
        url: "reservation/ReservationPage",

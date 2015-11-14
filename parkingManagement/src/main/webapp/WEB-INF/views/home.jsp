@@ -68,33 +68,31 @@
 
 	<!-- SideBar -->
 
-	<div id="subViewDiv"></div>
-
-	<!-- Ends SideBar -->
+	<div id="subViewDiv"></div> 
+	 
  
-	<!-- billing Page -->
+	 
 	<div id="Billing-PageDiv"></div>
-	<!-- Ends Report Page -->
+	 
 
-	<!-- incidents Page -->
+	 
 	<div id="Incidents-PageDiv"></div>
-	<!-- Ends Report Page -->
+	 
 
-	<!-- Marketing Page -->
+	 
 	<div id="Marketing-PageDiv"></div>
-	<!-- Ends Report Page --> 
+	 
 	    
-	<!-- Reservation Page --> 
-	<div id="#Reservation-PageDiv"></div>
-	<!-- Ends network Page -->
+	 
+	<div id="Reservation-PageDiv"></div>  
 	
-	<!-- Facility Page --> 
+ 
 	<div id="Facility-PageDiv"></div>
-	<!-- Ends network Page -->
+	 
 	
-	<!-- User Management Page --> 
+	 
 	<div id="AccountMgt-PageDiv"></div>
-	<!-- Ends network Page -->
+	 
 	
 	<!--Ends SideBar -->
 
