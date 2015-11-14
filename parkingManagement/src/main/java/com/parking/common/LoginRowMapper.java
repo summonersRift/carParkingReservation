@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.parking.domain.Role;
-import com.parking.domain.User;
+import com.parking.Model.Domain.Role;
+import com.parking.Model.Domain.User;
  
 	 
 	public class LoginRowMapper implements RowMapper <User>{
