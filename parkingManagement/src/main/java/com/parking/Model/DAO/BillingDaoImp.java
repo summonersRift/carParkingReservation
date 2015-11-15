@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.parking.Model.Domain.BillingDao;
+import com.parking.Model.DAO.Contract.BillingDao;
 import com.parking.Model.Domain.BillingInfo;
 import com.parking.Model.Domain.User;
 import com.parking.common.BaseDao;

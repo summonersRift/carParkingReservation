@@ -1,6 +1,6 @@
 package com.parking.Model.DAO;
 
-import com.parking.Model.Domain.BillingDao;
+import com.parking.Model.DAO.Contract.BillingDao;
 
 public class DaoFactory {
 

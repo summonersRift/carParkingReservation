@@ -13,6 +13,7 @@ public class BillingServiceFacade {
 
 		BillingService service = null;
 		String pmtType = info.getPaymentType();
+		
 		// get service based on payment type.
 		switch (pmtType) {
 		case "credit_card":
@@ -55,5 +56,7 @@ public class BillingServiceFacade {
 		return restMsg;
 
 	}
+	
+	
 
 }
