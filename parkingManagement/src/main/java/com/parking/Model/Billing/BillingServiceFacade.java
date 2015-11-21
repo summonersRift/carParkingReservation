@@ -10,10 +10,9 @@ public class BillingServiceFacade {
 			throws Exception {
 
 		// TODO: validate for active user.
-
 		BillingService service = null;
 		String pmtType = info.getPaymentType();
-		
+
 		// get service based on payment type.
 		switch (pmtType) {
 		case "credit_card":
@@ -22,12 +21,8 @@ public class BillingServiceFacade {
 		case "check":
 			service = BillingServiceFactory.getBillingPayCheck();
 			break;
-		case "google_pay":
-			service = BillingServiceFactory.getBillingPayGoogle();
-			break;
-		case "pay_pal":
-			service = BillingServiceFactory.getBillingPayPal();
-			break;
+		default:
+			throw new Exception("invalid payment type");
 
 		}
 
@@ -40,7 +35,7 @@ public class BillingServiceFacade {
 		}
 
 		boolean processed = service.updateUserFunds(user, info.getFunds());
-
+		
 		ConfirmationMsg restMsg = new ConfirmationMsg();
 
 		if (processed)
@@ -56,7 +51,5 @@ public class BillingServiceFacade {
 		return restMsg;
 
 	}
-	
-	
 
 }

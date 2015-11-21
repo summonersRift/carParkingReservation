@@ -10,4 +10,7 @@ public interface ReservationService {
 
 	List<ParkingSlot> findFreeParking(long facilityId);
 
+	List<ParkingSlot> findFreeParking(long facilityId, String startdt,
+			String enddt);
+
 }

@@ -1,15 +1,10 @@
 package com.parking.Model.Billing;
 
 public class BillingServiceFactory {
-	// cannot instantiate this factory.
+	 
+	
 	private BillingServiceFactory() {
 	};
-
-	public static BillingService getBillingPayPal() {
-
-		return new BillingServicePayPal();
-
-	}
 
 	public static BillingService getBillingPayCreditCard() {
 
@@ -17,15 +12,8 @@ public class BillingServiceFactory {
 
 	}
 
-	public static BillingService getBillingPayGoogle() {
+	public static BillingService getBillingPayCheck() {
+		return new BillingServiceEcheck();
 
-		return null;// new BillingServiceGooglePay();
-
-	}
-	public static BillingService getBillingPayCheck(){
-		return null;
-		
-		
-		
 	}
 }

@@ -17,8 +17,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public User signIn(String userName, String password) {
 		// TODO Auto-generated method stub
-		System.out.println("calling dao sign in with user name : " + userName);
-
+		System.out.println("calling dao sign in with user name : " + userName); 
 		return User.getMyDemoUser();
 	}
 

@@ -12,7 +12,8 @@ import com.parking.Model.Domain.User;
 public abstract class AbstractBillingService implements BillingService {
 
 	public abstract ConfirmationMsg makePayment(BillingInfo info);
-
+ 
+	
 	public List<BillingInfo> getAll() {
 
 		BillingDao bDao = DaoFactory.getBillingDao();

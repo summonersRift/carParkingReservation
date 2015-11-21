@@ -15,7 +15,7 @@ public class BillingDaoImp extends BaseDao implements BillingDao{
 
 	@Override
 	public List<BillingInfo> getAll() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub  
 		return null;
 	}
 
@@ -28,7 +28,7 @@ public class BillingDaoImp extends BaseDao implements BillingDao{
 	@Override
 	public Boolean updateUserFunds(User user, BigDecimal funds) {
 		// TODO Auto-generated method stub
-		return null;
+		return true;
 	}
 
 	 

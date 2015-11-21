@@ -22,7 +22,8 @@ import com.parking.Model.Services.Contract.ReservationService;
 public class ReservationController {
 
 	@RequestMapping(value = "/ReservationPage", method = RequestMethod.GET)
-	public ModelAndView getIncidentsPage(Model model) {
+	public ModelAndView getIncidentsPage(Model model) { 
+		
 		return new ModelAndView("Reservation");
 	}
 
@@ -47,12 +48,12 @@ public class ReservationController {
 		resService.updateSpot(spotId, userId);
 	}
 
-	@RequestMapping(value = "/findspot/facility/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/findspot/facility/{id}/{start}/{end}", method = RequestMethod.GET)
 	public ResponseEntity<List<ParkingSlot>> getFreeSpots(
-			@PathVariable("id") long facilityId) {
-
+			@PathVariable("id") long facilityId,@PathVariable("start") String startdt,@PathVariable("end") String enddt) { 
 		// call service to get free spots
-		List<ParkingSlot> lst = resService.findFreeParking(facilityId);
+		
+		List<ParkingSlot> lst = resService.findFreeParking(facilityId,startdt,enddt);
 
 		return new ResponseEntity<List<ParkingSlot>>(lst, HttpStatus.OK);
 
