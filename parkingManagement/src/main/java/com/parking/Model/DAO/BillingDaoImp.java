@@ -13,21 +13,40 @@ import com.parking.common.BaseDao;
 @Repository
 public class BillingDaoImp extends BaseDao implements BillingDao{
 
+	private static String GET_USER_SESSION = "SELECT u.user_name, u.user_password, "
+			+ "u.user_id, c.code_number, r.enabled, r.role_type, r.role_desc "
+			+ "FROM VirtualQueue.VenueRegisteredUser u, VirtualQueue.Code c, VirtualQueue.UserRole ur, "
+			+ "VirtualQueue.Role r  WHERE  u.code_id = c.code_id AND u.user_id = ur.user_id "
+			+ "AND r.role_id = ur.role_id AND u.user_name = ? AND u.user_password = ? "
+			+ "AND  c.code_number= ?";
+	
+	private static String GET_ADMIN_SESSION = "SELECT u.user_name, u.user_password, u.user_id, r.enabled, r.role_type, r.role_desc "
+			+ "FROM VirtualQueue.VenueRegisteredUser u, VirtualQueue.UserRole ur, VirtualQueue.Role r  "
+			+ "WHERE  u.user_id = ur.user_id AND r.role_id = ur.role_id AND u.user_name = ? "
+			+ "AND u.user_password = ? AND r.role_type = 'ADMIN' ";
+	
+	
 	@Override
 	public List<BillingInfo> getAll() {
-		// TODO Auto-generated method stub  
+		 
 		return null;
+	
 	}
 
 	@Override
 	public BillingInfo getBillingInfoByUsr(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		  
+		return null; 
+	
+	
 	}
 
 	@Override
 	public Boolean updateUserFunds(User user, BigDecimal funds) {
-		// TODO Auto-generated method stub
+		 
+		
+		
+		
 		return true;
 	}
 

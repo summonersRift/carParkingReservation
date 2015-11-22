@@ -35,7 +35,6 @@ public class BillingController {
 	public ModelAndView getBillingPage(Model model) {
 		return new ModelAndView("Billing");
 	}
- 
 
 	@RequestMapping(value = "/pay", method = RequestMethod.POST)
 	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info,
@@ -56,14 +55,12 @@ public class BillingController {
 			}
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			status = HttpStatus.EXPECTATION_FAILED;
 			e.printStackTrace();
 		}
 
 		return new ResponseEntity<ConfirmationMsg>(msg, status);
 
 	}
-
- 
 
 }

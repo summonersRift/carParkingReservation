@@ -10,7 +10,7 @@ import com.mysql.jdbc.Connection;
 public class DALUtil {
 
 	private static Connection connection = null;
-	private static String URL = "jdbc:mysql://127.0.0.1:3306/VirtualQueue";
+	private static String URL = "jdbc:mysql://127.0.0.1:3306/pmsys";
 	private static String USER = "root";
 	private static String PASSWORD = "ok";
 	private static String DRIVER = "com.mysql.jdbc.Driver";
