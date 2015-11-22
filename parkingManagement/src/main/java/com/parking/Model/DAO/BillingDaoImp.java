@@ -42,7 +42,7 @@ public class BillingDaoImp extends BaseDao implements BillingDao{
 	}
 
 	@Override
-	public Boolean updateUserFunds(User user, BigDecimal funds) {
+	public Boolean updateUserFunds(long userid, BigDecimal funds) {
 		 
 		
 		

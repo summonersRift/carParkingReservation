@@ -1,47 +1,28 @@
 package com.parking.Model.Domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.parking.Model.Domain.Address;
 import com.parking.Model.Domain.User;
 
-public class BillingInfo {
+public class BillingInfo implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Address billingAddress;
 	private double ccNumber;
 	private double checkNumber;
 	private int securityCode;
-	private double routingNumber;
-	private User user;
+	private double routingNumber; 
 	private String paymentType;// TODO:need to use enumeration type.
 	private BigDecimal funds;
-
-	public BillingInfo(Address address, double ccnumber, double checknumber,
-			Integer seccode, double routingnumber, final User user, String type) {
-
-		this.billingAddress = address;
-		this.ccNumber = ccnumber;
-		this.checkNumber = checknumber;
-		this.securityCode = seccode;
-		this.routingNumber = routingnumber;
-		this.user = user;
-		this.setPaymentType(type);
-
-	}
-
-	public static BillingInfo getDemoBillingInfo() {
-
-		User usr = new User();
-		usr.setFirstName("FirstName");
-		usr.setLastName("LastName");
-		usr.setUserid(123442);
-
-		BillingInfo info = new BillingInfo(new Address("2222 NW 23 street",
-				332232, "FL", "Miami", "Broward", "USA"), 21223, 212222L,
-				333333333, 23332, usr,"credit_card");
-
-		return info;
-	}
+	private long userId;
+	
+	public BillingInfo(){};
+ 
 
 	public double getCcNumber() {
 		return ccNumber;
@@ -83,13 +64,7 @@ public class BillingInfo {
 		this.securityCode = securityCode;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	 
 
 	public String getPaymentType() {
 		return paymentType;
@@ -105,6 +80,14 @@ public class BillingInfo {
 
 	public void setFunds(BigDecimal funds) {
 		this.funds = funds;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 }

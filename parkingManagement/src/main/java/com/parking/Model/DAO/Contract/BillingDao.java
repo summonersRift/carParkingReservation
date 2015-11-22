@@ -12,6 +12,6 @@ public interface BillingDao {
 
 	BillingInfo getBillingInfoByUsr(User user);
 
-	Boolean updateUserFunds(User user, BigDecimal funds);
+	Boolean updateUserFunds(long userId, BigDecimal funds);
 
 }

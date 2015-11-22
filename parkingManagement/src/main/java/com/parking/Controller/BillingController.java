@@ -37,15 +37,18 @@ public class BillingController {
 	}
 
 	@RequestMapping(value = "/pay", method = RequestMethod.POST)
-	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info,
-			User user) {
+	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info 
+			 ) {
 
 		ConfirmationMsg msg = null;
 		String error;
 		HttpStatus status = HttpStatus.OK;
 		try {
-
-			msg = facade.processPayment(info, user);
+             
+			if(info ==null)
+            	 return new ResponseEntity<ConfirmationMsg>(msg, HttpStatus.BAD_REQUEST);
+			
+             msg = facade.processPayment(info);
 			error = msg.getError();
 
 			if (error != null) {
@@ -59,6 +62,7 @@ public class BillingController {
 			e.printStackTrace();
 		}
 
+		
 		return new ResponseEntity<ConfirmationMsg>(msg, status);
 
 	}

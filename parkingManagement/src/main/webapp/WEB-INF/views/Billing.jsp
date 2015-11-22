@@ -7,15 +7,30 @@
 				<div class="panel-heading display-table">
 					<div class="row display-tr">
 						<h2 class="panel-title display-td">Payment Details</h2>
-						<h3 class="panel-title display-td">Total Amount To Pay: $2.50</h3>
+						<h3 class="panel-title display-td">Total Balance remaining:
+							$2.50</h3>
 						<div class="display-td">
 							<img class="img-responsive pull-right"
 								src="http://i76.imgup.net/accepted_c22e0.png">
 						</div>
 					</div>
-				</div>
+				</div> 
+
 				<div class="panel-body">
 					<form role="form" id="payment-form">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="cardNumber">AMOUNT TO PAY</label>
+									<div class="input-group">
+										<input type="tel" class="form-control" name="funds"
+											placeholder="Enter Amount" autocomplete="cc-number" required
+											autofocus /> <span class="input-group-addon"><i
+											class="glyphicon glyphicon-usd"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
@@ -97,12 +112,13 @@
 								</div>
 							</div>
 						</div>
-
-
+						<input type="hidden" name="userId" id="userId"> <input
+							type="hidden" name="paymentType" id="credit_card"
+							value="credit_card">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
-									Now</button>
+									Now</button> 
 							</div>
 						</div>
 						<div class="row" style="display: none;">
@@ -127,11 +143,25 @@
 				<div class="panel-heading display-table">
 					<div class="row display-tr">
 						<h2 class="panel-title display-td">Payment Details</h2>
-						<h3 class="panel-title display-td">Total Amount To Pay: $2.50</h3>
+						<h3 class="panel-title display-td">Total Balance remaining:
+							$2.50</h3>
 					</div>
 				</div>
 				<div class="panel-body">
 					<form role="form" id="Bankpayment-form">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="amountpay">AMOUNT TO PAY</label>
+									<div class="input-group">
+										<input type="tel" class="form-control" name="cardNumber"
+											placeholder="Enter Amount" autocomplete="cc-number" required
+											autofocus /> <span class="input-group-addon"><i
+											class="glyphicon glyphicon-usd"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
@@ -208,7 +238,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-12 control">
 								<div
@@ -220,12 +249,10 @@
 								</div>
 							</div>
 						</div>
-
-
 						<div class="row">
 							<div class="col-xs-12">
-								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
-									Now</button>
+								<button class="btn btn-success btn-lg btn-block" type="submit"
+									id="makepayment">Pay Now</button>
 							</div>
 						</div>
 						<div class="row" style="display: none;">
@@ -243,17 +270,55 @@
 
 <!-- ENDS BANK FORM -->
 
-
-
-
-
 <script type="text/javascript">
-
-
 	/* Fancy restrictive input formatting via jQuery.payment library*/
-	$('input[name=cardNumber]').payment('formatCardNumber');
-	$('input[name=cardCVC]').payment('formatCardCVC');
-	$('input[name=cardExpiry').payment('formatCardExpiry');
+	//$('input[name=cardNumber]').payment('formatCardNumber');
+	//$('input[name=cardCVC]').payment('formatCardCVC');
+	////$('input[name=cardExpiry').payment('formatCardExpiry');
+	 
+
+	$('#payment-form')
+			.submit(
+					function(e) { // will pass the form using the jQuery serialize function
+						e.preventDefault();
+
+						var user = $.cookie('user_info');
+
+						alert('cookie value ' + user);
+
+						var data = JSON.parse(user);
+
+						alert(JSON.stringify(data));
+
+						alert(data.user_id);
+
+						if (user == null) {
+							alert('invalid user in session null value');
+
+							window
+									.location("http://localhost:8080/parkingManagement/");
+
+						}
+
+						$('#userId').val(data.user_id);//set hidden field user value;
+
+						$
+								.post(
+										'http://localhost:8080/parkingManagement/billing/pay',
+										$(this).serialize()).done(
+										function(response, textStatus, jqXHR) {
+
+											alert('Inside Billing');
+
+											$('#paymentForm').hide();
+
+										})
+								.fail(function(jqXHR, textStatus, errorThrown) {
+									alert('Please, Try Again');
+
+								})
+
+					});
 
 	/* Form validation using Stripe client-side validation helpers */
 	/*  jQuery.validator.addMethod("cardNumber", function(value, element) {
@@ -309,6 +374,5 @@
 			return false;
 		}
 	}  
-	*/
-	
+	 */
 </script>

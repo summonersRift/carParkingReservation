@@ -6,13 +6,14 @@ import com.parking.Model.Domain.User;
 
 public class BillingServiceFacade {
 
-	public ConfirmationMsg processPayment(BillingInfo info, User user)
-			throws Exception {
+	public ConfirmationMsg processPayment(BillingInfo info) throws Exception {
 
 		// TODO: validate for active user.
 		BillingService service = null;
-		String pmtType = info.getPaymentType();
 
+		String pmtType = info.getPaymentType();
+		if (info.getPaymentType() == null)
+			throw new Exception("invalid payment type,cannot be null!!");
 		// get service based on payment type.
 		switch (pmtType) {
 		case "credit_card":
@@ -34,8 +35,9 @@ public class BillingServiceFacade {
 
 		}
 
-		boolean processed = service.updateUserFunds(user, info.getFunds());
-		
+		boolean processed = service.updateUserFunds(info.getUserId(),
+				info.getFunds());
+
 		ConfirmationMsg restMsg = new ConfirmationMsg();
 
 		if (processed)

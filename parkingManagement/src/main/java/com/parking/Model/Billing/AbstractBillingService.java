@@ -29,9 +29,9 @@ public abstract class AbstractBillingService implements BillingService {
 		return bDao.getBillingInfoByUsr(user);
 	}
 
-	public Boolean updateUserFunds(final User user, final BigDecimal funds) {
+	public Boolean updateUserFunds(long userid, final BigDecimal funds) {
 		BillingDao bDao = DaoFactory.getBillingDao();
-		return bDao.updateUserFunds(user, funds);
+		return bDao.updateUserFunds(userid, funds);
 	}
 
 }

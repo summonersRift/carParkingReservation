@@ -8,26 +8,21 @@ $(document).ready(function() {
 				    $(this).serialize()).done(
 					function(response,textStatus,jqXHR) { 	    
 			
-			//alert('clicked on login worked');
+		    	//alert('clicked on login worked');
 				
 			$('#loginbox').hide();	
 			$.ajax({
 	            type: "GET",
-	            url: "login/sidebar",
+	            url: "user/sidebar",
 	            success: function(response) {
 	                $("#subViewDiv").html( response );
 	            }
 	        });
-					
-			//CleanLoginForm();
-			
-			//$('#account').modal('show');
-		
-			//CleanLoginForm();
-			
+		  
 			if(response != 'undefined'){
-				
-			    $.cookie("user_info", response);
+				 
+			   // $.cookie("user_info", reponse, {path: "/", domain: "parkingManagement/"});
+			    $.cookie("user_info", JSON.stringify(response));
 			
 			}
 			
@@ -36,8 +31,7 @@ $(document).ready(function() {
 				    $('#loginbox').show();
 				    //CleanLoginForm(); });
 				    e.preventDefault(); // prevent actual form submit and page reload
-				    });
-				    
+				    }); 
 				    
 })
 
