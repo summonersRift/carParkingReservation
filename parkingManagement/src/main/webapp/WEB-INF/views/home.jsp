@@ -24,6 +24,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/jquery-ui.structure.min.css" />"
 	rel="stylesheet" type="text/css" />
+	<link href="<c:url value="/resources/css/bootstrap-dialog.min.css" />"
+	rel="stylesheet" type="text/css" />
 
 
 
@@ -273,6 +275,11 @@
 	src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap-dialog.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.maskMoney.min.js" />"></script>
+	
 
 
 

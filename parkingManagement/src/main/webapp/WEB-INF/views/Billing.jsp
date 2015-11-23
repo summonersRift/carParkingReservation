@@ -23,7 +23,7 @@
 								<div class="form-group">
 									<label for="cardNumber">AMOUNT TO PAY</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="funds"
+										<input type="" class="form-control" name="funds" id ="funds"
 											placeholder="Enter Amount" autocomplete="cc-number" required
 											autofocus /> <span class="input-group-addon"><i
 											class="glyphicon glyphicon-usd"></i></span>
@@ -36,7 +36,7 @@
 								<div class="form-group">
 									<label for="cardNumber">CARD NUMBER</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="cardNumber"
+										<input type="tel" class="form-control" name="ccNumber"
 											placeholder="Valid Card Number" autocomplete="cc-number"
 											required autofocus /> <span class="input-group-addon"><i
 											class="glyphicon glyphicon-credit-card"></i></span>
@@ -49,14 +49,14 @@
 								<div class="form-group">
 									<label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span
 										class="visible-xs-inline">EXP</span> DATE</label> <input type="tel"
-										class="form-control" name="cardExpiry" placeholder="MM / YY"
+										class="form-control" name="expDate" placeholder="MM / YY"
 										autocomplete="cc-exp" required />
 								</div>
 							</div>
 							<div class="col-xs-5 col-md-5 pull-right">
 								<div class="form-group">
 									<label for="cardCVC">CV CODE</label> <input type="tel"
-										class="form-control" name="cardCVC" placeholder="CVC"
+										class="form-control" name="securityCode" placeholder="CVC"
 										autocomplete="cc-csc" required />
 								</div>
 							</div>
@@ -66,7 +66,7 @@
 								<div class="form-group">
 									<label for="address">ADDRESS</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="address"
+										<input type="tel" class="form-control" name="billingAddress"
 											placeholder="Street Address" autocomplete="cc-number"
 											required autofocus /> <span class="input-group-addon"><i
 											class="fa fa-credit-card"></i></span>
@@ -113,8 +113,7 @@
 							</div>
 						</div>
 						<input type="hidden" name="userId" id="userId"> <input
-							type="hidden" name="paymentType" id="credit_card"
-							value="credit_card">
+							type="hidden" name="paymentType" id="credit_card" value="credit_card">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
@@ -154,8 +153,8 @@
 								<div class="form-group">
 									<label for="amountpay">AMOUNT TO PAY</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="cardNumber"
-											placeholder="Enter Amount" autocomplete="cc-number" required
+										<input type="" class="form-control" name="funds" id ="fundsBank"
+											placeholder="Enter Amount" autocomplete="amount to pay" required
 											autofocus /> <span class="input-group-addon"><i
 											class="glyphicon glyphicon-usd"></i></span>
 									</div>
@@ -181,7 +180,7 @@
 									<label for="checkSavNumber">CHECKING/SAVING ACCOUNT
 										NUMBER</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="checkSavNumber"
+										<input type="tel" class="form-control" name="checkNumber"
 											placeholder="Valid Checking/Saving Account Number"
 											autocomplete="cc-number" required autofocus /> <span
 											class="input-group-addon"><i class=""></i></span>
@@ -194,7 +193,7 @@
 								<div class="form-group">
 									<label for="checkNumber"><span class="hidden-xs">CHECK
 											NUMBER</span><span class="visible-xs-inline">EXP</span> DATE</label> <input
-										type="tel" class="form-control" name="cardExpiry"
+										type="tel" class="form-control" name="expDate"
 										placeholder="1078" autocomplete="cc-exp" required />
 								</div>
 							</div>
@@ -204,7 +203,7 @@
 								<div class="form-group">
 									<label for="address">ADDRESS</label>
 									<div class="input-group">
-										<input type="tel" class="form-control" name="address"
+										<input type="tel" class="form-control" name="billingAddress"
 											placeholder="Street Address" autocomplete="cc-number"
 											required autofocus /> <span class="input-group-addon"><i
 											class="fa fa-credit-card"></i></span>
@@ -233,12 +232,13 @@
 							<div class="col-xs-4 col-md-4 pull-right">
 								<div class="form-group">
 									<label for="zipCode">ZIP CODE</label> <input type="tel"
-										class="form-control" name="" zipCode" placeholder="32456"
+										class="form-control" name="zipCode" placeholder="32456"
 										autocomplete="cc-csc" required />
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
+						</div> 
+						
+							<div class="form-group">
 							<div class="col-md-12 control">
 								<div
 									style="border-top: 1px #888; padding-top: 15px; font-size: 90%; color: black; margin-left: 6%;">
@@ -249,6 +249,8 @@
 								</div>
 							</div>
 						</div>
+						<input type="hidden" name="userId" id="userIdBank"> 
+						<input type="hidden" name="paymentType" id="check" value="check">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit"
@@ -270,31 +272,40 @@
 
 <!-- ENDS BANK FORM -->
 
+
+
 <script type="text/javascript">
 	/* Fancy restrictive input formatting via jQuery.payment library*/
-	//$('input[name=cardNumber]').payment('formatCardNumber');
-	//$('input[name=cardCVC]').payment('formatCardCVC');
-	////$('input[name=cardExpiry').payment('formatCardExpiry');
+	 $('input[name=ccNumber]').payment('formatCardNumber');
+	 $('input[name=securityCode]').payment('formatCardCVC');
+	 $('input[name=expDate').payment('formatCardExpiry');
+	 //$('input[name=funds').payment('restrictNumeric');
+	 $('input[name=checkNumber').payment('restrictNumeric');
+	 $('input[name=routingNumber').payment('restrictNumeric');
 	 
-
-	$('#payment-form')
+	 $(function() {
+		    $('#funds').maskMoney();
+		    $('#fundsBank').maskMoney();
+		  }); 
+	 
+	 
+	
+	 $('#payment-form')
 			.submit(
 					function(e) { // will pass the form using the jQuery serialize function
-						e.preventDefault();
-
+						e.preventDefault(); 
 						var user = $.cookie('user_info');
 
-						alert('cookie value ' + user);
+						//alert('cookie value ' + user);
 
 						var data = JSON.parse(user);
 
-						alert(JSON.stringify(data));
+						//alert(JSON.stringify(data));
 
-						alert(data.user_id);
+						//alert(data.user_id);
 
 						if (user == null) {
 							alert('invalid user in session null value');
-
 							window
 									.location("http://localhost:8080/parkingManagement/");
 
@@ -302,24 +313,70 @@
 
 						$('#userId').val(data.user_id);//set hidden field user value;
 
-						$
-								.post(
-										'http://localhost:8080/parkingManagement/billing/pay',
+						$.post('http://localhost:8080/parkingManagement/billing/pay',
 										$(this).serialize()).done(
-										function(response, textStatus, jqXHR) {
-
-											alert('Inside Billing');
+										function(response, textStatus, jqXHR) { 
 
 											$('#paymentForm').hide();
+											
+											BootstrapDialog.alert('Transaction completed');
+									        
 
 										})
 								.fail(function(jqXHR, textStatus, errorThrown) {
-									alert('Please, Try Again');
+									//alert('Please, Try Again');
+									BootstrapDialog.alert('Error processing the payment, please try later');
 
-								})
+								})  
 
 					});
 
+	
+	 $('#Bankpayment-form')
+	  .submit(
+			function(e) { // will pass the form using the jQuery serialize function
+				e.preventDefault();  
+			        
+					var user = $.cookie('user_info');
+
+					//alert('cookie value ' + user);
+
+					var data = JSON.parse(user);
+
+					//alert(JSON.stringify(data));
+
+					//alert(data.user_id);
+
+					if (user == null) {
+						alert('invalid user in session null value');
+
+						window
+								.location("http://localhost:8080/parkingManagement/");
+
+					}
+
+					$('#userIdBank').val(data.user_id);//set hidden field user value;
+
+					$.post('http://localhost:8080/parkingManagement/billing/pay',
+									$(this).serialize()).done(
+									function(response, textStatus, jqXHR) {
+
+										//alert('Inside Billing');
+
+										$('#bankPaymentForm').hide();
+										BootstrapDialog.alert('Transaction completed');
+
+									})
+							.fail(function(jqXHR, textStatus, errorThrown) {
+								BootstrapDialog.alert('Error processing the payment, please try later');
+
+							})  
+				 
+				 
+
+			});
+	
+	
 	/* Form validation using Stripe client-side validation helpers */
 	/*  jQuery.validator.addMethod("cardNumber", function(value, element) {
 		return this.optional(element) || Stripe.card.validateCardNumber(value);

@@ -12,14 +12,18 @@ public class BillingInfo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Address billingAddress;
+	private String billingAddress;
 	private double ccNumber;
 	private double checkNumber;
 	private int securityCode;
 	private double routingNumber; 
 	private String paymentType;// TODO:need to use enumeration type.
-	private BigDecimal funds;
+	private String funds;
 	private long userId;
+	private String expDate;
+	private String city;
+	private String state;
+	private String zipCode;
 	
 	public BillingInfo(){};
  
@@ -48,13 +52,7 @@ public class BillingInfo implements Serializable{
 		this.routingNumber = routingNumber;
 	}
 
-	public Address getBillingAddress() {
-		return billingAddress;
-	}
-
-	public void setBillingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
-	}
+ 
 
 	public Integer getSecurityCode() {
 		return securityCode;
@@ -74,13 +72,7 @@ public class BillingInfo implements Serializable{
 		this.paymentType = paymentType;
 	}
 
-	public BigDecimal getFunds() {
-		return funds;
-	}
-
-	public void setFunds(BigDecimal funds) {
-		this.funds = funds;
-	}
+	 
 
 	public long getUserId() {
 		return userId;
@@ -88,6 +80,66 @@ public class BillingInfo implements Serializable{
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+
+	public String getFunds() {
+		return funds;
+	}
+
+
+	public void setFunds(String funds) {
+		this.funds = funds;
+	}
+
+
+	public String getExpDate() {
+		return expDate;
+	}
+
+
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getBillingAddress() {
+		return billingAddress;
+	}
+
+
+	public void setBillingAddress(String billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 }

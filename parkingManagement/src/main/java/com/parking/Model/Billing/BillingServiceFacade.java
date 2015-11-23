@@ -1,8 +1,9 @@
 package com.parking.Model.Billing;
 
+import java.math.BigDecimal;
+
 import com.parking.Model.Domain.BillingInfo;
 import com.parking.Model.Domain.ConfirmationMsg;
-import com.parking.Model.Domain.User;
 
 public class BillingServiceFacade {
 
@@ -14,13 +15,19 @@ public class BillingServiceFacade {
 		String pmtType = info.getPaymentType();
 		if (info.getPaymentType() == null)
 			throw new Exception("invalid payment type,cannot be null!!");
+
+		if (info.getFunds() == null) {
+
+			throw new Exception("invalid balance amount,cannot be empty!!");
+
+		}
 		// get service based on payment type.
 		switch (pmtType) {
 		case "credit_card":
-			service = BillingServiceFactory.getBillingPayCreditCard();
+			service = new BillingServiceCreditCard();
 			break;
 		case "check":
-			service = BillingServiceFactory.getBillingPayCheck();
+			service =new BillingServiceEcheck();
 			break;
 		default:
 			throw new Exception("invalid payment type");
@@ -35,8 +42,9 @@ public class BillingServiceFacade {
 
 		}
 
-		boolean processed = service.updateUserFunds(info.getUserId(),
-				info.getFunds());
+		BigDecimal infoDec = new BigDecimal(info.getFunds());
+		
+		boolean processed = service.updateUserFunds(info.getUserId(), infoDec);
 
 		ConfirmationMsg restMsg = new ConfirmationMsg();
 

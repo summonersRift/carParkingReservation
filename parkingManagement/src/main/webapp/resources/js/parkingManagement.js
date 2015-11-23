@@ -22,7 +22,9 @@ $(document).ready(function() {
 			if(response != 'undefined'){
 				 
 			   // $.cookie("user_info", reponse, {path: "/", domain: "parkingManagement/"});
-			    $.cookie("user_info", JSON.stringify(response));
+			  
+				$.cookie("user_info", response);
+				//$.cookie("user_info", JSON.stringify(response));
 			
 			}
 			

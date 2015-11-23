@@ -9,9 +9,7 @@ import com.parking.Model.Domain.User;
 
 public interface BillingService {
 
-	public List<BillingInfo> getAll();
-
-	public BillingInfo getBillingInfoByUser(User user);
+ 
 
 	public Boolean updateUserFunds(long userId, BigDecimal funds);
 

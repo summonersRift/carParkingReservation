@@ -23,8 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.parking.Model.Domain.User;
 import com.parking.Model.Services.Contract.UserService;
 import com.parking.common.LoginRequest;
-import com.parking.common.PasswordResetDTO;
-import com.parking.common.UserRequest;
+ 
 
 @Controller
 @RequestMapping("/user")
@@ -40,30 +39,11 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/AccountMgtPage", method = RequestMethod.GET)
-	public ModelAndView getAccountPage(Model model) {
-		return new ModelAndView("UserManagement");
-	}
-
-	@RequestMapping(value = "/userList.json", method = RequestMethod.GET)
-	public List<User> getAllUsers() {
-		return userService.getAll();
-	}
-
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public @ResponseBody void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
-
-	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-	public @ResponseBody void updateUser(@RequestBody User user) {
-		userService.updateUser(user);
-	}
-
-	@RequestMapping(value = "/removeUser/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody void removeUser(@PathVariable("id") Long id) {
-		userService.deleteUserById(id);
-	}
+ 
 
 	@RequestMapping(value = "/getUserByUserName/{uName}", method = RequestMethod.GET)
 	public @ResponseBody User getUserByUserName(
@@ -71,9 +51,10 @@ public class UserController {
 		return userService.getUserByUserName(userName);
 	}
 
-	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
-	public @ResponseBody User getUserById(@PathVariable("userId") Long userId) {
-		return userService.getUserById(userId);
+	@RequestMapping(value = "/getbalance/{userId}", method = RequestMethod.GET)
+	public @ResponseBody String getUserById(@PathVariable("userId") Long userId) {
+
+		return userService.getUserBalance(userId).toString();
 	}
 
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
