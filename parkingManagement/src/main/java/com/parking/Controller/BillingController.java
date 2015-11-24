@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.parking.Model.Billing.BillingServiceFacade;
 import com.parking.Model.Domain.BillingInfo;
 import com.parking.Model.Domain.ConfirmationMsg;
-import com.parking.Model.Domain.User;
 
 @Controller
 @RequestMapping("/billing")
@@ -37,21 +36,22 @@ public class BillingController {
 	}
 
 	@RequestMapping(value = "/pay", method = RequestMethod.POST)
-	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info 
-			 ) {
+	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info) {
 
 		ConfirmationMsg msg = null;
-		String error;
+		 
 		HttpStatus status = HttpStatus.OK;
+		
 		try {
-             
-			if(info ==null)
-            	 return new ResponseEntity<ConfirmationMsg>(msg, HttpStatus.BAD_REQUEST);
-			
-             msg = facade.processPayment(info);
-			error = msg.getError();
 
-			if (error != null) {
+			if (info == null) {
+				return new ResponseEntity<ConfirmationMsg>(msg,
+						HttpStatus.BAD_REQUEST);
+			}
+			
+			msg = facade.processPayment(info);
+
+			if (!msg.isProcessed()) {
 
 				status = HttpStatus.EXPECTATION_FAILED;
 
@@ -62,7 +62,6 @@ public class BillingController {
 			e.printStackTrace();
 		}
 
-		
 		return new ResponseEntity<ConfirmationMsg>(msg, status);
 
 	}

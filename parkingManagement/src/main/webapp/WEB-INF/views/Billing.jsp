@@ -7,14 +7,16 @@
 				<div class="panel-heading display-table">
 					<div class="row display-tr">
 						<h2 class="panel-title display-td">Payment Details</h2>
-						<h3 class="panel-title display-td">Total Balance remaining:
-							$2.50</h3>
+						<h3 class="panel-title display-td">
+							Balance Remaining: <input style="width: 120px;" id="balance_card"
+								type="text" readonly></input>
+						</h3>
 						<div class="display-td">
 							<img class="img-responsive pull-right"
 								src="http://i76.imgup.net/accepted_c22e0.png">
 						</div>
 					</div>
-				</div> 
+				</div>
 
 				<div class="panel-body">
 					<form role="form" id="payment-form">
@@ -23,7 +25,7 @@
 								<div class="form-group">
 									<label for="cardNumber">AMOUNT TO PAY</label>
 									<div class="input-group">
-										<input type="" class="form-control" name="funds" id ="funds"
+										<input type="" class="form-control" name="funds" id="funds"
 											placeholder="Enter Amount" autocomplete="cc-number" required
 											autofocus /> <span class="input-group-addon"><i
 											class="glyphicon glyphicon-usd"></i></span>
@@ -113,11 +115,12 @@
 							</div>
 						</div>
 						<input type="hidden" name="userId" id="userId"> <input
-							type="hidden" name="paymentType" id="credit_card" value="credit_card">
+							type="hidden" name="paymentType" id="credit_card"
+							value="credit_card">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
-									Now</button> 
+									Now</button>
 							</div>
 						</div>
 						<div class="row" style="display: none;">
@@ -142,8 +145,11 @@
 				<div class="panel-heading display-table">
 					<div class="row display-tr">
 						<h2 class="panel-title display-td">Payment Details</h2>
-						<h3 class="panel-title display-td">Total Balance remaining:
-							$2.50</h3>
+						<h3 class="panel-title display-td">
+							Total Balance remaining: <input style="width: 120px;"
+								id="balance_bank" type="text" readonly></input>
+						</h3>
+						</h3>
 					</div>
 				</div>
 				<div class="panel-body">
@@ -153,9 +159,10 @@
 								<div class="form-group">
 									<label for="amountpay">AMOUNT TO PAY</label>
 									<div class="input-group">
-										<input type="" class="form-control" name="funds" id ="fundsBank"
-											placeholder="Enter Amount" autocomplete="amount to pay" required
-											autofocus /> <span class="input-group-addon"><i
+										<input type="" class="form-control" name="funds"
+											id="fundsBank" placeholder="Enter Amount"
+											autocomplete="amount to pay" required autofocus /> <span
+											class="input-group-addon"><i
 											class="glyphicon glyphicon-usd"></i></span>
 									</div>
 								</div>
@@ -236,9 +243,9 @@
 										autocomplete="cc-csc" required />
 								</div>
 							</div>
-						</div> 
-						
-							<div class="form-group">
+						</div>
+
+						<div class="form-group">
 							<div class="col-md-12 control">
 								<div
 									style="border-top: 1px #888; padding-top: 15px; font-size: 90%; color: black; margin-left: 6%;">
@@ -249,8 +256,8 @@
 								</div>
 							</div>
 						</div>
-						<input type="hidden" name="userId" id="userIdBank"> 
-						<input type="hidden" name="paymentType" id="check" value="check">
+						<input type="hidden" name="userId" id="userIdBank"> <input
+							type="hidden" name="paymentType" id="check" value="check">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit"
@@ -275,34 +282,42 @@
 
 
 <script type="text/javascript">
+	$(document).ready(
+			function() { 
+				
+				var user = $.cookie('user_info');
+				var prUser = JSON.parse(user);
+
+				$.get(
+						"http://localhost:8080/parkingManagement/user/getbalance/"
+								+ prUser.user_id, function(data) {
+
+							$('#balance_card').val(data);
+							$('#balance_bank').val(data);
+
+						});
+
+			});
+
 	/* Fancy restrictive input formatting via jQuery.payment library*/
-	 $('input[name=ccNumber]').payment('formatCardNumber');
-	 $('input[name=securityCode]').payment('formatCardCVC');
-	 $('input[name=expDate').payment('formatCardExpiry');
-	 //$('input[name=funds').payment('restrictNumeric');
-	 $('input[name=checkNumber').payment('restrictNumeric');
-	 $('input[name=routingNumber').payment('restrictNumeric');
-	 
-	 $(function() {
-		    $('#funds').maskMoney();
-		    $('#fundsBank').maskMoney();
-		  }); 
-	 
-	 
-	
-	 $('#payment-form')
+	$('input[name=ccNumber]').payment('formatCardNumber');
+	$('input[name=securityCode]').payment('formatCardCVC');
+	$('input[name=expDate').payment('formatCardExpiry');
+	//$('input[name=funds').payment('restrictNumeric');
+	$('input[name=checkNumber').payment('restrictNumeric');
+	$('input[name=routingNumber').payment('restrictNumeric');
+
+	$(function() {
+		$('#funds').maskMoney();
+		$('#fundsBank').maskMoney();
+	});
+
+	$('#payment-form')
 			.submit(
 					function(e) { // will pass the form using the jQuery serialize function
-						e.preventDefault(); 
+						e.preventDefault();
 						var user = $.cookie('user_info');
-
-						//alert('cookie value ' + user);
-
 						var data = JSON.parse(user);
-
-						//alert(JSON.stringify(data));
-
-						//alert(data.user_id);
 
 						if (user == null) {
 							alert('invalid user in session null value');
@@ -313,123 +328,62 @@
 
 						$('#userId').val(data.user_id);//set hidden field user value;
 
-						$.post('http://localhost:8080/parkingManagement/billing/pay',
-										$(this).serialize()).done(
-										function(response, textStatus, jqXHR) { 
+						$
+								.post(
+										'http://localhost:8080/parkingManagement/billing/pay',
+										$(this).serialize())
+								.done(function(response, textStatus, jqXHR) {
+									//	var msg = jQuery.parseJSON(response);
+									// alert(response);
+									// alert(response.message);
 
-											$('#paymentForm').hide();
-											
-											BootstrapDialog.alert('Transaction completed');
-									        
+									$('#paymentForm').hide();
+									BootstrapDialog.alert(response.message);
+
+								})
+								.fail(
+										function(jqXHR, textStatus, errorThrown) {
+											//alert('Please, Try Again');
+											BootstrapDialog
+													.alert('Error processing the payment, please try later');
 
 										})
-								.fail(function(jqXHR, textStatus, errorThrown) {
-									//alert('Please, Try Again');
-									BootstrapDialog.alert('Error processing the payment, please try later');
-
-								})  
 
 					});
 
-	
-	 $('#Bankpayment-form')
-	  .submit(
-			function(e) { // will pass the form using the jQuery serialize function
-				e.preventDefault();  
-			        
-					var user = $.cookie('user_info');
+	$('#Bankpayment-form')
+			.submit(
+					function(e) { // will pass the form using the jQuery serialize function
+						e.preventDefault();
 
-					//alert('cookie value ' + user);
+						var user = $.cookie('user_info');
+						var data = JSON.parse(user);
 
-					var data = JSON.parse(user);
+						if (user == null) {
+							alert('invalid user in session null value');
 
-					//alert(JSON.stringify(data));
+							window
+									.location("http://localhost:8080/parkingManagement/");
 
-					//alert(data.user_id);
+						}
 
-					if (user == null) {
-						alert('invalid user in session null value');
+						$('#userIdBank').val(data.user_id);//set hidden field user value; 
+						$
+								.post(
+										'http://localhost:8080/parkingManagement/billing/pay',
+										$(this).serialize())
+								.done(function(response, textStatus, jqXHR) {
 
-						window
-								.location("http://localhost:8080/parkingManagement/");
+									$('#bankPaymentForm').hide();
+									BootstrapDialog.alert(response.message);
 
-					}
+								})
+								.fail(
+										function(jqXHR, textStatus, errorThrown) {
+											BootstrapDialog
+													.alert('Error processing the payment, please try later');
 
-					$('#userIdBank').val(data.user_id);//set hidden field user value;
+										})
 
-					$.post('http://localhost:8080/parkingManagement/billing/pay',
-									$(this).serialize()).done(
-									function(response, textStatus, jqXHR) {
-
-										//alert('Inside Billing');
-
-										$('#bankPaymentForm').hide();
-										BootstrapDialog.alert('Transaction completed');
-
-									})
-							.fail(function(jqXHR, textStatus, errorThrown) {
-								BootstrapDialog.alert('Error processing the payment, please try later');
-
-							})  
-				 
-				 
-
-			});
-	
-	
-	/* Form validation using Stripe client-side validation helpers */
-	/*  jQuery.validator.addMethod("cardNumber", function(value, element) {
-		return this.optional(element) || Stripe.card.validateCardNumber(value);
-	}, "Please specify a valid credit card number.");
-
-	jQuery.validator.addMethod("cardExpiry", function(value, element) {
-		// Parsing month/year uses jQuery.payment library 
-		value = $.payment.cardExpiryVal(value);
-		return this.optional(element)
-				|| Stripe.card.validateExpiry(value.month, value.year);
-	}, "Invalid expiration date.");
-
-	jQuery.validator.addMethod("cardCVC", function(value, element) {
-		return this.optional(element) || Stripe.card.validateCVC(value);
-	}, "Invalid CVC.");
-
-	validator = $form.validate({
-		rules : {
-			cardNumber : {
-				required : true,
-				cardNumber : true
-			},
-			cardExpiry : {
-				required : true,
-				cardExpiry : true
-			},
-			cardCVC : {
-				required : true,
-				cardCVC : true
-			},
-
-		},
-		highlight : function(element) {
-			$(element).closest('.form-control').removeClass('success')
-					.addClass('error');
-		},
-		unhighlight : function(element) {
-			$(element).closest('.form-control').removeClass('error').addClass(
-					'success');
-		},
-		errorPlacement : function(error, element) {
-			$(element).closest('.form-group').append(error);
-		}
-	});
-
-	paymentFormReady = function() {
-		if ($form.find('[name=cardNumber]').hasClass("success")
-				&& $form.find('[name=cardExpiry]').hasClass("success")
-				&& $form.find('[name=cardCVC]').val().length > 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}  
-	 */
+					});
 </script>

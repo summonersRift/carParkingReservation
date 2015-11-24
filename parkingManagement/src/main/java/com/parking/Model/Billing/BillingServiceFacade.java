@@ -10,12 +10,12 @@ public class BillingServiceFacade {
 	public ConfirmationMsg processPayment(BillingInfo info) throws Exception {
 
 		// TODO: validate for active user.
-		BillingService service = null;
-
+		BillingService service = null; 
 		String pmtType = info.getPaymentType();
-		if (info.getPaymentType() == null)
-			throw new Exception("invalid payment type,cannot be null!!");
 
+		if (info.getPaymentType() == null) {
+			throw new Exception("invalid payment type,cannot be null!!");
+		}
 		if (info.getFunds() == null) {
 
 			throw new Exception("invalid balance amount,cannot be empty!!");
@@ -27,7 +27,7 @@ public class BillingServiceFacade {
 			service = new BillingServiceCreditCard();
 			break;
 		case "check":
-			service =new BillingServiceEcheck();
+			service = new BillingServiceEcheck();
 			break;
 		default:
 			throw new Exception("invalid payment type");
@@ -42,20 +42,20 @@ public class BillingServiceFacade {
 
 		}
 
-		BigDecimal infoDec = new BigDecimal(info.getFunds());
-		
-		boolean processed = service.updateUserFunds(info.getUserId(), infoDec);
+		boolean processed = service.updateUserFunds(info.getUserId(),
+				new BigDecimal(info.getFunds()));
 
 		ConfirmationMsg restMsg = new ConfirmationMsg();
 
-		if (processed)
+		if (processed) {
 			restMsg.setMessage("Paymet processed completed the amount of "
 					+ info.getFunds() + "dollars to your account ");
-		else {
+			restMsg.setProcessed(true);
+		} else {
 
 			restMsg.setMessage("Paymet processed failed due to an error in the system for account number : "
 					+ info.getCcNumber());
-
+			restMsg.setProcessed(false);
 		}
 
 		return restMsg;

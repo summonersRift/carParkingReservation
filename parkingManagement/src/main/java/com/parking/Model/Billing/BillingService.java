@@ -7,9 +7,7 @@ import com.parking.Model.Domain.BillingInfo;
 import com.parking.Model.Domain.ConfirmationMsg;
 import com.parking.Model.Domain.User;
 
-public interface BillingService {
-
- 
+public interface BillingService { 
 
 	public Boolean updateUserFunds(long userId, BigDecimal funds);
 

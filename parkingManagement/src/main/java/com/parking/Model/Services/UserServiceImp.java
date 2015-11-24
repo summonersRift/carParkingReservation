@@ -1,13 +1,8 @@
-package com.parking.Model.Services;
+package com.parking.Model.Services; 
 
- 
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
+import java.math.BigDecimal; 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Service; 
 import com.parking.Model.DAO.Contract.UserDao;
 import com.parking.Model.Domain.User;
 import com.parking.Model.Services.Contract.UserService;
@@ -46,15 +41,12 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public User signIn(String userName, String password) {
-
-		return dao.signIn(userName, password);
-
+	public User signIn(String userName, String password) { 
+		return dao.signIn(userName, password); 
 	}
 
 	@Override
-	public BigDecimal getUserBalance(Long userId) {
-		 
+	public BigDecimal getUserBalance(Long userId) { 
 		return dao.getBalance(userId);
 	}
 
