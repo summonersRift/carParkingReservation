@@ -234,7 +234,7 @@
 											<div class="form-group">
 												<!-- Button -->
 												<div class="col-md-offset-3 col-md-10">
-													<button id="btn-signup" type="button" class="btn btn-info">
+													<button id="btn-signup" type="submit" class="btn btn-info">
 														<i class="icon-hand-right"></i> &nbsp Sign Up
 													</button>
 													<span style="margin-left: 8px;"></span>
@@ -274,7 +274,36 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
 
+<script type="text/javascript">
 
+/*
+register form ajax post function
+validations and page forwarding.
+*/
+$('#signupform').submit(function (e) {
+    // will pass the form date using the jQuery serialize function
+    $.post('${pageContext.request.contextPath}/user/addUser', $(this).serialize(), function (response) {
+        $('#personFormResponse').text(response);
+
+        if (response == true) {
+            alert('You have been successfully register');
+
+            $('#signupbox').modal('hide');
+            CleanRegisterForm();
+            $('#login').modal('show');
+        } else {
+
+            alert('You were not registered :(. Please, Try Again');
+            $('#registerForm').modal('show');
+            CleanRegisterForm();
+        }
+        CleanRegisterForm();
+    });
+    e.preventDefault(); // prevent actual form submit and page reload
+});
+});
+
+</script>
 
 </body>
 </html>
