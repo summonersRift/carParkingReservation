@@ -1,18 +1,41 @@
+// Refer to:
+// http://www.java2s.com/Code/Java/Security/UseMD5toencryptastring.html
+
 package com.parking.Model.Security;
 
-public class HashEncryptor implements Encryptor {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
-	@Override
-	public byte[] encrypt(String text, String key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public String decrypt(String text, String key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class HashEncryptor {
+    private static MessageDigest digester;
 
- 
+    static {
+        try {
+            digester = MessageDigest.getInstance("MD5");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String encrypt(String str) {
+        if (str == null || str.length() == 0) {
+            throw new IllegalArgumentException("String to encript cannot be null or zero length");
+        }
+
+        digester.update(str.getBytes());
+        byte[] hash = digester.digest();
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < hash.length; i++) {
+            if ((0xff & hash[i]) < 0x10) {
+                hexString.append("0" + Integer.toHexString((0xFF & hash[i])));
+            }
+            else {
+                hexString.append(Integer.toHexString(0xFF & hash[i]));
+            }
+        }
+        return hexString.toString();
+    }
 }
+

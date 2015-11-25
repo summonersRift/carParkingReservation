@@ -2,14 +2,15 @@ package com.parking.Model.Services.Contract;
 
 import java.util.List;
 
+import com.parking.Model.Domain.AbstractUser;
 import com.parking.Model.Domain.User;
 import com.parking.common.PasswordResetDTO;
 import com.parking.common.UserRequest;
 
 public interface UserService {
 
-	User getUserById(Long userId);
-
+	AbstractUser getUserById(Long userId);
+	
 	boolean enabledDisabledUser(long userId, String flag);
 
 	void editUser(UserRequest editInfo);
@@ -20,18 +21,18 @@ public interface UserService {
 
 	boolean enableUser(long userId);
 
-	void addUser(User user);
+	AbstractUser addUser(User user);
 
 	void updateUser(User user);
 
 	void deleteUserById(Long id);
 
-	User getUserByUserName(String userName);
+	AbstractUser getUserByUserName(String userName);
 
 	List<User> getAll();
 
-	User signIn(String userName, String password);
+	AbstractUser signIn(String userName, String password);
 
-	User adminSignIn(String userName, String password);
+	AbstractUser adminSignIn(String userName, String password);
 
 }

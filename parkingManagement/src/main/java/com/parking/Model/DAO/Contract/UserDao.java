@@ -1,11 +1,16 @@
 package com.parking.Model.DAO.Contract;
 
+import com.parking.Model.Domain.AbstractUser;
 import com.parking.Model.Domain.User;
 
 public interface UserDao {
 
-	User getbyId(Long userId);
+	AbstractUser getbyId(Long userId);
 
-	User signIn(String userName, String password);
+	AbstractUser getbyName(String userName);
+	
+	AbstractUser signIn(String userName, String password);
+
+	AbstractUser addUser(User user);
 
 }

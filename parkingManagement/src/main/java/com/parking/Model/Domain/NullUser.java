@@ -13,6 +13,7 @@ public class NullUser extends AbstractUser {
 	@Override
 	public String getEmail() {
 		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		return "";
 	}
 

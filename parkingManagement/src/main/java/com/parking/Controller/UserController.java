@@ -20,11 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.parking.Model.Domain.AbstractUser;
+import com.parking.Model.Domain.NullUser;
 import com.parking.Model.Domain.User;
 import com.parking.Model.Services.Contract.UserService;
 import com.parking.common.LoginRequest;
-import com.parking.common.PasswordResetDTO;
-import com.parking.common.UserRequest;
+
 
 @Controller
 @RequestMapping("/user")
@@ -51,8 +52,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public @ResponseBody void addUser(@RequestBody User user) {
-		userService.addUser(user);
+	public @ResponseBody ResponseEntity<String> addUser(@RequestBody User user) {
+		AbstractUser usr = userService.addUser(user);
+		if(usr instanceof NullUser){
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<String>(((User) user).getJson().toString(),
+				HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
@@ -66,13 +72,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/getUserByUserName/{uName}", method = RequestMethod.GET)
-	public @ResponseBody User getUserByUserName(
+	public @ResponseBody AbstractUser getUserByUserName(
 			@PathVariable("uName") String userName) {
 		return userService.getUserByUserName(userName);
 	}
 
 	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
-	public @ResponseBody User getUserById(@PathVariable("userId") Long userId) {
+	public @ResponseBody AbstractUser getUserById(@PathVariable("userId") Long userId) {
 		return userService.getUserById(userId);
 	}
 
@@ -84,10 +90,10 @@ public class UserController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
 		// TODO:get User info from user service
-		User user = userService
+		AbstractUser user = userService
 				.signIn(login.getUserName(), login.getPassword());
 
-		if (user == null || user.isNull()) {
+		if (user instanceof NullUser) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
@@ -104,7 +110,7 @@ public class UserController {
 
 		}
 
-		return new ResponseEntity<String>(user.getJson().toString(),
+		return new ResponseEntity<String>(((User) user).getJson().toString(),
 				HttpStatus.OK);
 
 	}
