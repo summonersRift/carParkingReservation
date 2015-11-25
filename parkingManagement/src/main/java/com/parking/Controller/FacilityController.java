@@ -71,7 +71,7 @@ public class FacilityController {
 		list.add(facility);
 		
 		return list;
-		//return facService.getAll();
+		
 
 	}
 	

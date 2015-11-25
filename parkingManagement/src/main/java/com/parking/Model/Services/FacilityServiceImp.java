@@ -30,7 +30,7 @@ public class FacilityServiceImp implements FacilityService {
 
 	@Override
 	public Facility getById(Integer id) {
-		//facDao.getall();
+		// facDao;
 		return null;
 
 	}

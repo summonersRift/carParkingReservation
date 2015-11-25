@@ -27,167 +27,173 @@
 		</div>
 
 
-		<div class="dropdown col-sm-1">
-			<button class="btn btn-default dropdown-toggle" type="button"
-				id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="true">
-				Miami <span class="caret"></span>
-			</button> 
-		</div> 
-		<button type="button" class="btn btn-success" aria-label="Left Align">
+		<select class="form-control col-sm-1" id="dropdownMenu1"
+			style="width: 150px; margin-right: 7px;"></select>
+
+
+		<button class="btn btn-success" id="search_btn"
+			aria-label="Left Align">
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			Search
 		</button>
-
 	</div>
 
+	<br> <br>
+
+
+	<div style="display: none;" id="container-table-reservation"
+		class="table-responsive">
+		<table data-toggle="table" id="table-admin" data-show-refresh="true"
+			data-search="true" data-height="299">
+			<thead>
+				<tr>
+					<th>ParkNumber</th>
+					<th>Floor</th>
+					<th>localtion</th>
+
+				</tr>
+			</thead>
+			<tbody id="tbodyAdminTable">
+
+			</tbody>
+		</table>
+	</div>
 </div>
-
-
-<br>
-<br>
-
-
-<div class="table-responsive">
-	<table data-toggle="table" id="table-admin" data-show-refresh="true"
-		data-search="true" data-height="299">
-		<thead>
-			<tr>
-				<th>Address</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Name</th>
-				<th>Phone Number</th>
-				<th>Zip-Code</th>
-				
-				
-			</tr>
-		</thead>
-		<tbody id="tbodyAdminTable">
-
-		</tbody>
-	</table>
-</div>
-
-
-
-
-
 
 <script type="text/javascript">
+	function LoadInfo() {
 
-$(".datetimepicker").datepicker();
+		$
+				.getJSON(
+						"${pageContext.request.contextPath}/reservation/getallfacilities",
+						null, function(data) {
+							var dropdown = $("#dropdownMenu1");
+							//dropdown.empty(); 
+							$.each(data, function() {
+								dropdown.append($("<option/>").val(this.id)
+										.text(this.name));
 
-$(".datetimepicker").on("change", function () {
-    var id = $(this).attr("id");
-});
+							});
 
+						});
+	}
+	$(document)
+			.ready(
+					function() {
 
-function operateAdmin(value, row, index) {
-    return [
+						$('#table-admin').bootstrapTable({
+							cache : false,
+							height : 400,
+							striped : true,
+							pagination : true,
+							pageSize : 10,
+							pageList : [ 10, 25, 50, 100, 200 ],
+							search : true,
+							showToggle : true,
+							showColumns : true,
+							showRefresh : true,
+							minimumCountColumns : 2,
+							sortOrder : 'asc',
+							//sortName: 'waitingTime',
+							clickToSelect : true,
+							columns : [ {
+								field : 'parkNumber',
+								title : 'Parking spot #',
+								class : 'admin',
+								align : 'center',
+								valign : 'middle'
 
-'<a class="edit" href="javascript:void(0)" title="Edit">',
-'<i class="glyphicon glyphicon-edit"></i>',
-'</a>',
+							}, {
+								field : 'floor',
+								title : 'Parking Floor',
+								class : 'admin',
+								align : 'left',
+								valign : 'top',
+								sortable : true
 
-'<a class="disable" href="javascript:void(0)" title="Disable">',
-'<i class="glyphicon glyphicon-ban-circle"></i>',
-'</a>',
-'<a class="enable" href="javascript:void(0)" title="Enable">',
-'<i class="glyphicon glyphicon-ok-circle"></i>',
-'</a>'
-].join('');
+							}, {
+								field : 'location',
+								title : 'Parking location',
+								class : 'admin',
+								align : 'left',
+								valign : 'top',
+								sortable : true
 
-};
+							}, {
+								field : 'add',
+								title : 'Operate',
+								align : 'center',
+								valign : 'middle',
+								class : 'admin',
+								switchable : false,
+								clickToSelect : false,
+								formatter : operateAdmin,
+							//events: operateAdminEditEvent
 
-var id = 12;
-var start = "10/10/2015";
-var end = "10/10/2015";
+							},
 
-$('#table-admin').bootstrapTable({
-    method: 'get',
-    url: '${pageContext.request.contextPath}/reservation/findspot/facility/' + id + '/' + start + '/' + end,
-    cache: false,
-    height: 400,
-    striped: true,
-    pagination: true,
-    pageSize: 10,
-    pageList: [10, 25, 50, 100, 200],
-    search: true,
-    showToggle: true,
-    showColumns: true,
-    showRefresh: true,
-    minimumCountColumns: 2,
-    sortOrder: 'asc',
-    //sortName: 'waitingTime',
-    clickToSelect: true,
-    columns: [{
-            field: 'addressLine1',
-            title: 'Adress',
-            class: 'admin',
-            visible: false,
-            switchable: false,
-            align: 'right',
-            valign: 'bottom'
+							]
+						});
+						LoadInfo();//load dropdown
 
-}, {
-            field: 'city',
-            title: 'City',
-            class: 'admin',
-            align: 'center',
-            valign: 'middle'
+						$("#search_btn")
+								.on(
+										"click",
+										function() {
 
-}, {
-            field: 'state',
-            title: 'State',
-            class: 'admin',
-            align: 'left',
-            valign: 'top',
-            sortable: true
+											//alert("search clicked");
 
-}, {
-            field: 'name',
-            title: 'Name',
-            class: 'admin',
-            align: 'left',
-            valign: 'top',
-            sortable: true
+											var id = 1;
+											var endDate = $("#datetimepicker-2")
+													.val();
+											var startDate = $(
+													"#datetimepicker-1").val();
+											var facilityId = $("#dropdownMenu1")
+													.find('option:selected')
+													.attr('value');
+											if (endDate == ''
+													|| startDate == '') {
+												alert("date values cannot be empty!!!");
+												return;
+											}
 
-}, {
-            field: 'phoneNumber',
-            title: 'Phone Number',
-            align: 'center',
-            valign: 'middle',
-            class: 'admin',
-            switchable: false,
-            clickToSelect: false
+											search(facilityId, startDate,
+													endDate);
+										});
 
-},{
-    field: 'zipCode',
-    title: 'Zip-Code',
-    align: 'center',
-    valign: 'middle',
-    class: 'admin',
-    switchable: false,
-    clickToSelect: false
+						$("#datetimepicker-2").datepicker({
+							dateFormat : "yy-mm-dd"
+						});
+						$("#datetimepicker-1").datepicker({
+							dateFormat : "yy-mm-dd"
+						});
 
-},{
-    field: 'add',
-    title: 'Operate',
-    align: 'center',
-    valign: 'middle',
-    class: 'admin',
-    switchable: false,
-    clickToSelect: false,
-    formatter: operateAdmin,
-    //events: operateAdminEditEvent
+						function operateAdmin(value, row, index) {
+							return [
 
-},
-       
-        ]
-});
+									'<a class="edit" href="javascript:void(0)" title="Edit">',
+									'<i class="glyphicon glyphicon-edit"></i>',
+									'</a>',
 
+									'<a class="disable" href="javascript:void(0)" title="Disable">',
+									'<i class="glyphicon glyphicon-ban-circle"></i>',
+									'</a>',
+									'<a class="enable" href="javascript:void(0)" title="Enable">',
+									'<i class="glyphicon glyphicon-ok-circle"></i>',
+									'</a>' ].join('');
 
+						}
+						;
 
-
+						function search(id, startDate, endDate) {
+							$("#container-table-reservation").show();
+							$.getJSON(
+									'${pageContext.request.contextPath}/reservation/findspot/facility/'
+											+ id + '/' + startDate + '/'
+											+ endDate, null, function(data) {
+										$('#table-admin').bootstrapTable(
+												"load", data);
+									});
+						}
+					});
 </script>

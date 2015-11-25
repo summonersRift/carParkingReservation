@@ -58,8 +58,7 @@ public class UserDaoImp extends BaseDao implements UserDao {
 			if (updateemp != null)
 				try {
 					updateemp.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+				} catch (SQLException e) { 
 					e.printStackTrace();
 				}
 
