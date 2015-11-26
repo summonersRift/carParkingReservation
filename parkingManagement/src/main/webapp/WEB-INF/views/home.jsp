@@ -22,9 +22,10 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/jquery-ui.theme.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/jquery-ui.structure.min.css" />"
+<link
+	href="<c:url value="/resources/css/jquery-ui.structure.min.css" />"
 	rel="stylesheet" type="text/css" />
-	<link href="<c:url value="/resources/css/bootstrap-dialog.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap-dialog.min.css" />"
 	rel="stylesheet" type="text/css" />
 
 
@@ -70,32 +71,32 @@
 
 	<!-- SideBar -->
 
-	<div id="subViewDiv"></div> 
-	 
- 
-	 
+	<div id="subViewDiv"></div>
+
+
+
 	<div id="Billing-PageDiv"></div>
-	 
 
-	 
+
+
 	<div id="Incidents-PageDiv"></div>
-	 
 
-	 
+
+
 	<div id="Marketing-PageDiv"></div>
-	 
-	    
-	 
-	<div id="Reservation-PageDiv"></div>  
-	
- 
+
+
+
+	<div id="Reservation-PageDiv"></div>
+
+
 	<div id="Facility-PageDiv"></div>
-	 
-	
-	 
+
+
+
 	<div id="AccountMgt-PageDiv"></div>
-	 
-	
+
+
 	<!--Ends SideBar -->
 
 
@@ -112,10 +113,7 @@
 								<div class="panel panel-info">
 									<div class="panel-heading">
 										<div class="panel-title">Sign In</div>
-										<div
-											style="float: right; font-size: 80%; position: relative; top: -10px">
-											<a href="#">Forgot password?</a>
-										</div>
+										 
 									</div>
 
 									<div style="padding-top: 30px" class="panel-body">
@@ -152,43 +150,37 @@
 													<div
 														style="border-top: 1px solid #888; padding-top: 15px; font-size: 85%">
 														Don't have an account! <a href="#"
-															onClick="$('#loginbox').hide(); $('#signupbox').show()">
+															onClick="$('#loginbox').hide(); $('#adduserbox').show()">
 															Sign Up Here </a>
 													</div>
 												</div>
 											</div>
-										</form>  
+										</form>
 									</div>
 								</div>
-							</div>
-							<!-- Sign Up box -->
-							<div id="signupbox" style="display: none; margin-top: 50px"
+							</div> 
+							
+									<div class="container">
+								<div id="adduserbox" style="display: none; margin-top: 50px"
 								class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 								<div class="panel panel-info">
 									<div class="panel-heading">
-										<div class="panel-title">Sign Up</div>
-										<div
-											style="float: right; font-size: 85%; position: relative; top: -10px">
-											<a id="signinlink" href="#"
-												onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign
-												In</a>
-										</div>
+										<div class="panel-title">Sign In</div>
+										 
 									</div>
-									<div class="panel-body">
-										<form id="signupform" class="form-horizontal" role="form">
 
-											<div id="signupalert" style="display: none"
-												class="alert alert-danger">
-												<p>Error:</p>
-												<span></span>
-											</div>
+									<div style="padding-top: 30px" class="panel-body">
 
+										<div style="display: none" id="login-alert"
+											class="alert alert-danger col-sm-12"></div>
 
+										<form id="addUserForm" class="form-horizontal" role="form">  
+											
 											<div class="form-group">
 												<label for="firstname" class="col-md-3 control-label">First
 													Name</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control" name="firstname"
+													<input type="text" class="form-control" name="firstName"
 														placeholder="First Name">
 												</div>
 											</div>
@@ -196,7 +188,7 @@
 												<label for="lastname" class="col-md-3 control-label">Last
 													Name</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control" name="lastname"
+													<input type="text" class="form-control" name="lastName"
 														placeholder="Last Name">
 												</div>
 											</div>
@@ -207,108 +199,107 @@
 														placeholder="Email Address">
 												</div>
 											</div>
-											
 											<div class="form-group">
 												<label for="userName" class="col-md-3 control-label">UserName</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control" name="userName"
+													<input type="text" class="form-control" name=userName
 														placeholder="UserName">
 												</div>
 											</div>
-
-											
 											<div class="form-group">
 												<label for="password" class="col-md-3 control-label">Password</label>
 												<div class="col-md-9">
-													<input type="password" class="form-control" name="passwd"
+													<input type="password" class="form-control" name="password"
 														placeholder="Password">
 												</div>
 											</div>
-											
 											<div class="form-group">
-												<label for="repeatPasswd" class="col-md-3 control-label">Repeat Password</label>
+												<label for="repeatPasswd" class="col-md-3 control-label">Repeat
+													Password</label>
 												<div class="col-md-9">
-													<input type="password" class="form-control" name="repeatPasswd"
-														placeholder="Repeat Password">
+													<input type="password" id='repassword' class="form-control"
+														name="repeatPasswd" placeholder="Repeat Password">
+												</div>
+											</div> 
+											<div class="form-group">
+												<label for="repeatPasswd" class="col-md-3 control-label">Identification
+													 </label>
+												<div class="col-md-9">
+													<input type="userIdentification" id='userIdentification' class="form-control"
+														name="userIdentification" placeholder="Identificaition">
 												</div>
 											</div>
-
 											<div class="form-group">
+												<label for="repeatPasswd" class="col-md-3 control-label">Security Question
+													 </label>
+												<div class="col-md-9">
+													<input type="secQuestionOne" id='secQuestionOne' class="form-control"
+														name="secQuestionOne" placeholder="Security Question">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="repeatPasswd" class="col-md-3 control-label">Security Answer
+													 </label>
+												<div class="col-md-9">
+													<input type="secAnswersOne" id='secAnswersOne' class="form-control"
+														name="secAnswersOne" placeholder="Security Anwser">
+												</div>
+											</div>
+											
+											 
+											<div style="margin-top: 10px" class="form-group">
+												<!-- Button -->
+
+												<div class="form-group">
 												<!-- Button -->
 												<div class="col-md-offset-3 col-md-10">
-													<button id="btn-signup" type="submit" class="btn btn-info">
+													<button id="btn-signup" type='submit' class="btn btn-info">
 														<i class="icon-hand-right"></i> &nbsp Sign Up
 													</button>
 													<span style="margin-left: 8px;"></span>
 												</div>
-											</div>
+											</div> 
 										</form>
 									</div>
-								</div> 
-							</div>
-						</div>  
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> 
+								</div>
+							</div>	  
 
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap-table.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrapValidator.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap-switch.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.cookie.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/parkingManagement.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.validate.min.js" />"></script>  
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.payment.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap-dialog.min.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/jquery.maskMoney.min.js" />"></script>
-	
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrap-table.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrapValidator.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrap-switch.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.cookie.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/parkingManagement.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.validate.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.payment.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrap-dialog.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery.maskMoney.min.js" />"></script>
 
-<script type="text/javascript">
+
+	<script type="text/javascript">
 
 /*
 register form ajax post function
 validations and page forwarding.
 */
-$('#signupform').submit(function (e) {
-    // will pass the form date using the jQuery serialize function
-    $.post('${pageContext.request.contextPath}/user/addUser', $(this).serialize(), function (response) {
-        $('#personFormResponse').text(response);
 
-        if (response == true) {
-            alert('You have been successfully register');
-
-            $('#signupbox').modal('hide');
-            CleanRegisterForm();
-            $('#login').modal('show');
-        } else {
-
-            alert('You were not registered :(. Please, Try Again');
-            $('#registerForm').modal('show');
-            CleanRegisterForm();
-        }
-        CleanRegisterForm();
-    });
-    e.preventDefault(); // prevent actual form submit and page reload
-});
-});
+ 
 
 </script>
 

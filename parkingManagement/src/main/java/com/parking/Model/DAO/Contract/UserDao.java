@@ -5,11 +5,7 @@ import java.math.BigDecimal;
 import com.parking.Model.Domain.User;
 
 public interface UserDao {
-
-	AbstractUser getbyId(Long userId);
-
-	AbstractUser getbyName(String userName);
-	
+ 
 	AbstractUser signIn(String userName, String password);
 
 	AbstractUser addUser(User user);

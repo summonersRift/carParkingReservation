@@ -20,10 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.parking.Model.Domain.AbstractUser;
 import com.parking.Model.Domain.NullUser;
+import com.parking.Model.Domain.RequestUser;
+import com.parking.Model.Domain.Role;
 import com.parking.Model.Domain.User;
 import com.parking.Model.Services.Contract.UserService;
 import com.parking.common.LoginRequest;
-
 
 @Controller
 @RequestMapping("/user")
@@ -40,27 +41,35 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<String> addUser(@RequestBody User user) {
+	public @ResponseBody ResponseEntity<String> addUser(  RequestUser requser) {
+
+		if (requser == null || requser.getUserName() == null) {// This also
+																// validate
+			// the client side
+			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		}
+		User user = new User();
+		user.setUserName(requser.getUserName());
+		user.setEmail(requser.getEmail());
+		user.setPassword(requser.getPassword());
+		user.setFirstName(requser.getFirstName());
+		user.setLastName(requser.getLastName());
+		user.set_securityQuestion(requser.getSecQuestionOne());
+		user.setSecurityAnswer(requser.getSecAnswersOne());
+		user.setUserIdentification(requser.getUserIdentifation());
+		Role role = new Role();
+		role.setRoleType("user");
+		user.setUserRole(role);
+
 		AbstractUser usr = userService.addUser(user);
-		if(usr instanceof NullUser){
+
+		if (usr instanceof NullUser) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<String>(((User) user).getJson().toString(),
 				HttpStatus.OK);
 	}
- 
 
-	@RequestMapping(value = "/getUserByUserName/{uName}", method = RequestMethod.GET)
-	public @ResponseBody AbstractUser getUserByUserName(
-			@PathVariable("uName") String userName) {
-		return userService.getUserByUserName(userName);
-	}
-
-	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
-	public @ResponseBody AbstractUser getUserById(@PathVariable("userId") Long userId) {
-		return userService.getUserById(userId);
-	}
-	
 	@RequestMapping(value = "/getbalance/{userId}", method = RequestMethod.GET)
 	public @ResponseBody String getUserById1(@PathVariable("userId") Long userId) {
 
@@ -75,8 +84,8 @@ public class UserController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
 		// TODO:get User info from user service
-		AbstractUser user = userService
-				.signIn(login.getUserName(), login.getPassword());
+		AbstractUser user = userService.signIn(login.getUserName(),
+				login.getPassword());
 
 		if (user instanceof NullUser) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);

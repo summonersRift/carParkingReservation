@@ -1,10 +1,8 @@
-package com.parking.Model.Services; 
+package com.parking.Model.Services;
 
 import java.math.BigDecimal;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service; 
+import org.springframework.stereotype.Service;
 import com.parking.Model.DAO.Contract.UserDao;
 import com.parking.Model.Domain.AbstractUser;
 import com.parking.Model.Domain.User;
@@ -23,31 +21,6 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public AbstractUser getUserById(Long userId) {
-
-		return dao.getbyId(userId);
-
-	}
-
-	@Override
-	public boolean enabledDisabledUser(long userId, String flag) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean disableUser(long userId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean enableUser(long userId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public AbstractUser addUser(User user) {
 		String pwd = user.getPassword();
 		user.setPassword(HashEncryptor.encrypt(pwd));
@@ -55,44 +28,25 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public void updateUser(User user) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUserById(Long id) {
-		// TODO Auto-generated method stub
-
-	}
-	
-	@Override
-	public AbstractUser getUserByUserName(String userName) {
-		return dao.getbyName(userName);	
-	}
-	
-	@Override
 	public AbstractUser signIn(String userName, String password) {
-		// TODO Auto-generated method stub		
-		return dao.signIn(  userName,   password);		
+		// TODO Auto-generated method stub
+		return dao.signIn(userName, password);
 	}
-	
-	public BigDecimal getUserBalance(Long userId) { 
+
+	public BigDecimal getUserBalance(Long userId) {
 		return dao.getBalance(userId);
 	}
 
 	@Override
-	public List<User> getAll() {
+	public AbstractUser getUserById(Long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public AbstractUser adminSignIn(String userName, String password) {
+	public AbstractUser getUserByUserName(String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	 
 
 }
