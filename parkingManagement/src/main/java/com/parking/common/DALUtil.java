@@ -19,14 +19,25 @@ public class DALUtil {
 
 		if (connection != null) {
 			try {
-				if (!connection.isClosed())
+				if (!connection.isClosed()) {
 					return connection;
+
+				} else {
+
+					return newConnection();
+
+				}
 
 			} catch (SQLException e1) {
 
 				e1.printStackTrace();
+				return newConnection();
 			}
 		}
+		return newConnection();
+	}
+
+	private static Connection newConnection() {
 
 		try {
 

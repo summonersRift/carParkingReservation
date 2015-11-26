@@ -2,10 +2,7 @@
 
 <div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 <div class="list-group" id="sidebarList">
-	<ul class="sidebar-nav"> 
-		<li class="sidebar-brand">
-			<a href=#AccountMgt id ="accountMgt">Acct Mmgt</a>
-		</li> 
+	<ul class="sidebar-nav">  
 		<li class="sidebar-brand">
 			<a href="#Billing" id ="billing"> Billing Info </a>
 		</li>

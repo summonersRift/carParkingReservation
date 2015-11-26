@@ -20,26 +20,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.parking.Model.Domain.Facility;
 import com.parking.Model.Domain.User;
+import com.parking.Model.Services.Contract.FacilityService;
 import com.parking.Model.Services.Contract.UserService;
 import com.parking.common.LoginRequest;
- 
 
 @Controller
 @RequestMapping("/facility")
-
 public class FacilityController {
 
+	private FacilityService facService;
+
+	// paremeter injection
 	@Autowired
-	UserService adminService;
+	public FacilityController(FacilityService service) {
+
+		facService = service;
+
+	}
 
 	@RequestMapping(value = "/FacilityPage", method = RequestMethod.GET)
 	public ModelAndView getFacilityPage(Model model) {
 		return new ModelAndView("Facility");
 	}
-
- 
- 
 
 	@RequestMapping("/layout")
 	public String getIndexPage() {
@@ -47,39 +51,43 @@ public class FacilityController {
 
 	}
 
-  
-	//------------Facility portion-------------------------
-	/**
-	 * 
-	 */
-	public void AddFacility() { 
-		// TODO Auto-generated method
-	 }
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public void AddFacility(Facility facility) {
+		facService.addFacility(facility);
+	}
 
-	/**
-	 * 
-	 */
-	public void getAllFacilities() { 
-		// TODO Auto-generated method
-	 }
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public @ResponseBody List<Facility> getAllFacilities() {
+		
+		List<Facility> list = new ArrayList<Facility>();
+		
+		Facility facility = new Facility();
+		facility.setAddressLine1("Address 1");
+		facility.setCity("Miami");
+		facility.setName("Facility 1");
+		facility.setPhoneNumber("2345436765");
+		facility.setState("FL");
+		facility.setZipCode(23423);
+		list.add(facility);
+		
+		return list;
+		
 
-	/**
-	 * 
-	 * @param facilityID 
-	 */
-	public void UpdateFacility(Integer facilityID) { 
-		// TODO Auto-generated method
-	 }
+	}
+	
+	
 
-	/**
-	 * 
-	 * @param facilityID 
-	 */
-	public void GetFacility(Integer facilityID) { 
-		// TODO Auto-generated method
-	 } 
-	
-	
-	
-	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public void UpdateFacility(Facility facility) {
+
+		facService.updateFacility(facility);
+	}
+
+	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.POST)
+	public Facility GetFacility(Integer id) {
+		
+		return facService.getById(id);
+
+	}
+
 }

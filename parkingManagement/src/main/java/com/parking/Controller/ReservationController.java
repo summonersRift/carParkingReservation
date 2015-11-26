@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.parking.Model.Domain.Facility;
 import com.parking.Model.Domain.ParkingSlot;
 import com.parking.Model.Services.Contract.ReservationService;
 
@@ -23,6 +24,7 @@ public class ReservationController {
 
 	@RequestMapping(value = "/ReservationPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
+
 		return new ModelAndView("Reservation");
 	}
 
@@ -38,24 +40,28 @@ public class ReservationController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public @ResponseBody void addSpot(@RequestBody long spotId,
 			@RequestBody long userId) {
-		// com.parking.reservation.service.RegistrationService.addSpot(spotId,userId);
-	}
-
-	@RequestMapping(value = "/udpateReservation", method = RequestMethod.PUT)
-	public @ResponseBody void updateSpot(@RequestBody long spotId,
-			@RequestBody long userId) {
 		resService.updateSpot(spotId, userId);
 	}
 
-	@RequestMapping(value = "/findspot/facility/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/findspot/facility/{id}/{start}/{end}", method = RequestMethod.GET)
 	public ResponseEntity<List<ParkingSlot>> getFreeSpots(
-			@PathVariable("id") long facilityId) {
+			@PathVariable("id") long facilityId,
+			@PathVariable("start") String startdt,
+			@PathVariable("end") String enddt) {
 
-		// call service to get free spots
-		List<ParkingSlot> lst = resService.findFreeParking(facilityId);
+		List<ParkingSlot> lst = resService.findFreeParking(facilityId, startdt,
+				enddt);
 
 		return new ResponseEntity<List<ParkingSlot>>(lst, HttpStatus.OK);
 
+	}
+	
+	@RequestMapping(value = "/getallfacilities", method = RequestMethod.GET)
+	public ResponseEntity<List<Facility>> getFacilities() {
+		 
+		List<Facility> ls=resService.getByFacilities();
+		
+		return new ResponseEntity<List<Facility>>(ls, HttpStatus.OK);
 	}
 
 }

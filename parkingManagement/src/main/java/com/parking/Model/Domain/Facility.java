@@ -3,37 +3,21 @@ package com.parking.Model.Domain;
 import java.util.List;
 
 public class Facility {
-	/**
-	 * 
-	 */
+   private int id;
 	private String addressLine1;
-	/**
-	 * 
-	 */
+
 	private String city;
-	/**
-	 * 
-	 */
+
 	private String state;
-	/**
-	 * 
-	 */
+
 	private String name;
-	/**
-	 * 
-	 */
+
 	private Integer facilityID;
-	/**
-	 * 
-	 */
+
 	public List<ParkingSlot> parkingSlot;
-	/**
-	 * 
-	 */
+
 	private String phoneNumber;
-	/**
-	 * 
-	 */
+
 	private Integer zipCode;
 
 	/**
@@ -146,5 +130,13 @@ public class Facility {
 	 */
 	public void setZipCode(Integer zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

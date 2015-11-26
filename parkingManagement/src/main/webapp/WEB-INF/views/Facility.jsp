@@ -1,108 +1,35 @@
 <h1>Facility Page</h1>
+<!-- Table starts Here -->
 
-<table id="facilitiesTable" class="table table-striped table-bordered"
-	cellspacing="0" width="100%">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Street</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Zip-Code</th>
-			<th>Spots</th>
-			<th>Action</th>
+<div class="table-responsive">
+	<table data-toggle="table" id="table-admin" data-show-refresh="true"
+		data-search="true" data-height="299">
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Name</th>
+				<th>Phone Number</th>
+				<th>Zip-Code</th>
+				
+				
+			</tr>
+		</thead>
+		<tbody id="tbodyAdminTable">
 
-		</tr>
-	</thead>
+		</tbody>
+	</table>
+</div>
 
-	<tbody>
-		<tr>
-			<td>Miami Parking</td>
-			<td>8th Street</td>
-			<td>Miami</td>
-			<td>FL</td>
-			<td>34526</td>
-			<td>128</td>
-			<td>
 
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
 
-			</td>
-		</tr>
 
-		<tr>
-			<td>Miami Parking</td>
-			<td>8th Street</td>
-			<td>Miami</td>
-			<td>FL</td>
-			<td>34526</td>
-			<td>128</td>
-			<td>
+<!-- Table Ends here -->
 
-				<button type="button" class="btn btn-success"
-					aria-label="Left Align">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
 
-			</td>
-		</tr>
 
-		<tr>
-			<td>Miami Parking</td>
-			<td>8th Street</td>
-			<td>Miami</td>
-			<td>FL</td>
-			<td>34526</td>
-			<td>128</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Left Align" >
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>Miami Parking</td>
-			<td>8th Street</td>
-			<td>Miami</td>
-			<td>FL</td>
-			<td>34526</td>
-			<td>128</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Left Align">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>Miami Parking</td>
-			<td>8th Street</td>
-			<td>Miami</td>
-			<td>FL</td>
-			<td>34526</td>
-			<td>128</td>
-			<td>
-
-				<button type="button" class="btn btn-success" data-target="#editfacilityModal" data-toggle="modal"
-					aria-label="Left Align">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-	</tbody>
-</table>
+<!-- Modal starts Here -->
 
 <br>
 <br>
@@ -267,3 +194,109 @@
 		</div>
 	</div>
 </div>
+
+
+<!-- Scripts -->
+<script type="text/javascript">
+
+function operateAdmin(value, row, index) {
+    return [
+
+'<a class="edit" href="javascript:void(0)" title="Edit">',
+'<i class="glyphicon glyphicon-edit"></i>',
+'</a>',
+
+'<a class="disable" href="javascript:void(0)" title="Disable">',
+'<i class="glyphicon glyphicon-ban-circle"></i>',
+'</a>',
+'<a class="enable" href="javascript:void(0)" title="Enable">',
+'<i class="glyphicon glyphicon-ok-circle"></i>',
+'</a>'
+].join('');
+
+};
+
+$('#table-admin').bootstrapTable({
+    method: 'get',
+    url: '${pageContext.request.contextPath}/facility/all',
+    cache: false,
+    height: 400,
+    striped: true,
+    pagination: true,
+    pageSize: 10,
+    pageList: [10, 25, 50, 100, 200],
+    search: true,
+    showToggle: true,
+    showColumns: true,
+    showRefresh: true,
+    minimumCountColumns: 2,
+    sortOrder: 'asc',
+    //sortName: 'waitingTime',
+    clickToSelect: true,
+    columns: [{
+            field: 'addressLine1',
+            title: 'Adress',
+            class: 'admin',
+            visible: false,
+            switchable: false,
+            align: 'right',
+            valign: 'bottom'
+
+}, {
+            field: 'city',
+            title: 'City',
+            class: 'admin',
+            align: 'center',
+            valign: 'middle'
+
+}, {
+            field: 'state',
+            title: 'State',
+            class: 'admin',
+            align: 'left',
+            valign: 'top',
+            sortable: true
+
+}, {
+            field: 'name',
+            title: 'Name',
+            class: 'admin',
+            align: 'left',
+            valign: 'top',
+            sortable: true
+
+}, {
+            field: 'phoneNumber',
+            title: 'Phone Number',
+            align: 'center',
+            valign: 'middle',
+            class: 'admin',
+            switchable: false,
+            clickToSelect: false
+
+},{
+    field: 'zipCode',
+    title: 'Zip-Code',
+    align: 'center',
+    valign: 'middle',
+    class: 'admin',
+    switchable: false,
+    clickToSelect: false
+
+},{
+    field: 'add',
+    title: 'Operate',
+    align: 'center',
+    valign: 'middle',
+    class: 'admin',
+    switchable: false,
+    clickToSelect: false,
+    formatter: operateAdmin,
+    //events: operateAdminEditEvent
+
+},
+       
+        ]
+});
+
+</script>

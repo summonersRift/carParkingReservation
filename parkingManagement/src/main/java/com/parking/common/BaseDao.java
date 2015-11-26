@@ -6,13 +6,13 @@ import com.mysql.jdbc.Connection;
 
 public class BaseDao {
 
-	protected Connection connection;
+	protected static Connection connection;
 
 	public Connection getConnection() {
 
-		if (connection == null)
+		if (connection == null) {
 			connection = DALUtil.getConnection();
-
+		}
 		return connection;
 
 	}

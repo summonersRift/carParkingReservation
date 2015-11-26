@@ -169,7 +169,7 @@ public class User extends AbstractUser implements Serializable {
 		demoUser.setEmail("test@gmail.com");
 		demoUser.setFirstName("DemoName");
 		demoUser.setLastName("DemoLastName");
-		demoUser.setUserid(11111);
+		demoUser.setUserid(1);
 		demoUser.setToken("123456");
 		demoUser.setUserName("test@test.com");
 		role.setRoleType("user");

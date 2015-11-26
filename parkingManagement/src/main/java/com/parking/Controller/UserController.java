@@ -1,7 +1,5 @@
 package com.parking.Controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -41,16 +39,6 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/AccountMgtPage", method = RequestMethod.GET)
-	public ModelAndView getAccountPage(Model model) {
-		return new ModelAndView("UserManagement");
-	}
-
-	@RequestMapping(value = "/userList.json", method = RequestMethod.GET)
-	public List<User> getAllUsers() {
-		return userService.getAll();
-	}
-
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> addUser(@RequestBody User user) {
 		AbstractUser usr = userService.addUser(user);
@@ -60,16 +48,7 @@ public class UserController {
 		return new ResponseEntity<String>(((User) user).getJson().toString(),
 				HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-	public @ResponseBody void updateUser(@RequestBody User user) {
-		userService.updateUser(user);
-	}
-
-	@RequestMapping(value = "/removeUser/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody void removeUser(@PathVariable("id") Long id) {
-		userService.deleteUserById(id);
-	}
+ 
 
 	@RequestMapping(value = "/getUserByUserName/{uName}", method = RequestMethod.GET)
 	public @ResponseBody AbstractUser getUserByUserName(
@@ -80,6 +59,12 @@ public class UserController {
 	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
 	public @ResponseBody AbstractUser getUserById(@PathVariable("userId") Long userId) {
 		return userService.getUserById(userId);
+	}
+	
+	@RequestMapping(value = "/getbalance/{userId}", method = RequestMethod.GET)
+	public @ResponseBody String getUserById1(@PathVariable("userId") Long userId) {
+
+		return userService.getUserBalance(userId).toString();
 	}
 
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)

@@ -27,124 +27,173 @@
 		</div>
 
 
-		<div class="dropdown col-sm-1">
-			<button class="btn btn-default dropdown-toggle" type="button"
-				id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="true">
-				Miami <span class="caret"></span>
-			</button> 
-		</div> 
-		<button type="button" class="btn btn-success" aria-label="Left Align">
+		<select class="form-control col-sm-1" id="dropdownMenu1"
+			style="width: 150px; margin-right: 7px;"></select>
+
+
+		<button class="btn btn-success" id="search_btn"
+			aria-label="Left Align">
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			Search
 		</button>
-
 	</div>
 
+	<br> <br>
+
+
+	<div style="display: none;" id="container-table-reservation"
+		class="table-responsive">
+		<table data-toggle="table" id="table-admin" data-show-refresh="true"
+			data-search="true" data-height="299">
+			<thead>
+				<tr>
+					<th>ParkNumber</th>
+					<th>Floor</th>
+					<th>localtion</th>
+
+				</tr>
+			</thead>
+			<tbody id="tbodyAdminTable">
+
+			</tbody>
+		</table>
+	</div>
 </div>
 
-
-<br>
-<br>
-<table id="reservationTable" class="table table-striped table-bordered"
-	cellspacing="0" width="100%">
-	<thead>
-		<tr>
-			<th>Space #</th>
-			<th>Floor</th>
-			<th>Location</th>
-			<th>Date</th>
-			<th>Action</th>
-
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<td>564</td>
-			<td>3rd</td>
-			<td>Miami</td>
-			<td>10/26/2015</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>564</td>
-			<td>3rd</td>
-			<td>Miami</td>
-			<td>10/28/2015</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>862</td>
-			<td>8th</td>
-			<td>Miami</td>
-			<td>10/29/2015</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>126</td>
-			<td>1st</td>
-			<td>Miami</td>
-			<td>10/26/2015</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td>276</td>
-			<td>2nd</td>
-			<td>Miami</td>
-			<td>10/30/2015</td>
-			<td>
-
-				<button type="button" class="btn btn-success"
-					aria-label="Center Align">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-
-			</td>
-		</tr>
-
-	</tbody>
-</table>
-
-
 <script type="text/javascript">
+	function LoadInfo() {
 
-$(".datetimepicker").datepicker();
+		$
+				.getJSON(
+						"${pageContext.request.contextPath}/reservation/getallfacilities",
+						null, function(data) {
+							var dropdown = $("#dropdownMenu1");
+							//dropdown.empty(); 
+							$.each(data, function() {
+								dropdown.append($("<option/>").val(this.id)
+										.text(this.name));
 
-$(".datetimepicker").on("change", function () {
-    var id = $(this).attr("id");
-});
+							});
 
+						});
+	}
+	$(document)
+			.ready(
+					function() {
+
+						$('#table-admin').bootstrapTable({
+							cache : false,
+							height : 400,
+							striped : true,
+							pagination : true,
+							pageSize : 10,
+							pageList : [ 10, 25, 50, 100, 200 ],
+							search : true,
+							showToggle : true,
+							showColumns : true,
+							showRefresh : true,
+							minimumCountColumns : 2,
+							sortOrder : 'asc',
+							//sortName: 'waitingTime',
+							clickToSelect : true,
+							columns : [ {
+								field : 'parkNumber',
+								title : 'Parking spot #',
+								class : 'admin',
+								align : 'center',
+								valign : 'middle'
+
+							}, {
+								field : 'floor',
+								title : 'Parking Floor',
+								class : 'admin',
+								align : 'left',
+								valign : 'top',
+								sortable : true
+
+							}, {
+								field : 'location',
+								title : 'Parking location',
+								class : 'admin',
+								align : 'left',
+								valign : 'top',
+								sortable : true
+
+							}, {
+								field : 'add',
+								title : 'Operate',
+								align : 'center',
+								valign : 'middle',
+								class : 'admin',
+								switchable : false,
+								clickToSelect : false,
+								formatter : operateAdmin,
+							//events: operateAdminEditEvent
+
+							},
+
+							]
+						});
+						LoadInfo();//load dropdown
+
+						$("#search_btn")
+								.on(
+										"click",
+										function() {
+
+											//alert("search clicked");
+
+											var id = 1;
+											var endDate = $("#datetimepicker-2")
+													.val();
+											var startDate = $(
+													"#datetimepicker-1").val();
+											var facilityId = $("#dropdownMenu1")
+													.find('option:selected')
+													.attr('value');
+											if (endDate == ''
+													|| startDate == '') {
+												alert("date values cannot be empty!!!");
+												return;
+											}
+
+											search(facilityId, startDate,
+													endDate);
+										});
+
+						$("#datetimepicker-2").datepicker({
+							dateFormat : "yy-mm-dd"
+						});
+						$("#datetimepicker-1").datepicker({
+							dateFormat : "yy-mm-dd"
+						});
+
+						function operateAdmin(value, row, index) {
+							return [
+
+									'<a class="edit" href="javascript:void(0)" title="Edit">',
+									'<i class="glyphicon glyphicon-edit"></i>',
+									'</a>',
+
+									'<a class="disable" href="javascript:void(0)" title="Disable">',
+									'<i class="glyphicon glyphicon-ban-circle"></i>',
+									'</a>',
+									'<a class="enable" href="javascript:void(0)" title="Enable">',
+									'<i class="glyphicon glyphicon-ok-circle"></i>',
+									'</a>' ].join('');
+
+						}
+						;
+
+						function search(id, startDate, endDate) {
+							$("#container-table-reservation").show();
+							$.getJSON(
+									'${pageContext.request.contextPath}/reservation/findspot/facility/'
+											+ id + '/' + startDate + '/'
+											+ endDate, null, function(data) {
+										$('#table-admin').bootstrapTable(
+												"load", data);
+									});
+						}
+					});
 </script>

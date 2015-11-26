@@ -1,6 +1,8 @@
 package com.parking.Model.DAO;
 
+
 import java.sql.PreparedStatement;
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -15,15 +17,17 @@ import com.parking.Model.Domain.Role;
 
 @Repository
 public class UserDaoImp extends BaseDao implements UserDao {
-	
+/*  Don't Remove
 	private static String GET_USER_BY_USERNAME  = "SELECT u.username, u.user_id, u.password, r.role_name " 
 												 +"FROM users u, Roles r " 
 												 +"WHERE  username=? AND u.role_id=r.role_id";
+*/
 	
-	private static String GET_USER_BY_ID  = "SELECT *"
+/*	Don't Remove
+ 	private static String GET_USER_BY_ID  = "SELECT *"
 			+ "FROM users"
-			+ "WHERE  username = ?";
-	
+			+ "WHERE  user_id = ?";
+*/	
 	private static String VALIDATE_USER  = "SELECT u.username, u.user_id, u.password, r.role_name " 
 			 +"FROM users u, Roles r " 
 			 +"WHERE  username=? AND u.role_id=r.role_id AND u.password=?";
@@ -33,8 +37,8 @@ public class UserDaoImp extends BaseDao implements UserDao {
 	
 	@Override
 	public AbstractUser getbyId(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return User.getMyDemoUser();
 	}
 
 	@Override
@@ -92,7 +96,7 @@ public class UserDaoImp extends BaseDao implements UserDao {
 	public AbstractUser addUser(User user) {
 		try {
 			
-			PreparedStatement statement = getConnection().prepareStatement(VALIDATE_USER);
+			PreparedStatement statement = getConnection().prepareStatement(INSERT_USER);
 			statement.setString(1, user.getUserName());
 			statement.setString(2, user.getPassword());
 			statement.setString(2, user.getPassword());
@@ -112,6 +116,95 @@ public class UserDaoImp extends BaseDao implements UserDao {
 
 		}
 		return user;		
+		
+	}
+	@Override
+	public boolean updateUserFunds(long userid, BigDecimal funds) {
+
+		java.sql.PreparedStatement updateemp = null;
+
+		try {
+
+			getConnection();
+
+			updateemp = connection
+					.prepareStatement("UPDATE pmsys.users SET balance = ? WHERE user_id = ? ");
+			updateemp.setBigDecimal(1, funds);
+			updateemp.setLong(2, userid);
+
+			int execute = updateemp.executeUpdate();
+
+			if (execute > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			if (updateemp != null)
+				try {
+					updateemp.close();
+				} catch (SQLException e) { 
+					e.printStackTrace();
+				}
+
+			closeConnection();
+		}
+
+		return true;
+
 	}
 
+	@Override
+	public BigDecimal getBalance(Long userId) {
+
+		BigDecimal balance = new BigDecimal("0");
+
+		java.sql.PreparedStatement updateemp = null;
+
+		getConnection();
+		ResultSet rs = null;
+		try {
+
+			updateemp = connection
+					.prepareStatement(" SELECT  balance FROM pmsys.users where user_id =?");
+
+			updateemp.setLong(1, userId);
+			rs = updateemp.executeQuery();
+
+			if (rs.next()) {
+
+				balance = rs.getBigDecimal("balance");
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				// close statement
+				if (updateemp != null)
+					updateemp.close();
+				// close resultset
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			//closeConnection();
+		}
+
+		return balance;
+	}	
 }

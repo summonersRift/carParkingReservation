@@ -1,18 +1,15 @@
-package com.parking.Model.Services;
+package com.parking.Model.Services; 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Service; 
 import com.parking.Model.DAO.Contract.UserDao;
 import com.parking.Model.Domain.AbstractUser;
 import com.parking.Model.Domain.User;
 import com.parking.Model.Services.Contract.UserService;
-import com.parking.common.PasswordResetDTO;
-import com.parking.common.UserRequest;
 import com.parking.Model.Security.HashEncryptor;
-
 
 @Service
 public class UserServiceImp implements UserService {
@@ -36,18 +33,6 @@ public class UserServiceImp implements UserService {
 	public boolean enabledDisabledUser(long userId, String flag) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void editUser(UserRequest editInfo) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void passwordReset(PasswordResetDTO passwordReset) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -80,10 +65,20 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	@Override
 	public AbstractUser getUserByUserName(String userName) {
 		return dao.getbyName(userName);	
+	}
+	
+	@Override
+	public AbstractUser signIn(String userName, String password) {
+		// TODO Auto-generated method stub		
+		return dao.signIn(  userName,   password);		
+	}
+	
+	public BigDecimal getUserBalance(Long userId) { 
+		return dao.getBalance(userId);
 	}
 
 	@Override
@@ -93,19 +88,11 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public AbstractUser signIn(String userName, String password) {
-		// TODO Auto-generated method stub
-		
-		
-		return dao.signIn(  userName,   password);
-		
-		
-	}
-
-	@Override
-	public User adminSignIn(String userName, String password) {
+	public AbstractUser adminSignIn(String userName, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	 
 
 }
