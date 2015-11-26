@@ -1,6 +1,7 @@
 
  
 $(document).ready(function() {
+	//displayLogOut();
 	
 	 $('#loginform').submit(function(e) { // will pass the form date using the jQuery serialize function
 		 e.preventDefault();
@@ -88,6 +89,10 @@ $('#addUserForm').submit(function (e) {
 		      
 		    e.preventDefault(); // prevent actual form submit and page reload
 		}); 
+
+
+
+
 	 
 });
  

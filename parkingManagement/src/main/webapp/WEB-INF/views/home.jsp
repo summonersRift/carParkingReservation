@@ -3,7 +3,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
+#mainLogout{
+display:none;
+}
+</style>
 
 <!--References-->
 <link href="<c:url value="/resources/css/bootstrap.min.css" /> "
@@ -55,11 +60,16 @@
 				navbar-right">
 
 					<li class="active"><a href="#"> Home </a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					
+					 <li id="mainLogout"><a data-target="#logoutConfirmModal" data-toggle="modal" id=""><span class="glyphicon glyphicon-off"></span> Logout </a>
+                     </li>
+                     
+					 <li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Admin <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#admin" data-toggle="modal">Login</a></li>
-						</ul></li>
+						</ul>
+						</li>
 
 				</ul>
 
@@ -68,6 +78,44 @@
 		</div>
 
 	</div>
+	
+	
+	
+	<!-- Logout Modal -->
+	
+<div class="modal fade" id="logoutConfirmModal" tabindex="-1" role="dialog"
+	aria-labelledby="facilityModalLabel" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h3 class="modal-title" id="myModalLabel">Logout</h3>
+			</div>
+			<div class="modal-body">
+
+				<div class="panel-body">
+					<div id="logoutform" class="form-horizontal" role="form">
+						<p>Are you sure you want to Log Out?</p>
+						
+					</div>
+				</div>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="logoutModal">Log Out</button>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	<!-- Logout Modal Ends -->
+	
+	
 
 	<!-- SideBar -->
 
@@ -270,6 +318,8 @@
 		src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/bootstrap-table.js" />"></script>
+	<script type="text/javascript" 
+	    src="<c:url value="/resources/js/bootbox.min.js" />"></script>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/bootstrapValidator.js" />"></script>
 	<script type="text/javascript"
@@ -290,16 +340,54 @@
 		src="<c:url value="/resources/js/bootstrap-dialog.min.js" />"></script>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/jquery.maskMoney.min.js" />"></script>
+		
 
 
 	<script type="text/javascript">
+	$(document).ready(function() {  
+	
+		displayLogOut();  
+	
+		$("#logoutModal").on("click", function(){
+		
+		var user = $.cookie("user_info");
+        var uName = $.parseJSON(user);
+        var userN = String(uName.user_name);
+		
+		$.post('${pageContext.request.contextPath}/user/signout', {
+            userName: userN
+        }).done(
+            function (response, textStatus, jqXHR) {
+                //alert('You were successfuly logged out');
 
-/*
-register form ajax post function
-validations and page forwarding.
-*/
+                $('#logout').modal('hide');
+                $.removeCookie("user_info");
+                location.reload();
+                $("#mainLogout").hide();
 
- 
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+            alert('unable to logout !!!!');
+        });
+		
+	});
+	
+	
+	function displayLogOut(){
+		
+		if ($.cookie("user_info") !== undefined){
+			
+			$("#mainLogout").show();
+		}
+		else{
+			$("#mainLogout").hide();
+		}
+		
+	}
+
+
+
+	});
 
 </script>
 
