@@ -363,7 +363,7 @@ display:none;
                 $('#logout').modal('hide');
                 $.removeCookie("user_info");
                 location.reload();
-                $("#mainLogout").hide();
+               $("#mainLogout").hide();
 
 
             }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -374,7 +374,7 @@ display:none;
 	
 	
 	function displayLogOut(){
-		
+		 
 		if ($.cookie("user_info") !== undefined){
 			
 			$("#mainLogout").show();

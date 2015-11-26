@@ -1,8 +1,18 @@
 
  
 $(document).ready(function() {
-	//displayLogOut();
-	
+	function displayLogOut(){ 
+		 
+		if ($.cookie("user_info") !== undefined){
+			
+			$("#mainLogout").show();
+		}
+		else{
+			$("#mainLogout").hide();
+		}
+		
+	}
+	displayLogOut();
 	 $('#loginform').submit(function(e) { // will pass the form date using the jQuery serialize function
 		 e.preventDefault();
 			$.post('http://localhost:8080/parkingManagement/user/signin', 
@@ -26,7 +36,7 @@ $(document).ready(function() {
 			  
 				$.cookie("user_info", response);
 				//$.cookie("user_info", JSON.stringify(response));
-			
+				displayLogOut();
 			}
 			
 			}).fail(function(jqXHR, textStatus,
