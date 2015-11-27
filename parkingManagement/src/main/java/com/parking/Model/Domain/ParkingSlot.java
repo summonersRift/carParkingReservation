@@ -1,9 +1,12 @@
 package com.parking.Model.Domain;
 
 public class ParkingSlot {
+	private long parkingId;
     private Integer parkNumber;
 	private String location;
 	private String floor;
+	private Integer number;
+	private String garageNumber;
 	
 	public String getLocation() {
 		return location;
@@ -35,10 +38,7 @@ public class ParkingSlot {
 
 	public void setGarageNumber(String garageNumber) {
 		this.garageNumber = garageNumber;
-	}
-
-	private Integer number;
-	private String garageNumber;
+	} 
 
 	public ParkingSlot() {
 
@@ -50,6 +50,14 @@ public class ParkingSlot {
 
 	public void setParkNumber(Integer parkNumber) {
 		this.parkNumber = parkNumber;
+	}
+
+	public long getParkingId() {
+		return parkingId;
+	}
+
+	public void setParkingId(long parkingId) {
+		this.parkingId = parkingId;
 	}
 
 }

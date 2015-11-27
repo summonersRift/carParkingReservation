@@ -1,5 +1,8 @@
 package com.parking.Model.DAO;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,26 +12,86 @@ import org.springframework.stereotype.Repository;
 
 import com.parking.Model.DAO.Contract.ReservationDao;
 import com.parking.Model.Domain.Facility;
+import com.parking.Model.Domain.NullUser;
 import com.parking.Model.Domain.ParkingSlot;
 import com.parking.common.BaseDao;
 
 @Repository
 public class ReservationDaoImp extends BaseDao implements ReservationDao {
 
-	private static final String FIND_FREE_PARKING = "select *,(select fac.f_name from pmsys.facilities fac where fac.facility_id = ? ) as facility_name from pmsys.parking_spots sps "
-			+ "WHERE sps.facility_id= ? "
-			+ "and sps.ps_id not in(select preserv.ps_id  "
-			+ "from pmsys.reservations preserv "
-			+ "where "
-			+ "preserv.start_date "
-			+ ">= STR_TO_DATE( ? , '%Y-%m-%d')  "
-			+ "AND preserv.end_date <= " + "STR_TO_DATE( ? , '%Y-%m-%d') ) ";
+	private static final String FIND_FREE_PARKING = " select *,(select fac.f_name from pmsys.facilities fac where fac.facility_id = ? ) as facility_name from pmsys.parking_spots sps "
+			+ " WHERE sps.facility_id= ? "
+			+ " and sps.ps_id not in(select preserv.ps_id  "
+			+ " from pmsys.reservations preserv "
+			+ " where "
+			+ " ( STR_TO_DATE(?, '%Y-%m-%d') >= preserv.start_date "
+			+ " AND  STR_TO_DATE(?, '%Y-%m-%d') < preserv.end_date  ) "
+			+ " AND ( STR_TO_DATE(?, '%Y-%m-%d') <= preserv.end_date  "
+			+ " AND STR_TO_DATE( ?, '%Y-%m-%d') > preserv.start_date ) ) "
+			+ " AND sps.available <> 0 ";
+	
+	
+	
+ 
+	private static final String ADD_RESERVATION = " INSERT INTO reservations (ps_id, user_id, start_date, end_date, amount_charged) "
+			+ "VALUES (?, ?, ?,?,?)";
 
 	@Override
-	public void updateSpot(long spotId, long userId) {
+	public boolean makeReservation(long spotId, long userId, Date startDate,
+			Date endDate, BigDecimal amount) {
 
 		// Validate input values
 		// call db update
+
+		// String sss =
+		// "INSERT INTO users (username, password, email, balance, role_id,address_id,identification,sq1,sa1) "
+		// + "VALUES (?, ?, ?, 0, 1,?,?,?,?)";
+		boolean result = false;
+
+		getConnection();
+
+		try {
+			PreparedStatement updateemp = connection
+					.prepareStatement("UPDATE pmsys.parking_spots SET available = 0 WHERE ps_id = ?");
+
+			// sum the current balance with the new transfer fund.
+			updateemp.setLong(1, spotId);
+			 
+
+			int execute = updateemp.executeUpdate();
+
+			if (execute > 0) {
+
+				PreparedStatement statement = connection
+						.prepareStatement(ADD_RESERVATION);
+				statement.setLong(1, spotId);
+				statement.setLong(2, userId);
+				statement.setDate(3, startDate);
+				statement.setDate(4, endDate);
+				statement.setBigDecimal(5, amount);
+
+				int updRest = statement.executeUpdate();
+
+				if (updRest > 0) {
+
+					result = true;
+
+				}
+				updateemp.close();
+				statement.close();
+
+			}
+
+		} catch (SQLException e) {
+			// TODO need to add log4j output
+			e.printStackTrace();
+
+		} catch (Exception ex) {
+			// TODO need to add log4j output
+			ex.printStackTrace();
+
+		}
+		return result;
 
 	}
 
@@ -46,7 +109,10 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 			updateemp.setLong(1, facilityId);
 			updateemp.setLong(2, facilityId);
 			updateemp.setString(3, startdt);
-			updateemp.setString(4, enddt);
+			updateemp.setString(4, startdt);
+			updateemp.setString(5, enddt);
+			updateemp.setString(6, enddt);
+			 
 
 			rs = updateemp.executeQuery();
 			ParkingSlot pklot = null;
@@ -56,6 +122,7 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 				pklot.setParkNumber(rs.getInt("parkingNbr"));
 				pklot.setLocation(rs.getString("facility_name"));
 				pklot.setNumber(rs.getInt("ps_id"));
+				pklot.setParkingId(rs.getLong("ps_id"));
 				pklot.setFloor(rs.getString("level"));
 				result.add(pklot);
 			}
@@ -87,7 +154,7 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 
 	@Override
 	public List<Facility> getFacilities() {
-		
+
 		java.sql.PreparedStatement updateemp = null;
 
 		List<Facility> facilityLst = new ArrayList<Facility>();

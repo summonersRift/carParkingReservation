@@ -1,5 +1,7 @@
 package com.parking.Model.Services;
 
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,10 @@ public class ReservationServiceImp implements ReservationService {
 	}
 
 	@Override
-	public void updateSpot(long spotId, long userId) {
-		resDao.updateSpot(spotId, userId);
+	public boolean makeReservation(long spotId, long userId, Date startDate,
+			Date endDate, BigDecimal amount) {
+		return resDao.makeReservation(spotId, userId, startDate, endDate,
+				amount);
 
 	}
 
@@ -34,7 +38,7 @@ public class ReservationServiceImp implements ReservationService {
 
 	@Override
 	public List<Facility> getByFacilities() {
-		 
+
 		return resDao.getFacilities();
 	}
 

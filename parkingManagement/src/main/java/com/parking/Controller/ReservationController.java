@@ -1,5 +1,9 @@
 package com.parking.Controller;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parking.Model.Domain.Facility;
 import com.parking.Model.Domain.ParkingSlot;
 import com.parking.Model.Services.Contract.ReservationService;
+import com.parking.common.ReservationRequest;
 
 @Controller
 @RequestMapping("/reservation")
@@ -38,9 +44,28 @@ public class ReservationController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public @ResponseBody void addSpot(@RequestBody long spotId,
-			@RequestBody long userId) {
-		resService.updateSpot(spotId, userId);
+	public ResponseEntity<Boolean> addSpot(ReservationRequest resreq) {
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		Date startdate;
+		Boolean result = false;
+		try {
+			startdate = formatter.parse(resreq.getStartDate());
+			Date enddate = formatter.parse(resreq.getEndDate());
+
+			java.sql.Date sqlStartDate = new java.sql.Date(startdate.getTime());
+			java.sql.Date sqlEndDate = new java.sql.Date(enddate.getTime());
+
+			result = resService.makeReservation(resreq.getParkingId(),
+					resreq.getUserId(), sqlStartDate, sqlEndDate,
+					new BigDecimal("5"));
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResponseEntity<Boolean>(result, HttpStatus.OK);
+
 	}
 
 	@RequestMapping(value = "/findspot/facility/{id}/{start}/{end}", method = RequestMethod.GET)
@@ -51,16 +76,15 @@ public class ReservationController {
 
 		List<ParkingSlot> lst = resService.findFreeParking(facilityId, startdt,
 				enddt);
-
 		return new ResponseEntity<List<ParkingSlot>>(lst, HttpStatus.OK);
 
 	}
-	
+
 	@RequestMapping(value = "/getallfacilities", method = RequestMethod.GET)
 	public ResponseEntity<List<Facility>> getFacilities() {
-		 
-		List<Facility> ls=resService.getByFacilities();
-		
+
+		List<Facility> ls = resService.getByFacilities();
+
 		return new ResponseEntity<List<Facility>>(ls, HttpStatus.OK);
 	}
 

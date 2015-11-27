@@ -1,3 +1,14 @@
+<style>
+
+#tbodyAdminTable{
+   background-color: white;
+}
+
+.fixed-table-body {
+    height: initial;
+}
+</style>
+
 <h1>Reservation Page</h1>
 
 <div class="container">
@@ -47,9 +58,7 @@
 			data-search="true" data-height="299">
 			<thead>
 				<tr>
-					<th>ParkNumber</th>
-					<th>Floor</th>
-					<th>localtion</th>
+					
 
 				</tr>
 			</thead>
@@ -77,26 +86,119 @@
 
 						});
 	}
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
+		
+		
+		function operateAdding(value, row, index) {
+            return [
+				'<a class="add" href="javascript:void(0)" title="Add">',
+				    '<i class="glyphicon glyphicon-plus"></i>',
+				'</a>'
+				].join('');
+        };
+		
+		
+		
+		window.operateAddingEvent = {
 
+                'click .add': function (e, value, row, index) {
+
+                    var addR = JSON.stringify(row);
+                    //alert('First from stringify row' + addR);
+
+                    var parsingR = $.parseJSON(addR);
+                    //alert('second from parsing row' + parsingR);
+
+                    var addingR = String(parsingR.parkingId);
+                    //alert('third, getting value from key' + addingR);
+                    addSpotForUser(addingR);
+
+
+
+                }
+            };
+		
+        function addSpotForUser(ride_id) {
+            var user = $.cookie("user_info");
+
+            var uName = $.parseJSON(user);
+            var userN = String(uName.user_id);
+            //alert(userN);
+            var userId = String(uName.user_id);
+            var startdt=$("#datetimepicker-1").val();
+            var enddt=$("#datetimepicker-2").val();
+
+            //var rid=$("#rides-name").val(); 
+            var postData={  parkingId : ride_id, userId: userId,startDate: startdt,endDate: enddt};
+             //var rideId=$("#rides-name").val();
+             //alert(userId);alert(ride_id);
+            	$.ajax({
+	            type: "POST",
+	            url: "reservation/add",
+	            data: postData,
+	            success: function(response, textStatus, jqXHR) {
+	            	{ 
+	            		if (response == false) {
+
+	                        alert('Sorry, you are unable to reserve the spot !!!!');
+	                        return;
+
+	                    }
+	                    alert('You  successfuly reserved an spot');
+	                    
+
+						var endDate = $("#datetimepicker-2")
+								.val();
+						var startDate = $(
+								"#datetimepicker-1").val();
+						var facilityId = $("#dropdownMenu1")
+								.find('option:selected')
+								.attr('value');
+						if (endDate == ''
+								|| startDate == '') {
+							alert("date values cannot be empty!!!");
+							return;
+						}
+
+						search(facilityId, startDate,
+								endDate);
+
+	                    //$('#rides').modal('hide');
+	                    //populateAccountTable();
+	           //refreshAcctTable('${pageContext.request.contextPath}/ride/user/rides/' + getUserId());
+	                    //$('#account').modal('show');
+
+	                }
+	            },
+	            error: (function (jqXHR, textStatus, errorThrown) {
+	                alert('unable to reserved spot !!!!');
+	            })
+	            
+	        });
+
+
+            
+        }; 
 						$('#table-admin').bootstrapTable({
 							cache : false,
-							height : 400,
-							striped : true,
+							bordered : true,
 							pagination : true,
-							pageSize : 10,
-							pageList : [ 10, 25, 50, 100, 200 ],
+							pageList : [ 5, 10, 25, 50, 100, 200 ],
 							search : true,
-							showToggle : true,
-							showColumns : true,
-							showRefresh : true,
-							minimumCountColumns : 2,
+							showRefresh: false,
 							sortOrder : 'asc',
 							//sortName: 'waitingTime',
 							clickToSelect : true,
-							columns : [ {
+							columns : [ 
+							  {							        	   
+							       field: 'parkingId',
+					               title: '#',
+					               class: 'admin',
+					               visible: true,
+					               align: 'center',
+					               valign: 'middle'
+					         },							           							            
+							 {
 								field : 'parkNumber',
 								title : 'Parking spot #',
 								class : 'admin',
@@ -127,8 +229,8 @@
 								class : 'admin',
 								switchable : false,
 								clickToSelect : false,
-								formatter : operateAdmin,
-							//events: operateAdminEditEvent
+								formatter : operateAdding,
+							    events: operateAddingEvent
 
 							},
 
@@ -143,11 +245,9 @@
 
 											//alert("search clicked");
 
-											var id = 1;
 											var endDate = $("#datetimepicker-2")
 													.val();
-											var startDate = $(
-													"#datetimepicker-1").val();
+											var startDate = $("#datetimepicker-1").val();
 											var facilityId = $("#dropdownMenu1")
 													.find('option:selected')
 													.attr('value');
@@ -168,22 +268,7 @@
 							dateFormat : "yy-mm-dd"
 						});
 
-						function operateAdmin(value, row, index) {
-							return [
-
-									'<a class="edit" href="javascript:void(0)" title="Edit">',
-									'<i class="glyphicon glyphicon-edit"></i>',
-									'</a>',
-
-									'<a class="disable" href="javascript:void(0)" title="Disable">',
-									'<i class="glyphicon glyphicon-ban-circle"></i>',
-									'</a>',
-									'<a class="enable" href="javascript:void(0)" title="Enable">',
-									'<i class="glyphicon glyphicon-ok-circle"></i>',
-									'</a>' ].join('');
-
-						}
-						;
+						
 
 						function search(id, startDate, endDate) {
 							$("#container-table-reservation").show();
@@ -195,5 +280,10 @@
 												"load", data);
 									});
 						}
+						
+						
+						
+						
+						
 					});
 </script>
