@@ -47,14 +47,14 @@ public class IncidentsController {
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	public ResponseEntity<List<Incident>> getAll() {
 
-		List<Incident> result;// =incService.getAll();// = incService.getAll();
-		result = new ArrayList<Incident>();
-		Incident info1 = new Incident();
-		info1.setDescription("problem with the parking");
+		List<Incident> result = incService.getAll();// = incService.getAll();
+
+//		Incident info1 = new Incident();
+//		info1.setDescription("problem with the parking");
 		// Date dt = new Date(20015, 12, 2);
-		info1.setLocation(1);
-		info1.setDate("2015/12/1");
-		result.add(info1);
+//		info1.setLocation(1);
+//		info1.setDate("2015/12/1");
+//		result.add(info1);
 
 		return new ResponseEntity<List<Incident>>(result, HttpStatus.OK);
 
