@@ -111,7 +111,10 @@
 									placeholder="zipCode">
 							</div>
 						</div>	
+						<br>
+						<hr>
 						
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						<button class="btn btn-primary" type="submit" id="addFacility">Add Facility</button>					
 
 					</form>
@@ -119,10 +122,7 @@
 
 
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				
-			</div>
+			<div class="modal-footer"></div>
 		</div>
 	</div>
 </div>
@@ -149,21 +149,21 @@
 						<div class="form-group">
 							<label for="name" class="col-md-3 control-label">Name</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="name"
+								<input type="text" class="form-control" id="name" name="name"
 									placeholder="Miami Parking">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="street" class="col-md-3 control-label">Street</label>
+							<label for="addressLine1" class="col-md-3 control-label">Street</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="street"
+								<input type="text" class="form-control" id="addressLine1" name="addressLine1"
 									placeholder="8th Street">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="city" class="col-md-3 control-label">City</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="city"
+								<input type="text" class="form-control" id="city" name="city"
 									placeholder="City">
 							</div>
 						</div>
@@ -171,7 +171,7 @@
 						<div class="form-group">
 							<label for="state" class="col-md-3 control-label">State</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="state"
+								<input type="text" class="form-control" id="state" name="state"
 									placeholder="FL">
 							</div>
 						</div>
@@ -179,17 +179,17 @@
 						<div class="form-group">
 							<label for="zipCode" class="col-md-3 control-label">ZipCode</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="zipCode"
+								<input type="text" class="form-control" id="zipCode" name="zipCode"
 									placeholder="34528">
 							</div>
 						</div>
 
 
 						<div class="form-group">
-							<label for="spots" class="col-md-3 control-label">Spots</label>
+							<label for="numberOfSpots" class="col-md-3 control-label">Spots</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="spots"
-									placeholder="128">
+								<input type="text" class="form-control" id="numberOfSpots" name="numberOfSpots"
+									placeholder="1">
 							</div>
 						</div>
 
@@ -213,13 +213,69 @@
 function operateFacility(value, row, index) {
     return [
 
-'<a class="edit" href="javascript:void(0)" title="Edit">',
+'<a class="edit" href="javascript:void(0)" title="edit">',
 '<i class="glyphicon glyphicon-edit"></i>',
 '</a>'
 
 ].join('');
 
 };
+
+
+window.operateEditEvent = {
+
+                'click .edit': function (e, value, row, index) {
+
+                	
+                	
+                	var addR = JSON.stringify(row);
+                    //alert('First from stringify row' + addR);
+
+                    var parsingR = $.parseJSON(addR);
+                    //alert('second from parsing row' + parsingR);
+
+                    var addingR = String(parsingR.id);
+                    //alert('third, getting value from key' + addingR);
+
+                    jQuery.ajax({
+                        url: '${pageContext.request.contextPath}/facility/getbyid/' + addingR,
+                        type: 'GET',
+                        //dataType: "json",
+                        success: function (data) { 
+
+                            var editU = JSON.stringify(data);
+                           // alert('before converting: ' + editU);
+
+                            var edit = $.parseJSON(editU);
+                          //  alert('second from parsing row' + parsingR);
+                          //  alert('before string ' +edit.id);
+                           var editId = String(edit.id);
+                          //  alert(editId);
+
+                            $('#name').val(String(edit.name));
+                            $('#addressLine1').val(String(edit.addressLine1));
+                            $('#city').val(String(edit.city));
+                            $('#state').val(String(edit.state));
+                            $('#zipCode').val(String(edit.zipCode));
+                            $('#numberOfSpots').val(String(edit.numberOfSpots));
+                            
+                            $('#editfacilityModal').modal('show');
+
+                        },
+                        error: function () {
+                            alert('Sorry, the data could not be loaded')
+                        }
+                    });
+
+                    
+                   
+
+
+
+                }
+    };
+
+
 
 $('#table-facility').bootstrapTable({
     method: 'get',
@@ -232,7 +288,16 @@ $('#table-facility').bootstrapTable({
     sortOrder: 'asc',
     //sortName: 'waitingTime',
     clickToSelect: true,
-    columns: [{
+    columns: [
+			{							        	   
+			    field: 'id',
+			    title: '#',
+			    class: 'admin',
+			    visible: true,
+			    align: 'center',
+			    valign: 'middle'
+			},            
+              {
             field: 'addressLine1',
             title: 'Adress',
             class: 'admin',
@@ -285,7 +350,7 @@ $('#table-facility').bootstrapTable({
 }
 ,
 {
-    field: 'add',
+    field: 'edit',
     title: 'Operate',
     align: 'center',
     valign: 'middle',
@@ -293,7 +358,7 @@ $('#table-facility').bootstrapTable({
     switchable: false,
     clickToSelect: false,
     formatter: operateFacility,
-    //events: operateAdminEditEvent
+    events: operateEditEvent
 
 },
        

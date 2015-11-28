@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,15 +67,20 @@ public class FacilityController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public void UpdateFacility(Facility facility) {
 
-		facService.updateFacility(facility); 
-	
-	
+		facService.updateFacility(facility);
+
 	}
 
 	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
-	public Facility GetFacility(Integer id) {
+	public ResponseEntity<Facility> GetFacility(@PathVariable("id") Integer id) {
 
-		return facService.getById(id);
+		Facility facility = new Facility();
+		// facility.setId(id);
+		// facility.setAddressLine1("testing");
+		// facility.setCity("Miami");
+		// facility.setZipCode(2333);
+		facility = facService.getById(id);
+		return new ResponseEntity<Facility>(facility, HttpStatus.OK);
 
 	}
 

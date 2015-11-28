@@ -53,6 +53,7 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 			ResultSet rs = statement.executeQuery(GET_ALL_FACILITIES);
 			while (rs.next()) {
 				Facility fac = new Facility();
+				fac.setId(rs.getInt("facility_id"));
 				fac.setAddressLine1(rs.getString("line1"));
 				fac.setCity(rs.getString("city"));
 				fac.setName(rs.getString("f_name"));

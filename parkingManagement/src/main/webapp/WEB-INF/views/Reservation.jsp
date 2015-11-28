@@ -205,7 +205,7 @@
 							       field: 'parkingId',
 					               title: '#',
 					               class: 'admin',
-					               visible: true,
+					               visible: false,
 					               align: 'center',
 					               valign: 'middle'
 					         },							           							            
