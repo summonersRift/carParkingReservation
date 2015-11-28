@@ -1,4 +1,28 @@
+
 <h1>Marketing Landing Page</h1>
+
+<!-- Scripts -->
+<script type="text/javascript">
+$('#PromotionalNewsletter').submit(
+	function(e) { // will pass the form using the jQuery serialize function
+		e.preventDefault();	
+
+		$.post(
+				'http://localhost:8080/parkingManagement/marketing/promotionalnewsletter',
+				$(this).serialize())
+				.done(function(response, textStatus, jqXHR) {				
+					alert("Successfully sent the emails");
+					// alert(response.message);
+					$('#editfacilityModal').hide();
+					//BootstrapDialog.alert(response.message);
+		        })
+				.fail(function(jqXHR, textStatus, errorThrown) {
+					//alert('Please, Try Again');
+					BootstrapDialog
+					.alert('Error sending emails. Please, try again');
+				})
+		});
+</script>
 
 <table id="networkMgtTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead >
@@ -79,20 +103,29 @@
 						<div class="form-group">
 							<label for="message" class="col-md-3 control-label">Message Content</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="zipCode"
+								<input type="text" class="form-control" name="mailbody"
 									placeholder="Hi There, We have great offer for you this Fall. Save $5.">
 							</div>
 						</div>
+
+		
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Send Email</button>
+					</div>
+
 
 					</form>
 				</div>
 
 
 			</div>
+<!-- 			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Send Email</button>
+				<button type="submit" class="btn btn-primary">Send Email</button>
 			</div>
+ -->			
 		</div>
 	</div>
 </div>
