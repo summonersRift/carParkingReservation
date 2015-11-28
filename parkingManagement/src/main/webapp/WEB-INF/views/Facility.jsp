@@ -1,22 +1,32 @@
+<style>
+
+#tbodyFacilityTable{
+   background-color: white;
+}
+
+.fixed-table-body {
+    height: initial;
+}
+.fixed-table-container {
+       height: initial;
+    padding-bottom: initial;
+}
+ 
+</style>
+
 <h1>Facility Page</h1>
 <!-- Table starts Here -->
 
 <div class="table-responsive">
-	<table data-toggle="table" id="table-admin" data-show-refresh="true"
-		data-search="true" data-height="299">
+	<table data-toggle="table" id="table-facility" data-show-refresh="false"
+		data-search="true" >
 		<thead>
 			<tr>
-				<th>Address</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Name</th>
-				<th>Phone Number</th>
-				<th>Zip-Code</th>
-				
+
 				
 			</tr>
 		</thead>
-		<tbody id="tbodyAdminTable">
+		<tbody id="tbodyFacilityTable">
 
 		</tbody>
 	</table>
@@ -67,7 +77,7 @@
 						<div class="form-group">
 							<label for="street" class="col-md-3 control-label">Street</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="street"
+								<input type="text" class="form-control" name="addressLine1"
 									placeholder="Street">
 							</div>
 						</div>
@@ -90,18 +100,19 @@
 							<label for="zipCode" class="col-md-3 control-label">ZipCode</label>
 							<div class="col-md-9">
 								<input type="text" class="form-control" name="zipCode"
-									placeholder="ZipCode">
+									placeholder="zipCode">
 							</div>
 						</div>
-
-
+						
 						<div class="form-group">
 							<label for="spots" class="col-md-3 control-label">Spots</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="spots"
-									placeholder="Spots">
+								<input type="text" class="form-control" name="numberOfSpots"
+									placeholder="zipCode">
 							</div>
-						</div>
+						</div>	
+						
+						<button class="btn btn-primary" type="submit" id="addFacility">Add Facility</button>					
 
 					</form>
 				</div>
@@ -110,7 +121,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Add Facility</button>
+				
 			</div>
 		</div>
 	</div>
@@ -199,36 +210,24 @@
 <!-- Scripts -->
 <script type="text/javascript">
 
-function operateAdmin(value, row, index) {
+function operateFacility(value, row, index) {
     return [
 
 '<a class="edit" href="javascript:void(0)" title="Edit">',
 '<i class="glyphicon glyphicon-edit"></i>',
-'</a>',
-
-'<a class="disable" href="javascript:void(0)" title="Disable">',
-'<i class="glyphicon glyphicon-ban-circle"></i>',
-'</a>',
-'<a class="enable" href="javascript:void(0)" title="Enable">',
-'<i class="glyphicon glyphicon-ok-circle"></i>',
 '</a>'
+
 ].join('');
 
 };
 
-$('#table-admin').bootstrapTable({
+$('#table-facility').bootstrapTable({
     method: 'get',
     url: '${pageContext.request.contextPath}/facility/all',
-    cache: false,
-    height: 400,
-    striped: true,
+    cache: false,  
     pagination: true,
-    pageSize: 10,
-    pageList: [10, 25, 50, 100, 200],
-    search: true,
-    showToggle: true,
-    showColumns: true,
-    showRefresh: true,
+    pageList: [5, 10, 25, 50, 100, 200],
+    search: false,
     minimumCountColumns: 2,
     sortOrder: 'asc',
     //sortName: 'waitingTime',
@@ -265,15 +264,6 @@ $('#table-admin').bootstrapTable({
             valign: 'top',
             sortable: true
 
-}, {
-            field: 'phoneNumber',
-            title: 'Phone Number',
-            align: 'center',
-            valign: 'middle',
-            class: 'admin',
-            switchable: false,
-            clickToSelect: false
-
 },{
     field: 'zipCode',
     title: 'Zip-Code',
@@ -284,6 +274,17 @@ $('#table-admin').bootstrapTable({
     clickToSelect: false
 
 },{
+    field: 'numberOfSpots',
+    title: 'Num Of Spots',
+    align: 'center',
+    valign: 'middle',
+    class: 'admin',
+    switchable: false,
+    clickToSelect: false
+
+}
+,
+{
     field: 'add',
     title: 'Operate',
     align: 'center',
@@ -291,12 +292,41 @@ $('#table-admin').bootstrapTable({
     class: 'admin',
     switchable: false,
     clickToSelect: false,
-    formatter: operateAdmin,
+    formatter: operateFacility,
     //events: operateAdminEditEvent
 
 },
        
         ]
 });
+
+
+
+$('#facilityform').submit(
+		function(e) { // will pass the form using the jQuery serialize function
+			e.preventDefault();
+			
+
+			$.post(
+							'http://localhost:8080/parkingManagement/facility/add',
+							$(this).serialize())
+					.done(function(response, textStatus, jqXHR) {
+						
+						 alert("Facility Was Successfully Added");
+						// alert(response.message);
+
+						$('#editfacilityModal').hide();
+						//BootstrapDialog.alert(response.message);
+
+					})
+					.fail(
+							function(jqXHR, textStatus, errorThrown) {
+								//alert('Please, Try Again');
+								BootstrapDialog
+										.alert('Error adding facility. Please, try again');
+
+							})
+
+		});
 
 </script>

@@ -19,6 +19,8 @@ public class Facility {
 	private String phoneNumber;
 
 	private Integer zipCode;
+	
+	private Integer numberOfSpots;
 
 	/**
 	 * Getter of addressLine1
@@ -139,4 +141,14 @@ public class Facility {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public Integer getNumberOfSpots() {
+		return numberOfSpots;
+	}
+
+	public void setNumberOfSpots(Integer numberOfSpots) {
+		this.numberOfSpots = numberOfSpots;
+	}
+
+
 }

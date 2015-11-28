@@ -23,27 +23,27 @@ public class FacilityServiceImp implements FacilityService {
 
 	@Override
 	public List<Facility> getAll() {
-     //facDao.getall();
-		return null;
+
+		return facDao.getAll();
 
 	}
 
 	@Override
 	public Facility getById(Integer id) {
-		// facDao;
-		return null;
+		;
+		return facDao.getById(id);
 
 	}
 
 	@Override
 	public void addFacility(Facility facility) {
-		//facDao.add(facility);
+		facDao.add(facility);
 	}
 
 	@Override
 	public void updateFacility(Facility facility) {
-		//facDao.update(facility);
-		
+		facDao.update(facility);
+
 	}
 
 }

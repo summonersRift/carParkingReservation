@@ -4,6 +4,7 @@
 <div class="list-group" id="sidebarList">
 	<ul class="sidebar-nav">  
 		<li class="sidebar-brand">
+		
 			<a href="#Billing" id ="billing"> Billing Info </a>
 		</li>
 		<li class="sidebar-brand">

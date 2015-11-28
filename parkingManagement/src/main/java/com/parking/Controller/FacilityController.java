@@ -58,34 +58,22 @@ public class FacilityController {
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public @ResponseBody List<Facility> getAllFacilities() {
-		
-		List<Facility> list = new ArrayList<Facility>();
-		
-		Facility facility = new Facility();
-		facility.setAddressLine1("Address 1");
-		facility.setCity("Miami");
-		facility.setName("Facility 1");
-		facility.setPhoneNumber("2345436765");
-		facility.setState("FL");
-		facility.setZipCode(23423);
-		list.add(facility);
-		
-		return list;
-		
+
+		return facService.getAll();
 
 	}
-	
-	
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public void UpdateFacility(Facility facility) {
 
-		facService.updateFacility(facility);
+		facService.updateFacility(facility); 
+	
+	
 	}
 
-	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
 	public Facility GetFacility(Integer id) {
-		
+
 		return facService.getById(id);
 
 	}

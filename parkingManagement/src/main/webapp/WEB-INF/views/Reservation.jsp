@@ -60,7 +60,7 @@
 
 	<div style="display: none;" id="container-table-reservation"
 		class="table-responsive">
-		<table data-toggle="table" id="table-admin" data-show-refresh="true"
+		<table data-toggle="table" id="table-admin" data-show-refresh="false"
 			data-search="true" >
 			<thead>
 				<tr>
