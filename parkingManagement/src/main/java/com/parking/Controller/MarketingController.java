@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
  
 
 import com.parking.Model.Services.Contract.MarketingService;
+import com.parking.Model.Services.MailServiceImp;
 import com.parking.Model.Services.Contract.MailService;
 import com.parking.common.NewsletterPromotionalRequest;
 
@@ -33,14 +34,21 @@ public class MarketingController {
 
 	}
 	
+	@RequestMapping(value = "/MarketingPage", method = RequestMethod.GET)
+	public ModelAndView getIncidentsPage(Model model) {
+
+		return new ModelAndView("Marketing");
+	}
+	
 	@RequestMapping(value = "/promotionalnewsletter", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> promotionalnewsletter( NewsletterPromotionalRequest promotion) {
+		System.out.println("In marketing controller");
 		if (promotion == null || promotion.getRecipients() == null|| promotion.getSubject() == null|| promotion.getMailbody() == null) {
 			// the client side
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
 		
-		MailService mail = new MailService(promotion.getRecipients(), promotion.getSubject(), promotion.getMailbody(), true);
+		MailService mail = new MailServiceImp(promotion.getRecipients(), promotion.getSubject(), promotion.getMailbody(), true);
 		
 		//Push notifications to database mail.status()
 		return new ResponseEntity<String>("Promotional offer and newsletter E-mail sent. Status(ewquested/sent): "+mail.status() ,HttpStatus.OK);
