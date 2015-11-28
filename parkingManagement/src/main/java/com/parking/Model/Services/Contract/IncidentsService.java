@@ -1,12 +1,16 @@
 package com.parking.Model.Services.Contract;
 
  
-import com.parking.Model.Domain.IncidentInfo;
+import java.util.List;
 
+import com.parking.Model.Domain.Incident;
+ 
 public interface IncidentsService {
 
-	java.util.List<IncidentInfo> getAll();
+	List<Incident> getAll();
 
-	void add(IncidentInfo val);
+	void add(Incident val);
+
+	 
 
 }

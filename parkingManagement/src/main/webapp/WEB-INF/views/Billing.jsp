@@ -114,9 +114,9 @@
 								</div>
 							</div>
 						</div>
-						<input type="hidden" name="userId" id="userId"> <input
+						<input type="hidden" name="userId" id="userId"
 							type="hidden" name="paymentType" id="credit_card"
-							value="credit_card">
+							value="credit_card"/>
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
