@@ -1,6 +1,8 @@
 
  
 $(document).ready(function() {
+
+	 
 	function displayLogOut(){ 
 		 
 		if ($.cookie("user_info") !== undefined){
@@ -31,18 +33,15 @@ $(document).ready(function() {
 	        });
 		  
 			if(response != 'undefined'){
-				 
-			   // $.cookie("user_info", reponse, {path: "/", domain: "parkingManagement/"});
+
 			  
 				$.cookie("user_info", response);
-				//$.cookie("user_info", JSON.stringify(response));
 				displayLogOut();
 			}
 			
 			}).fail(function(jqXHR, textStatus,
 				    errorThrown) { alert('invalid  user credentials');
 				    $('#loginbox').show();
-				    //CleanLoginForm(); });
 				    e.preventDefault(); // prevent actual form submit and page reload
 				    }); 
 				    

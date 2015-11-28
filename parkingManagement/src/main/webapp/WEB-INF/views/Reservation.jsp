@@ -7,6 +7,12 @@
 .fixed-table-body {
     height: initial;
 }
+.fixed-table-container {
+       height: initial;
+    padding-bottom: initial;
+}
+
+ 
 </style>
 
 <h1>Reservation Page</h1>
@@ -55,7 +61,7 @@
 	<div style="display: none;" id="container-table-reservation"
 		class="table-responsive">
 		<table data-toggle="table" id="table-admin" data-show-refresh="true"
-			data-search="true" data-height="299">
+			data-search="true" >
 			<thead>
 				<tr>
 					
@@ -70,8 +76,7 @@
 </div>
 
 <script type="text/javascript">
-	function LoadInfo() {
-
+	function LoadInfo() { 
 		$
 				.getJSON(
 						"${pageContext.request.contextPath}/reservation/getallfacilities",
@@ -88,7 +93,13 @@
 	}
 	$(document).ready(function() {
 		
-		
+		$(window).bind('beforeunload',function(){
+
+		     //save info somewhere
+
+		    alert( 'are you sure you want to leave?');
+
+		});
 		function operateAdding(value, row, index) {
             return [
 				'<a class="add" href="javascript:void(0)" title="Add">',
@@ -262,12 +273,26 @@
 										});
 
 						$("#datetimepicker-2").datepicker({
-							dateFormat : "yy-mm-dd"
+							dateFormat : "yy-mm-dd",
+							minDate: 0,
+					        maxDate: "+60D",
+					        
+					        onSelect: function(selected) {
+						          $("#datetimepicker-1").datepicker("option","maxDate", selected)
+						        }
 						});
+						
 						$("#datetimepicker-1").datepicker({
-							dateFormat : "yy-mm-dd"
+							dateFormat : "yy-mm-dd",
+							minDate: 0,
+					        maxDate: "+30D",
+					        
+					        onSelect: function(selected) {
+					          $("#datetimepicker-2").datepicker("option","minDate", selected)
+					        }
 						});
 
+											
 						
 
 						function search(id, startDate, endDate) {

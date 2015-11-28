@@ -64,12 +64,6 @@ display:none;
 					 <li id="mainLogout"><a data-target="#logoutConfirmModal" data-toggle="modal" id=""><span class="glyphicon glyphicon-off"></span> Logout </a>
                      </li>
                      
-					 <li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Admin <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#admin" data-toggle="modal">Login</a></li>
-						</ul>
-						</li>
 
 				</ul>
 
@@ -345,6 +339,7 @@ display:none;
 
 	<script type="text/javascript">
 	$(document).ready(function() {  
+		
 	
 		displayLogOut();  
 	
