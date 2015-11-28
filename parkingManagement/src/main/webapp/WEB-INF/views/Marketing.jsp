@@ -84,9 +84,9 @@ $('#PromotionalNewsletter').submit(
 				<div class="panel-body">
 					<form id="PromotionalNewsletter" class="form-horizontal" role="form">
 						<div class="form-group">
-							<label for="Recepient" class="col-md-3 control-label">Recipient</label>
+							<label for="Recepient" class="col-md-3 control-label">Recipient(separated by ,) </label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="recipient"
+								<input type="text" class="form-control" name="recipients"
 									placeholder="abc@gmail.com, def@yahoo.com, ....">
 							</div>
 						</div>

@@ -42,7 +42,8 @@ public class MarketingController {
 	
 	@RequestMapping(value = "/promotionalnewsletter", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> promotionalnewsletter( NewsletterPromotionalRequest promotion) {
-		System.out.println("In marketing controller");
+		System.out.println("In marketing controller.");
+		System.out.println("In marketing controller."+promotion.toString()+" rec:"+promotion.getRecipients()+"   "+promotion.getSubject()+"  "+promotion.getMailbody());
 		if (promotion == null || promotion.getRecipients() == null|| promotion.getSubject() == null|| promotion.getMailbody() == null) {
 			// the client side
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);

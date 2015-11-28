@@ -31,11 +31,11 @@ public class MailServiceImp implements MailService{
 	
 	public MailServiceImp(String receiver, String sub, String content, boolean send){
 		System.out.println("Marketing Controller: constructor of mail service");
-		recipients = receiver.split(";");
+		recipients = receiver.split(",");
 		subject = sub;
 		email = content;
 		total=recipients.length;
-		System.out.println("     recepients: "+recipients+", Email subject: "+subject+", Email Content: "+email);
+		System.out.println("     recepients: "+recipients.toString()+", Email subject: "+subject+", Email Content: "+email);
 		if (send==true){
 			try {
 				System.out.println("Total recepietns: "+recipients.length);
@@ -89,7 +89,8 @@ public class MailServiceImp implements MailService{
 	 
 			// Enter your correct gmail UserID and Password
 			// if you have 2FA enabled then provide App Specific Password
-			transport.connect("smtp.gmail.com", "<----- Your GMAIL ID ----->", "<----- Your GMAIL PASSWORD ----->");
+			transport.connect("smtp.gmail.com", "pms.fiu@gmail.com", "pms123456");
+			//transport.connect("mail.obaida.info", "pms@obaida.info", ";ga={;!]C!3=");			
 			transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 			transport.close();
 			delivered++;
