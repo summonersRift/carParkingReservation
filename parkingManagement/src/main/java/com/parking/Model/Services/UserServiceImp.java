@@ -30,17 +30,11 @@ public class UserServiceImp implements UserService {
 	@Override
 	public AbstractUser signIn(String userName, String password) {
 		// TODO Auto-generated method stub
-		return dao.signIn(userName, password);
+		return dao.signIn(userName, HashEncryptor.encrypt(password));
 	}
 
 	public BigDecimal getUserBalance(Long userId) {
 		return dao.getBalance(userId);
-	}
-
-	@Override
-	public AbstractUser getUserById(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

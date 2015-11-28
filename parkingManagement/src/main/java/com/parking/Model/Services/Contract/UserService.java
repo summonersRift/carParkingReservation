@@ -8,8 +8,6 @@ import com.parking.Model.Domain.User;
 
 public interface UserService {
 
-	AbstractUser getUserById(Long userId); 
-
 	AbstractUser addUser(User user); 
 
 	AbstractUser getUserByUserName(String userName); 
