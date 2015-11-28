@@ -53,8 +53,11 @@ public class FacilityController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void AddFacility(Facility facility) {
+	public ResponseEntity<Boolean> AddFacility(Facility facility) {
+		
 		facService.addFacility(facility);
+		
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -65,9 +68,11 @@ public class FacilityController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public void UpdateFacility(Facility facility) {
+	public ResponseEntity<Boolean> UpdateFacility(Facility facility) {
 
 		facService.updateFacility(facility);
+
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 
 	}
 

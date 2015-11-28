@@ -70,28 +70,28 @@
 						<div class="form-group">
 							<label for="name" class="col-md-3 control-label">Name</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="name"
+								<input type="text" class="form-control"  id="nameAdd" name="name"
 									placeholder="Name">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="street" class="col-md-3 control-label">Street</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="addressLine1"
+								<input type="text" class="form-control" id="addressLine1Add" name="addressLine1"
 									placeholder="Street">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="city" class="col-md-3 control-label">City</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="city"
+								<input type="text" class="form-control" id="cityAdd" name="city"
 									placeholder="City">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="state" class="col-md-3 control-label">State</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="state"
+								<input type="text" class="form-control" id="stateAdd" name="state"
 									placeholder="FL">
 							</div>
 						</div>
@@ -99,7 +99,7 @@
 						<div class="form-group">
 							<label for="zipCode" class="col-md-3 control-label">ZipCode</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="zipCode"
+								<input type="text" class="form-control" id="zipCodeAdd" name="zipCode"
 									placeholder="zipCode">
 							</div>
 						</div>
@@ -107,8 +107,8 @@
 						<div class="form-group">
 							<label for="spots" class="col-md-3 control-label">Spots</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="numberOfSpots"
-									placeholder="zipCode">
+								<input type="text" class="form-control" id="numberOfSpotsAdd" name="numberOfSpots"
+									placeholder="Spots">
 							</div>
 						</div>	
 						<br>
@@ -141,7 +141,7 @@
 			<div class="modal-body">
 
 				<div class="panel-body">
-					<form id="facilityform" class="form-horizontal" role="form">
+					<form id="facilityformUpdate" class="form-horizontal" role="form">
 
 						<div class="form-group">
 							<label for="name" class="col-md-3 control-label">Name</label>
@@ -189,16 +189,26 @@
 									placeholder="1">
 							</div>
 						</div>
+						
+						<div class="form-group" style="display:none;">
+							<label for="numberOfSpots" class="col-md-3 control-label"> </label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" id="facilityID" name="facilityID"
+									placeholder="1">
+							</div>
+						</div>
+						
+						<br> 
+						 
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary" >Save Changes</button>
 
 					</form>
 				</div>
 
 
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save Changes</button>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -255,6 +265,7 @@ window.operateEditEvent = {
                             $('#state').val(String(edit.state));
                             $('#zipCode').val(String(edit.zipCode));
                             $('#numberOfSpots').val(String(edit.numberOfSpots));
+                            $('#facilityID').val(String(edit.facilityID));
                             
                             $('#editfacilityModal').modal('show');
 
@@ -290,7 +301,7 @@ $('#table-facility').bootstrapTable({
 			    field: 'id',
 			    title: '#',
 			    class: 'admin',
-			    visible: true,
+			    visible: false,
 			    align: 'center',
 			    valign: 'middle'
 			},            
@@ -377,8 +388,14 @@ $('#facilityform').submit(
 						 alert("Facility Was Successfully Added");
 						// alert(response.message);
 
-						$('#editfacilityModal').hide();
-						//BootstrapDialog.alert(response.message);
+						$('#facilityModal').modal('hide');
+						CleanAddFacilityForm();
+						
+						$.getJSON(
+								'${pageContext.request.contextPath}/facility/all', function(data) {
+									$('#table-facility').bootstrapTable(
+											"load", data);
+								});						
 
 					})
 					.fail(
@@ -390,5 +407,50 @@ $('#facilityform').submit(
 							})
 
 		});
+		
+
+$('#facilityformUpdate').submit(
+		function(e) { // will pass the form using the jQuery serialize function
+			e.preventDefault();
+			
+
+			$.post(
+							'http://localhost:8080/parkingManagement/facility/update',
+							$(this).serialize())
+					.done(function(response, textStatus, jqXHR) { 
+						 alert("Facility Was Successfully Updated");
+						// alert(response.message);
+
+						$('#editfacilityModal').modal('hide');
+						
+						//BootstrapDialog.alert(response.message);
+						
+						$.getJSON(
+								'${pageContext.request.contextPath}/facility/all', function(data) {
+									$('#table-facility').bootstrapTable(
+											"load", data);
+								});
+
+					})
+					.fail(
+							function(jqXHR, textStatus, errorThrown) {
+								//alert('Please, Try Again');
+								BootstrapDialog
+										.alert('Error updating facility. Please, try again');
+
+							})
+
+		});
+		
+function CleanAddFacilityForm() {
+	$('#nameAdd').val('');
+    $('#addressLine1Add').val('');
+    $('#cityAdd').val('');
+    $('#stateAdd').val('');
+    $('#zipCodeAdd').val('');
+    $('#numberOfSpotsAdd').val('');
+    $('#facilityIDAdd').val('');
+
+};
 
 </script>

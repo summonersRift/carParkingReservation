@@ -17,30 +17,32 @@ import com.parking.common.BaseDao;
 @Repository
 public class FacilityDaoImp extends BaseDao implements FacilityDao {
 
-	private static String GET_FACILITY_BY_ID = "select f.facility_id, f.f_name,a.line1, a.city, a.state, a.zip, "
-			+ "(select count(*) from PMSys.parking_spots ps where ps.facility_id =?  )  as ns from Facilities f "
-			+ "INNER JOIN address a on f.address_id = a.address_id and f.facility_id = ? ORDER BY facility_id;";
+	private static String GET_FACILITY_BY_ID = " select f.facility_id, f.f_name,a.line1, a.city, a.state, a.zip, f.numberOfSpots "
+			+ "  from Facilities f "
+			+ " INNER JOIN address a on f.address_id = a.address_id and f.facility_id = ? ORDER BY facility_id ";
 
-	private static String GET_ALL_FACILITIES = "select f.facility_id, f.f_name,a.line1, a.city, a.state, a.zip, "
-			+ "	(select count(*) from PMSys.parking_spots ps where f.facility_id = ps.facility_id )  as ns from Facilities f "
+	private static String GET_ALL_FACILITIES = "select f.facility_id, f.f_name,a.line1, a.city, a.state, a.zip, f.numberOfSpots "
+			+ "	  from Facilities f "
 			+ "	INNER JOIN address a on f.address_id = a.address_id ORDER BY facility_id;";
 
 	private static String UPDATE_FACILITY = "  update Facilities set "
-			+ "f_name = coalesce (?, f_name) where facility_id = ?; "
-			+ "update address set "
-			+ "line1 = coalesce (?, line1) , "
-			+ "city = coalesce (?, city), "
-			+ "state = coalesce (? , state), "
-			+ "zip = coalesce (?, zip) "
-			+ "where address_id = (select address_id from PMSys.Facilities where facility_id = ?);  ";
+			+ "f_name = coalesce (?, f_name) ,numberOfSpots = coalesce (?, numberOfSpots) where facility_id = ? ";
 
-	private static String ADD_FACILITY = "INSERT INTO `PMSys`.`address` (`address_id`,`line1`,`line2`,`city`,`state`,`zip`,`type`)"
-			+ "VALUES(NULL,?,NULL,?,?,?,2);"
-			+ "INSERT INTO `PMSys`.`Facilities` (`facility_id`,`address_id`,`f_name`) VALUES (NULL,"
+	private static String UPDATE_ADDRESS = "update address set "
+			+ "line1 = coalesce (?, line1) , "
+			+ "city = coalesce (?, city),  "
+			+ "state = coalesce (? , state),  "
+			+ "zip = coalesce (?, zip)  "
+			+ "where address_id = (select address_id from Facilities where facility_id = ?) ";
+
+	private static String ADD_ADDRESS = "INSERT INTO  address (line1,line2,city,state,zip,type)"
+			+ "VALUES(?,NULL,?,?,?,2) ";
+
+	private static String ADD_FACILITY = " INSERT INTO Facilities  (facility_id,address_id,f_name,numberOfSpots) VALUES (NULL,"
 			+ "(SELECT `AUTO_INCREMENT` - 1 "
 			+ "FROM  INFORMATION_SCHEMA.TABLES "
-			+ "WHERE TABLE_SCHEMA = 'PMSys' "
-			+ "AND   TABLE_NAME   = 'address'),?);";
+			+ "WHERE TABLE_SCHEMA = 'pmsys' "
+			+ "AND   TABLE_NAME   = 'address'), ?, ? )";
 
 	@Override
 	public List<Facility> getAll() {
@@ -57,7 +59,7 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 				fac.setAddressLine1(rs.getString("line1"));
 				fac.setCity(rs.getString("city"));
 				fac.setName(rs.getString("f_name"));
-				fac.setNumberOfSpots(rs.getInt("ns"));
+				fac.setNumberOfSpots(rs.getInt("numberOfSpots"));
 				fac.setState(rs.getString("state"));
 				fac.setZipCode(rs.getInt("zip"));
 				facilities.add(fac);
@@ -74,23 +76,22 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 	@Override
 	public Facility getById(Integer fac_id) {
 		Facility fac = new Facility();
-		try {
-
+		try { 
 			PreparedStatement statement = getConnection().prepareStatement(
 					GET_FACILITY_BY_ID);
 			statement.setInt(1, fac_id);
-			statement.setInt(1, fac_id);
+			 
 
-			ResultSet rs = statement.executeQuery(GET_FACILITY_BY_ID);
-
-			// Facility fac = new Facility();
-			fac.setAddressLine1(rs.getString("line1"));
-			fac.setCity(rs.getString("city"));
-			fac.setName(rs.getString("name"));
-			fac.setNumberOfSpots(rs.getInt("ns"));
-			fac.setState(rs.getString("state"));
-			fac.setZipCode(rs.getInt("zip"));
-
+			ResultSet rs = statement.executeQuery();
+			if (rs.next()) {
+				fac.setAddressLine1(rs.getString("line1"));
+				fac.setCity(rs.getString("city"));
+				fac.setName(rs.getString("f_name"));
+				fac.setNumberOfSpots(rs.getInt("numberOfSpots"));
+				fac.setState(rs.getString("state"));
+				fac.setZipCode(rs.getInt("zip"));
+				fac.setFacilityID(rs.getInt("facility_id"));
+			}
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -107,17 +108,31 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 
 		try {
 
-			PreparedStatement statement = getConnection().prepareStatement(
-					UPDATE_FACILITY);
-			statement.setString(1, f.getName());
-			statement.setInt(2, f.getFacilityID());
-			statement.setString(3, f.getAddressLine1());
-			statement.setString(4, f.getCity());
-			statement.setString(5, f.getState());
-			statement.setInt(6, f.getZipCode());
-			statement.setInt(7, f.getFacilityID());
+			PreparedStatement statementFacility = getConnection()
+					.prepareStatement(UPDATE_FACILITY);
 
-			statement.executeQuery(GET_FACILITY_BY_ID);
+			statementFacility.setString(1, f.getName());
+			statementFacility.setInt(2, f.getNumberOfSpots());
+			statementFacility.setLong(3, f.getFacilityID());
+
+			int result = statementFacility.executeUpdate();
+			if (result > 0) {
+
+				PreparedStatement statement = getConnection().prepareStatement(
+						UPDATE_ADDRESS);
+
+				statement.setString(1, f.getAddressLine1());
+				statement.setString(2, f.getCity());
+				statement.setString(3, f.getState());
+				statement.setInt(4, f.getZipCode());
+				statement.setInt(5, f.getFacilityID());
+
+				statement.executeUpdate();
+
+				statementFacility.close();
+				statement.close();
+
+			}
 
 		} catch (SQLException e) {
 
@@ -130,27 +145,41 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 
 	@Override
 	public void add(Facility f) {
-		// Integer fac_id ,String name,String line1, String city, String state,
-		// Integer zip) {
+		 
 
 		try {
 
-			PreparedStatement statement = getConnection().prepareStatement(
-					ADD_FACILITY);
-			statement.setString(1, f.getAddressLine1());
-			statement.setString(2, f.getCity());
-			statement.setString(3, f.getState());
-			statement.setInt(4, f.getZipCode());
-			statement.setString(5, f.getName());
-			statement.setInt(6, f.getNumberOfSpots());
-			// statement.setInt(7,fac_id);
-			statement.executeUpdate(ADD_FACILITY);
+			PreparedStatement statementFacility = getConnection()
+					.prepareStatement(ADD_ADDRESS);
+
+			statementFacility.setString(1, f.getAddressLine1());
+			statementFacility.setString(2, f.getCity());
+			statementFacility.setString(3, f.getState());
+			statementFacility.setInt(4, f.getZipCode());
+
+			int result = statementFacility.executeUpdate();
+			if (result > 0) {
+
+				PreparedStatement statement = getConnection().prepareStatement(
+						ADD_FACILITY);
+
+				statement.setString(1, f.getName());
+				statement.setInt(2, f.getNumberOfSpots());
+				
+
+				statement.executeUpdate();
+
+				statementFacility.close();
+				statement.close();
+
+			}
 
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 
 		}
+
 
 	}
 

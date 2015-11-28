@@ -47,10 +47,7 @@
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Incident
    </button>
     
-	
-	<button type="button" class="btn btn-success" aria-label="Left Align">
-  		<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Emergency Contact
-	</button>
+
 	
 	
 	
@@ -162,7 +159,7 @@
 
 				}
 
-				$('#userId').val(data.user_id);//set hidden field user value;
+				$('#UserId').val(data.user_id);//set hidden field user value;
 			 
 				$.post('http://localhost:8080/parkingManagement/incidents/add',
 								$(this).serialize())

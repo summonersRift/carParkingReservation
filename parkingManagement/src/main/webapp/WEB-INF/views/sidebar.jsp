@@ -1,13 +1,18 @@
+<style>
 
+#IncidentsTab{
+display:none;
+}
+
+</style>
 
 <div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 <div class="list-group" id="sidebarList">
 	<ul class="sidebar-nav">  
-		<li class="sidebar-brand">
-		
+		<li class="sidebar-brand">		
 			<a href="#Billing" id ="billing"> Billing Info </a>
 		</li>
-		<li class="sidebar-brand">
+		<li class="sidebar-brand" id="IncidentsTab">
 			<a href="#Incidents" id="incidents"> Incidents </a>
 		</li>
 		<li class="sidebar-brand">
@@ -26,9 +31,6 @@
 <script type="text/javascript">
 
 
-
-
-
 function hideAll(){
 	
 	$('#Billing-PageDiv').hide();
@@ -41,6 +43,9 @@ function hideAll(){
 }
 
 $(document).ready(function() { 
+	
+
+	
 	$(window).bind('beforeunload', function(e) {
 
 	    if (1 && ($.cookie("user_info") !== undefined) )
@@ -177,6 +182,23 @@ $("#reservation").click(function() {
 	
 	
 });
+
+
+showIfAdmin();
+
+function showIfAdmin(){
+	
+	var user = $.cookie("user_info");
+	var uRole = $.parseJSON(user);
+	var userRole = String(uRole.role);
+	//alert(userRole);
+
+	if(userRole == "admin")
+	{
+		$("#IncidentsTab").show();			
+	}		
+}
+
 
 
 
