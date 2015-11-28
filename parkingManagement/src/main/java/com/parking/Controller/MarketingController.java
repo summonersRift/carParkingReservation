@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
  
+
 import com.parking.Model.Services.Contract.MarketingService;
+import com.parking.Model.Services.Contract.MailService;
+import com.parking.common.NewsletterPromotionalRequest;
 
  
 @Controller
@@ -29,8 +32,22 @@ public class MarketingController {
 		markService = service;
 
 	}
-
-	@RequestMapping(value = "/MarketingPage", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/promotionalnewsletter", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<String> promotionalnewsletter( NewsletterPromotionalRequest promotion) {
+		if (promotion == null || promotion.getRecipients() == null|| promotion.getSubject() == null|| promotion.getMailbody() == null) {
+			// the client side
+			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		}
+		
+		MailService mail = new MailService(promotion.getRecipients(), promotion.getSubject(), promotion.getMailbody(), true);
+		
+		//Push notifications to database mail.status()
+		return new ResponseEntity<String>("Promotional offer and newsletter E-mail sent. Status(ewquested/sent): "+mail.status() ,HttpStatus.OK);
+	}
+		
+	
+	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public ModelAndView loadMarketingLandingPage(Model model) {
 		return new ModelAndView("Marketing");
 	}
