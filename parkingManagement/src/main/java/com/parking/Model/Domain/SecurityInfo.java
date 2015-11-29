@@ -2,6 +2,7 @@ package com.parking.Model.Domain;
 
 import java.io.Serializable;
 
+ 
 public class SecurityInfo implements Serializable{
 
 	/**

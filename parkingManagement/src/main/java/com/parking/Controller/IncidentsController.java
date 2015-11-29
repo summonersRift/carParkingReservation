@@ -27,11 +27,19 @@ public class IncidentsController {
 		incService = service;
 	}
 
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/IncidentsPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
 		return new ModelAndView("Incidents");
 	}
 
+	/**
+	 * @param val
+	 * @return ResponseEntity<Boolean>
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> AddIncident(Incident val) {
 
@@ -41,6 +49,9 @@ public class IncidentsController {
 	}
 
 	 
+	/**
+	 * @return ResponseEntity
+	 */
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	public ResponseEntity<List<Incident>> getAll() {
 		List<Incident> result = incService.getAll();// = incService.getAll();

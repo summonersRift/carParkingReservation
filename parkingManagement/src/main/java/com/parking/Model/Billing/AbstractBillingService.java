@@ -11,6 +11,9 @@ public abstract class AbstractBillingService implements BillingService {
 
 	public abstract ConfirmationMsg makePayment(BillingInfo info);
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.Billing.BillingService#updateUserFunds(long, java.math.BigDecimal)
+	 */
 	public Boolean updateUserFunds(long userid, final BigDecimal funds) {
 		UserDao dao = new UserDaoImp();
 		return dao.updateUserFunds(userid, funds);

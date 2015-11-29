@@ -7,8 +7,14 @@ import com.parking.Model.Domain.IncidentInfo;
 
 public interface IncidentsDao {
 
+	/**
+	 * @return List<Incident>
+	 */
 	List<Incident> getAll();
 
+	/**
+	 * @param val
+	 */
 	void add(Incident val);
 
 }

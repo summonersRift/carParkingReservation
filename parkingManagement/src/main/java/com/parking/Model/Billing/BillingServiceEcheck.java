@@ -7,6 +7,9 @@ import com.parking.Model.Domain.ConfirmationMsg;
 
 public class BillingServiceEcheck extends AbstractBillingService {
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.Billing.AbstractBillingService#makePayment(com.parking.Model.Domain.BillingInfo)
+	 */
 	@Override
 	public ConfirmationMsg makePayment(BillingInfo info) {
 

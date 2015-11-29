@@ -41,17 +41,28 @@ public class FacilityController {
 
 	}
 
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/FacilityPage", method = RequestMethod.GET)
 	public ModelAndView getFacilityPage(Model model) {
 		return new ModelAndView("Facility");
 	}
 
+	/**
+	 * @return String
+	 */
 	@RequestMapping("/layout")
 	public String getIndexPage() {
 		return "login/layout";
 
 	}
 
+	/**
+	 * @param facility
+	 * @return ResponseEntity<Boolean>
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> AddFacility(Facility facility) {
 		
@@ -60,6 +71,9 @@ public class FacilityController {
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
+	/**
+	 * @return @ResponseBody
+	 */
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public @ResponseBody List<Facility> getAllFacilities() {
 
@@ -67,6 +81,10 @@ public class FacilityController {
 
 	}
 
+	/**
+	 * @param facility
+	 * @return ResponseEntity<Boolean> 
+	 */
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> UpdateFacility(Facility facility) {
 
@@ -76,14 +94,14 @@ public class FacilityController {
 
 	}
 
+	/**
+	 * @param id
+	 * @return ResponseEntity<Facility>
+	 */
 	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Facility> GetFacility(@PathVariable("id") Integer id) {
 
-		Facility facility = new Facility();
-		// facility.setId(id);
-		// facility.setAddressLine1("testing");
-		// facility.setCity("Miami");
-		// facility.setZipCode(2333);
+		Facility facility = new Facility(); 
 		facility = facService.getById(id);
 		return new ResponseEntity<Facility>(facility, HttpStatus.OK);
 

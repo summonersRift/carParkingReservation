@@ -8,6 +8,9 @@ public class BaseDao {
 
 	protected static Connection connection;
 
+	/**
+	 * @return
+	 */
 	public Connection getConnection() {
 
 		if (connection == null) {
@@ -17,6 +20,9 @@ public class BaseDao {
 
 	}
 
+	/**
+	 * 
+	 */
 	public void closeConnection() {
 
 		if (connection != null)

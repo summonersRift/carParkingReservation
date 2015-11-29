@@ -28,6 +28,10 @@ import com.parking.common.ReservationRequest;
 @RequestMapping("/reservation")
 public class ReservationController {
 
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/ReservationPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
 
@@ -43,6 +47,10 @@ public class ReservationController {
 
 	}
 
+	/**
+	 * @param resreq
+	 * @return ResponseEntity<Boolean>
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> addSpot(ReservationRequest resreq) {
 
@@ -68,6 +76,12 @@ public class ReservationController {
 
 	}
 
+	/**
+	 * @param facilityId
+	 * @param startdt
+	 * @param enddt
+	 * @return ResponseEntity<List<ParkingSlot>>
+	 */
 	@RequestMapping(value = "/findspot/facility/{id}/{start}/{end}", method = RequestMethod.GET)
 	public ResponseEntity<List<ParkingSlot>> getFreeSpots(
 			@PathVariable("id") long facilityId,
@@ -80,6 +94,9 @@ public class ReservationController {
 
 	}
 
+	/**
+	 * @return ResponseEntity<List<Facility>>
+	 */
 	@RequestMapping(value = "/getallfacilities", method = RequestMethod.GET)
 	public ResponseEntity<List<Facility>> getFacilities() {
 

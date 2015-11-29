@@ -12,6 +12,9 @@ public class NotificationServiceImp implements NotificationService {
 
 	
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.Notification.Contract.NotificationService#ProcessRequest()
+	 */
 	@Override
 	public void ProcessRequest() {
 		Notificator notificator = new EmailNotificator();
@@ -27,6 +30,9 @@ public class NotificationServiceImp implements NotificationService {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.Notification.Contract.NotificationService#validateRequest()
+	 */
 	@Override
 	public Boolean validateRequest() {
 		// TODO Auto-generated method stub

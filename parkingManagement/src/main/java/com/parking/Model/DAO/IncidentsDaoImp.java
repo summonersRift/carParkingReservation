@@ -24,6 +24,9 @@ public class IncidentsDaoImp extends BaseDao implements IncidentsDao {
 
  
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.IncidentsDao#add(com.parking.Model.Domain.Incident)
+	 */
 	@Override
 	public void add(Incident val) {
 		try {
@@ -40,6 +43,9 @@ public class IncidentsDaoImp extends BaseDao implements IncidentsDao {
 
 
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.IncidentsDao#getAll()
+	 */
 	@Override
 	public List<Incident> getAll() {
 		List<Incident> incidents = new ArrayList<Incident>();

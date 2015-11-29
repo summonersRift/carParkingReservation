@@ -7,6 +7,11 @@ import com.parking.Model.Domain.ConfirmationMsg;
 
 public class BillingServiceFacade {
 
+	/**
+	 * @param info
+	 * @return ConfirmationMsg
+	 * @throws Exception
+	 */
 	public ConfirmationMsg processPayment(BillingInfo info) throws Exception {
 
 		// TODO: validate for active user.

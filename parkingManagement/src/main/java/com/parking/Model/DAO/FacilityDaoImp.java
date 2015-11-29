@@ -44,6 +44,9 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 			+ "WHERE TABLE_SCHEMA = 'pmsys' "
 			+ "AND   TABLE_NAME   = 'address'), ?, ? )";
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.FacilityDao#getAll()
+	 */
 	@Override
 	public List<Facility> getAll() {
 		Connection conn = null;
@@ -73,6 +76,9 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 		return facilities;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.FacilityDao#getById(java.lang.Integer)
+	 */
 	@Override
 	public Facility getById(Integer fac_id) {
 		Facility fac = new Facility();
@@ -103,6 +109,9 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 		return fac;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.FacilityDao#update(com.parking.Model.Domain.Facility)
+	 */
 	@Override
 	public void update(Facility f) {
 
@@ -143,6 +152,9 @@ public class FacilityDaoImp extends BaseDao implements FacilityDao {
 		// return fac;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.FacilityDao#add(com.parking.Model.Domain.Facility)
+	 */
 	@Override
 	public void add(Facility f) {
 		 

@@ -22,9 +22,7 @@ import com.parking.common.NewsletterPromotionalRequest;
 @Controller
 @RequestMapping("/marketing")
 public class MarketingController {
-
-	//private MarketingNewsletterPromotional marketingModel;
-
+  
 	private MarketingService markService;
 
 	@Autowired
@@ -34,12 +32,20 @@ public class MarketingController {
 
 	}
 	
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/MarketingPage", method = RequestMethod.GET)
 	public ModelAndView getIncidentsPage(Model model) {
 
 		return new ModelAndView("Marketing");
 	}
 	
+	/**
+	 * @param promotion
+	 * @return ResponseEntity 
+	 */
 	@RequestMapping(value = "/promotionalnewsletter", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> promotionalnewsletter( NewsletterPromotionalRequest promotion) {
 		System.out.println("In marketing controller.");
@@ -56,11 +62,19 @@ public class MarketingController {
 	}
 		
 	
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public ModelAndView loadMarketingLandingPage(Model model) {
 		return new ModelAndView("Marketing");
 	}
 
+	/**
+	 * @param value
+	 * @return
+	 */
 	@RequestMapping(value = "/notify/{value}", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<String> notifyUser(@PathVariable("value") String value) {
@@ -86,8 +100,10 @@ public class MarketingController {
 		return true;
 	}
 
-	public void replyNewsletterPromotionalPage() {
-		// TODO Auto-generated method
+	/**
+	 * 
+	 */
+	public void replyNewsletterPromotionalPage() { 
 
 		markService.replyNewsletterPromotionalPage();
 	}

@@ -76,6 +76,12 @@ public class UserController {
 		return userService.getUserBalance(userId).toString();
 	}
 
+	/**
+	 * @param login
+	 * @param request
+	 * @param response
+	 * @return ResponseEntity<String> 
+	 */
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> signIn(LoginRequest login,
 			HttpServletRequest request, HttpServletResponse response) {
@@ -109,6 +115,11 @@ public class UserController {
 
 	}
 
+	/**
+	 * @param userName
+	 * @param request
+	 * @return ResponseEntity<String>
+	 */
 	@RequestMapping(value = "/signout", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> signOut(
 			@RequestParam(value = "userName") String userName,
@@ -138,6 +149,10 @@ public class UserController {
 		return response;
 	}
 
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/sidebar", method = RequestMethod.GET)
 	public ModelAndView getSideBar(Model model) {
 		return new ModelAndView("sidebar");

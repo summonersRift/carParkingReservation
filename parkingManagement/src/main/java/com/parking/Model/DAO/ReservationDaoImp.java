@@ -36,6 +36,9 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 	private static final String ADD_RESERVATION = " INSERT INTO reservations (ps_id, user_id, start_date, end_date, amount_charged) "
 			+ "VALUES (?, ?, ?,?,?)";
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.ReservationDao#makeReservation(long, long, java.sql.Date, java.sql.Date, java.math.BigDecimal)
+	 */
 	@Override
 	public boolean makeReservation(long spotId, long userId, Date startDate,
 			Date endDate, BigDecimal amount) {
@@ -95,6 +98,9 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.ReservationDao#findFreeParking(long, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public List<ParkingSlot> findFreeParking(long facilityId, String startdt,
 			String enddt) {
@@ -152,6 +158,9 @@ public class ReservationDaoImp extends BaseDao implements ReservationDao {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.parking.Model.DAO.Contract.ReservationDao#getFacilities()
+	 */
 	@Override
 	public List<Facility> getFacilities() {
 

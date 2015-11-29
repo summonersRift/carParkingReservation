@@ -30,11 +30,19 @@ public class BillingController {
 
 	}
 
+	/**
+	 * @param model
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = "/BillingPage", method = RequestMethod.GET)
 	public ModelAndView getBillingPage(Model model) {
 		return new ModelAndView("Billing");
 	}
 
+	/**
+	 * @param info
+	 * @return ResponseEntity<ConfirmationMsg>
+	 */
 	@RequestMapping(value = "/pay", method = RequestMethod.POST)
 	public ResponseEntity<ConfirmationMsg> payCreditCard(BillingInfo info) {
 
