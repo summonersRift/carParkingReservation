@@ -1,0 +1,15 @@
+com.parking.Controller
+com.parking.Model.Billing
+com.parking.Model.DAO
+com.parking.Model.DAO.Contract
+com.parking.Model.Domain
+com.parking.Model.Notification
+com.parking.Model.Notification.Contract
+com.parking.Model.Security
+com.parking.Model.Services
+com.parking.Model.Services.Contract
+com.parking.common
+com.parking.test.controllers
+com.parking.test.model.DAO
+com.parking.test.model.billing
+com.parking.test.model.services
