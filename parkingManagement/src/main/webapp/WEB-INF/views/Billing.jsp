@@ -113,10 +113,10 @@
 										Click Here </a>
 								</div>
 							</div>
-						</div>
-						<input type="hidden" name="userId" id="userId"
-							type="hidden" name="paymentType" id="credit_card"
-							value="credit_card"/>
+						</div> 
+						 <input type="hidden" name="userId" id="userId">  
+						 <input	type="hidden" name="paymentType" id="credit_card" value="credit_card">
+						
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit">Pay
@@ -256,8 +256,8 @@
 								</div>
 							</div>
 						</div>
-						<input type="hidden" name="userId" id="userIdBank"> <input
-							type="hidden" name="paymentType" id="check" value="check">
+						 <input type="hidden" name="userId" id="userIdBank">  
+						 <input	type="hidden" name="paymentType" id="check" value="check">
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success btn-lg btn-block" type="submit"
