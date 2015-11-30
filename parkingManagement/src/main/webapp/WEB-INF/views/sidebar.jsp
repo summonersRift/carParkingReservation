@@ -47,14 +47,15 @@ $(document).ready(function() {
 
 	
 	$(window).bind('beforeunload', function(e) {
-
-	    if (1 && ($.cookie("user_info") !== undefined) )
+  /*
+	  
+		if (1 && ($.cookie("user_info") !== undefined) )
 	    {
 
 	        return "Resfreshing This Page Will Require You To Login Again."
 	        e.preventDefault();
 	    }
-	    
+	   */ 
 	});
 	
 	$(window).unload(function() {
