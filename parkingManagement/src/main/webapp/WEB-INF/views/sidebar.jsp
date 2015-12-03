@@ -1,6 +1,6 @@
 <style>
 
-#IncidentsTab{
+#FacilityTab{
 display:none;
 }
 
@@ -18,7 +18,7 @@ display:none;
 		<li class="sidebar-brand">
 			<a href="#Marketing" id="marketing"> Marketing </a>
 		</li> 
-		<li class="sidebar-brand">
+		<li class="sidebar-brand" id="FacilityTab">
 			<a href="#Facility" id="facility"> Facility </a>
 		</li>
 		<li class="sidebar-brand">
@@ -196,7 +196,7 @@ function showIfAdmin(){
 
 	if(userRole == "admin")
 	{
-		$("#IncidentsTab").show();			
+		$("#FacilityTab").show();			
 	}		
 }
 

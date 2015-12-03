@@ -100,11 +100,11 @@ margin-left: 5px;
 
 #sidebar{
 	background-image: url("blurrySideBar.jpg");
-    min-height: 100%;
+    height: 100%;
     left: 250px;
     margin-top:10px;
-    margin-left: -250px;
-    position: absolute;
+    margin-left: -652px;
+    /*position: absolute;*/
     transition: all 0.5s ease 0s;
     width: 180px;
     z-index: 1000;  
